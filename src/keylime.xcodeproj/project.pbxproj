@@ -28,6 +28,24 @@
 		1389D7E812AC3F06004602FF /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7DD12AC3F06004602FF /* SBJsonParser.m */; };
 		1389D7E912AC3F06004602FF /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7DE12AC3F06004602FF /* SBJsonWriter.h */; };
 		1389D7EA12AC3F06004602FF /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7DF12AC3F06004602FF /* SBJsonWriter.m */; };
+		1389D7F512AC4093004602FF /* KLRefreshTableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7F312AC4093004602FF /* KLRefreshTableHeaderView.h */; };
+		1389D7F612AC4093004602FF /* KLRefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7F412AC4093004602FF /* KLRefreshTableHeaderView.m */; };
+		1389D7FB12AC40AF004602FF /* WebServiceConnectorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7F812AC40AF004602FF /* WebServiceConnectorDelegate.h */; };
+		1389D7FC12AC40AF004602FF /* WebServiceConnector.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7F912AC40AF004602FF /* WebServiceConnector.h */; };
+		1389D7FD12AC40AF004602FF /* WebServiceConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7FA12AC40AF004602FF /* WebServiceConnector.m */; };
+		1389D80912AC40CF004602FF /* KLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7FF12AC40CF004602FF /* KLViewController.h */; };
+		1389D80A12AC40CF004602FF /* KLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80012AC40CF004602FF /* KLViewController.m */; };
+		1389D80B12AC40CF004602FF /* LocationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D80212AC40CF004602FF /* LocationViewController.h */; };
+		1389D80C12AC40CF004602FF /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80312AC40CF004602FF /* LocationViewController.m */; };
+		1389D80D12AC40CF004602FF /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D80612AC40CF004602FF /* WebViewController.h */; };
+		1389D80E12AC40CF004602FF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80712AC40CF004602FF /* WebViewController.m */; };
+		1389D81512AC4131004602FF /* AlertUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D81312AC4131004602FF /* AlertUtility.h */; };
+		1389D81612AC4131004602FF /* AlertUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D81412AC4131004602FF /* AlertUtility.m */; };
+		1389D82812AC4296004602FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82712AC4296004602FF /* CoreGraphics.framework */; };
+		1389D82A12AC4296004602FF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82912AC4296004602FF /* CoreLocation.framework */; };
+		1389D82C12AC4296004602FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82B12AC4296004602FF /* MapKit.framework */; };
+		1389D82E12AC4296004602FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82D12AC4296004602FF /* MessageUI.framework */; };
+		1389D83012AC4296004602FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82F12AC4296004602FF /* QuartzCore.framework */; };
 		AA747D9F0F9514B9006C5449 /* keylime_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -55,6 +73,26 @@
 		1389D7DD12AC3F06004602FF /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		1389D7DE12AC3F06004602FF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		1389D7DF12AC3F06004602FF /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		1389D7F312AC4093004602FF /* KLRefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLRefreshTableHeaderView.h; sourceTree = "<group>"; };
+		1389D7F412AC4093004602FF /* KLRefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLRefreshTableHeaderView.m; sourceTree = "<group>"; };
+		1389D7F812AC40AF004602FF /* WebServiceConnectorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceConnectorDelegate.h; sourceTree = "<group>"; };
+		1389D7F912AC40AF004602FF /* WebServiceConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServiceConnector.h; sourceTree = "<group>"; };
+		1389D7FA12AC40AF004602FF /* WebServiceConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebServiceConnector.m; sourceTree = "<group>"; };
+		1389D7FF12AC40CF004602FF /* KLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLViewController.h; sourceTree = "<group>"; };
+		1389D80012AC40CF004602FF /* KLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLViewController.m; sourceTree = "<group>"; };
+		1389D80212AC40CF004602FF /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		1389D80312AC40CF004602FF /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		1389D80412AC40CF004602FF /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
+		1389D80612AC40CF004602FF /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		1389D80712AC40CF004602FF /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1389D80812AC40CF004602FF /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		1389D81312AC4131004602FF /* AlertUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtility.h; sourceTree = "<group>"; };
+		1389D81412AC4131004602FF /* AlertUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtility.m; sourceTree = "<group>"; };
+		1389D82712AC4296004602FF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1389D82912AC4296004602FF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1389D82B12AC4296004602FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		1389D82D12AC4296004602FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1389D82F12AC4296004602FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libkeylime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkeylime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +104,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				1389D82812AC4296004602FF /* CoreGraphics.framework in Frameworks */,
+				1389D82A12AC4296004602FF /* CoreLocation.framework in Frameworks */,
+				1389D82C12AC4296004602FF /* MapKit.framework in Frameworks */,
+				1389D82E12AC4296004602FF /* MessageUI.framework in Frameworks */,
+				1389D83012AC4296004602FF /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +139,11 @@
 			isa = PBXGroup;
 			children = (
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				1389D82712AC4296004602FF /* CoreGraphics.framework */,
+				1389D82912AC4296004602FF /* CoreLocation.framework */,
+				1389D82B12AC4296004602FF /* MapKit.framework */,
+				1389D82D12AC4296004602FF /* MessageUI.framework */,
+				1389D82F12AC4296004602FF /* QuartzCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				1389D79F12AC36AB004602FF /* KLViewControllers.h */,
+				1389D7FE12AC40CF004602FF /* Base */,
+				1389D80112AC40CF004602FF /* LocationViewController */,
+				1389D80512AC40CF004602FF /* WebViewController */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -143,7 +194,9 @@
 		1389D7C012AC3940004602FF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1389D81212AC4131004602FF /* AlertUtility */,
 				1389D7C112AC3958004602FF /* KLUtilities.h */,
+				1389D7F712AC40AF004602FF /* Web Service Connector */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -164,6 +217,72 @@
 				1389D7DF12AC3F06004602FF /* SBJsonWriter.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		1389D7F212AC4093004602FF /* Pull To Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7F312AC4093004602FF /* KLRefreshTableHeaderView.h */,
+				1389D7F412AC4093004602FF /* KLRefreshTableHeaderView.m */,
+			);
+			name = "Pull To Refresh";
+			sourceTree = "<group>";
+		};
+		1389D7F712AC40AF004602FF /* Web Service Connector */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7F812AC40AF004602FF /* WebServiceConnectorDelegate.h */,
+				1389D7F912AC40AF004602FF /* WebServiceConnector.h */,
+				1389D7FA12AC40AF004602FF /* WebServiceConnector.m */,
+			);
+			name = "Web Service Connector";
+			sourceTree = "<group>";
+		};
+		1389D7FE12AC40CF004602FF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7FF12AC40CF004602FF /* KLViewController.h */,
+				1389D80012AC40CF004602FF /* KLViewController.m */,
+				1389D80F12AC410F004602FF /* Helpers */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		1389D80112AC40CF004602FF /* LocationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1389D80212AC40CF004602FF /* LocationViewController.h */,
+				1389D80312AC40CF004602FF /* LocationViewController.m */,
+				1389D80412AC40CF004602FF /* LocationViewController.xib */,
+			);
+			name = LocationViewController;
+			sourceTree = "<group>";
+		};
+		1389D80512AC40CF004602FF /* WebViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1389D80612AC40CF004602FF /* WebViewController.h */,
+				1389D80712AC40CF004602FF /* WebViewController.m */,
+				1389D80812AC40CF004602FF /* WebViewController.xib */,
+			);
+			name = WebViewController;
+			sourceTree = "<group>";
+		};
+		1389D80F12AC410F004602FF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7F212AC4093004602FF /* Pull To Refresh */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		1389D81212AC4131004602FF /* AlertUtility */ = {
+			isa = PBXGroup;
+			children = (
+				1389D81312AC4131004602FF /* AlertUtility.h */,
+				1389D81412AC4131004602FF /* AlertUtility.m */,
+			);
+			name = AlertUtility;
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -198,6 +317,13 @@
 				1389D7E512AC3F06004602FF /* SBJsonBase.h in Headers */,
 				1389D7E712AC3F06004602FF /* SBJsonParser.h in Headers */,
 				1389D7E912AC3F06004602FF /* SBJsonWriter.h in Headers */,
+				1389D7F512AC4093004602FF /* KLRefreshTableHeaderView.h in Headers */,
+				1389D7FB12AC40AF004602FF /* WebServiceConnectorDelegate.h in Headers */,
+				1389D7FC12AC40AF004602FF /* WebServiceConnector.h in Headers */,
+				1389D80912AC40CF004602FF /* KLViewController.h in Headers */,
+				1389D80B12AC40CF004602FF /* LocationViewController.h in Headers */,
+				1389D80D12AC40CF004602FF /* WebViewController.h in Headers */,
+				1389D81512AC4131004602FF /* AlertUtility.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +387,12 @@
 				1389D7E612AC3F06004602FF /* SBJsonBase.m in Sources */,
 				1389D7E812AC3F06004602FF /* SBJsonParser.m in Sources */,
 				1389D7EA12AC3F06004602FF /* SBJsonWriter.m in Sources */,
+				1389D7F612AC4093004602FF /* KLRefreshTableHeaderView.m in Sources */,
+				1389D7FD12AC40AF004602FF /* WebServiceConnector.m in Sources */,
+				1389D80A12AC40CF004602FF /* KLViewController.m in Sources */,
+				1389D80C12AC40CF004602FF /* LocationViewController.m in Sources */,
+				1389D80E12AC40CF004602FF /* WebViewController.m in Sources */,
+				1389D81612AC4131004602FF /* AlertUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +437,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_LDFLAGS = "-ObjC";

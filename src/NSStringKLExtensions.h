@@ -3,7 +3,7 @@
 //  TrainerApp
 //
 //  Created by Jesse Curry on 12/1/09.
-//  Copyright 2009 Haneke Design.. All rights reserved.
+//  Copyright 2009 Jesse Curry.. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
