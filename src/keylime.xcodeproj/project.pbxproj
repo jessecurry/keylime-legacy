@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1389D77612AC3542004602FF /* keylime.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D77512AC3542004602FF /* keylime.h */; };
+		1389D77A12AC359F004602FF /* KLConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D77912AC359F004602FF /* KLConstants.h */; };
+		1389D79E12AC369F004602FF /* KLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D79D12AC369F004602FF /* KLCategories.h */; };
+		1389D7A012AC36AB004602FF /* KLViewControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D79F12AC36AB004602FF /* KLViewControllers.h */; };
 		AA747D9F0F9514B9006C5449 /* keylime_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1389D77512AC3542004602FF /* keylime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime.h; sourceTree = "<group>"; };
+		1389D77912AC359F004602FF /* KLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLConstants.h; sourceTree = "<group>"; };
+		1389D79B12AC3658004602FF /* keylime.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = keylime.bundle; sourceTree = "<group>"; };
+		1389D79D12AC369F004602FF /* KLCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCategories.h; sourceTree = "<group>"; };
+		1389D79F12AC36AB004602FF /* KLViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLViewControllers.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libkeylime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkeylime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +49,7 @@
 		0867D691FE84028FC02AAC07 /* keylime */ = {
 			isa = PBXGroup;
 			children = (
+				1389D79B12AC3658004602FF /* keylime.bundle */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
@@ -59,14 +69,34 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1389D77512AC3542004602FF /* keylime.h */,
+				1389D77712AC3569004602FF /* Categories */,
+				1389D77812AC3574004602FF /* View Controllers */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		1389D77712AC3569004602FF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1389D79D12AC369F004602FF /* KLCategories.h */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		1389D77812AC3574004602FF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1389D79F12AC36AB004602FF /* KLViewControllers.h */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
 				AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */,
+				1389D77912AC359F004602FF /* KLConstants.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -79,6 +109,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* keylime_Prefix.pch in Headers */,
+				1389D77612AC3542004602FF /* keylime.h in Headers */,
+				1389D77A12AC359F004602FF /* KLConstants.h in Headers */,
+				1389D79E12AC369F004602FF /* KLCategories.h in Headers */,
+				1389D7A012AC36AB004602FF /* KLViewControllers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +141,9 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Jesse Curry";
+			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "keylime" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;

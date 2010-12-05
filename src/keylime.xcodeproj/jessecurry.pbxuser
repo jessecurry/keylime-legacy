@@ -3,6 +3,9 @@
 	0867D690FE84028FC02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Debug;
 		activeTarget = D2AAC07D0554694100DB518D /* keylime */;
+		addToTargets = (
+			D2AAC07D0554694100DB518D /* keylime */,
+		);
 		codeSenseManager = 1389D76212AC3288004602FF /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
@@ -10,9 +13,9 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					364,
+					685,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -27,8 +30,17 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 313275013;
-			PBXWorkspaceStateSaveDate = 313275013;
+			PBXPerProjectTemplateStateSaveDate = 313275650;
+			PBXWorkspaceStateSaveDate = 313275650;
+		};
+		perUserProjectItems = {
+			1389D79512AC360D004602FF /* PBXTextBookmark */ = 1389D79512AC360D004602FF /* PBXTextBookmark */;
+			1389D79612AC360D004602FF /* PBXTextBookmark */ = 1389D79612AC360D004602FF /* PBXTextBookmark */;
+			1389D79712AC360D004602FF /* PBXTextBookmark */ = 1389D79712AC360D004602FF /* PBXTextBookmark */;
+			1389D7A312AC36D9004602FF /* PBXTextBookmark */ = 1389D7A312AC36D9004602FF /* PBXTextBookmark */;
+			1389D7A412AC36D9004602FF /* PBXTextBookmark */ = 1389D7A412AC36D9004602FF /* PBXTextBookmark */;
+			1389D7A512AC36D9004602FF /* PBXTextBookmark */ = 1389D7A512AC36D9004602FF /* PBXTextBookmark */;
+			1389D7A612AC36D9004602FF /* PBXTextBookmark */ = 1389D7A612AC36D9004602FF /* PBXTextBookmark */;
 		};
 		sourceControlManager = 1389D76112AC3288004602FF /* Source Control */;
 		userBuildSettings = {
@@ -47,6 +59,104 @@
 	1389D76212AC3288004602FF /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
+	};
+	1389D77512AC3542004602FF /* keylime.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {863, 729}}";
+			sepNavSelRange = "{256, 0}";
+			sepNavVisRange = "{0, 256}";
+		};
+	};
+	1389D77912AC359F004602FF /* KLConstants.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {863, 270}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 136}";
+		};
+	};
+	1389D79512AC360D004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D77912AC359F004602FF /* KLConstants.h */;
+		name = "KLConstants.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 136;
+		vrLoc = 0;
+	};
+	1389D79612AC360D004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D77512AC3542004602FF /* keylime.h */;
+		name = "keylime.h: 6";
+		rLen = 0;
+		rLoc = 97;
+		rType = 0;
+		vrLen = 132;
+		vrLoc = 0;
+	};
+	1389D79712AC360D004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D77512AC3542004602FF /* keylime.h */;
+		name = "keylime.h: 10";
+		rLen = 0;
+		rLoc = 256;
+		rType = 0;
+		vrLen = 155;
+		vrLoc = 0;
+	};
+	1389D79D12AC369F004602FF /* KLCategories.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {863, 729}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 137}";
+		};
+	};
+	1389D79F12AC36AB004602FF /* KLViewControllers.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {863, 729}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 142}";
+		};
+	};
+	1389D7A312AC36D9004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D79D12AC369F004602FF /* KLCategories.h */;
+		name = "KLCategories.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 137;
+		vrLoc = 0;
+	};
+	1389D7A412AC36D9004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D79F12AC36AB004602FF /* KLViewControllers.h */;
+		name = "KLViewControllers.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 142;
+		vrLoc = 0;
+	};
+	1389D7A512AC36D9004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D77512AC3542004602FF /* keylime.h */;
+		name = "keylime.h: 10";
+		rLen = 0;
+		rLoc = 256;
+		rType = 0;
+		vrLen = 155;
+		vrLoc = 0;
+	};
+	1389D7A612AC36D9004602FF /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1389D77512AC3542004602FF /* keylime.h */;
+		name = "keylime.h: 18";
+		rLen = 0;
+		rLoc = 256;
+		rType = 0;
+		vrLen = 256;
+		vrLoc = 0;
 	};
 	D2AAC07D0554694100DB518D /* keylime */ = {
 		activeExec = 0;
