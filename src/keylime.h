@@ -8,10 +8,21 @@
  */
 
 #pragma mark -
+#pragma mark Frameworks
+#import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+#import <MapKit/MapKit.h>
+
+#pragma mark -
+#import "KLDefines.h"
 #import "KLConstants.h"
 
 #pragma mark -
-#import "KLCategories"
+#import "KLCategories.h"
+
+#pragma mark -
+#pragma mark Utilities
+#import "KLUtilities.h"
 
 #pragma mark -
 #import "KLViewControllers.h"

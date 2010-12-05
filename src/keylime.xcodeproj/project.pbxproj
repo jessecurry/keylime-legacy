@@ -11,6 +11,23 @@
 		1389D77A12AC359F004602FF /* KLConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D77912AC359F004602FF /* KLConstants.h */; };
 		1389D79E12AC369F004602FF /* KLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D79D12AC369F004602FF /* KLCategories.h */; };
 		1389D7A012AC36AB004602FF /* KLViewControllers.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D79F12AC36AB004602FF /* KLViewControllers.h */; };
+		1389D7B612AC3848004602FF /* KLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7B512AC3848004602FF /* KLDefines.h */; };
+		1389D7BC12AC390C004602FF /* NSStringNSNullHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7B812AC390C004602FF /* NSStringNSNullHelper.h */; };
+		1389D7BD12AC390C004602FF /* NSStringNSNullHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7B912AC390C004602FF /* NSStringNSNullHelper.m */; };
+		1389D7BE12AC390C004602FF /* NSStringKLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7BA12AC390C004602FF /* NSStringKLExtensions.h */; };
+		1389D7BF12AC390C004602FF /* NSStringKLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7BB12AC390C004602FF /* NSStringKLExtensions.m */; };
+		1389D7C212AC3958004602FF /* KLUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7C112AC3958004602FF /* KLUtilities.h */; };
+		1389D7E012AC3F06004602FF /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7D512AC3F06004602FF /* JSON.h */; };
+		1389D7E112AC3F06004602FF /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7D612AC3F06004602FF /* NSObject+SBJSON.h */; };
+		1389D7E212AC3F06004602FF /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7D712AC3F06004602FF /* NSObject+SBJSON.m */; };
+		1389D7E312AC3F06004602FF /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7D812AC3F06004602FF /* NSString+SBJSON.h */; };
+		1389D7E412AC3F06004602FF /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7D912AC3F06004602FF /* NSString+SBJSON.m */; };
+		1389D7E512AC3F06004602FF /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7DA12AC3F06004602FF /* SBJsonBase.h */; };
+		1389D7E612AC3F06004602FF /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7DB12AC3F06004602FF /* SBJsonBase.m */; };
+		1389D7E712AC3F06004602FF /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7DC12AC3F06004602FF /* SBJsonParser.h */; };
+		1389D7E812AC3F06004602FF /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7DD12AC3F06004602FF /* SBJsonParser.m */; };
+		1389D7E912AC3F06004602FF /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D7DE12AC3F06004602FF /* SBJsonWriter.h */; };
+		1389D7EA12AC3F06004602FF /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D7DF12AC3F06004602FF /* SBJsonWriter.m */; };
 		AA747D9F0F9514B9006C5449 /* keylime_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -21,6 +38,23 @@
 		1389D79B12AC3658004602FF /* keylime.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = keylime.bundle; sourceTree = "<group>"; };
 		1389D79D12AC369F004602FF /* KLCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLCategories.h; sourceTree = "<group>"; };
 		1389D79F12AC36AB004602FF /* KLViewControllers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLViewControllers.h; sourceTree = "<group>"; };
+		1389D7B512AC3848004602FF /* KLDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLDefines.h; sourceTree = "<group>"; };
+		1389D7B812AC390C004602FF /* NSStringNSNullHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringNSNullHelper.h; sourceTree = "<group>"; };
+		1389D7B912AC390C004602FF /* NSStringNSNullHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringNSNullHelper.m; sourceTree = "<group>"; };
+		1389D7BA12AC390C004602FF /* NSStringKLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringKLExtensions.h; sourceTree = "<group>"; };
+		1389D7BB12AC390C004602FF /* NSStringKLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringKLExtensions.m; sourceTree = "<group>"; };
+		1389D7C112AC3958004602FF /* KLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLUtilities.h; sourceTree = "<group>"; };
+		1389D7D512AC3F06004602FF /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		1389D7D612AC3F06004602FF /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		1389D7D712AC3F06004602FF /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		1389D7D812AC3F06004602FF /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		1389D7D912AC3F06004602FF /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		1389D7DA12AC3F06004602FF /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		1389D7DB12AC3F06004602FF /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		1389D7DC12AC3F06004602FF /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		1389D7DD12AC3F06004602FF /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		1389D7DE12AC3F06004602FF /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		1389D7DF12AC3F06004602FF /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libkeylime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkeylime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +105,7 @@
 			children = (
 				1389D77512AC3542004602FF /* keylime.h */,
 				1389D77712AC3569004602FF /* Categories */,
+				1389D7C012AC3940004602FF /* Utilities */,
 				1389D77812AC3574004602FF /* View Controllers */,
 			);
 			name = Classes;
@@ -80,6 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				1389D79D12AC369F004602FF /* KLCategories.h */,
+				1389D7B712AC3901004602FF /* NSString */,
+				1389D7D412AC3F06004602FF /* JSON */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -92,11 +129,49 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
+		1389D7B712AC3901004602FF /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7B812AC390C004602FF /* NSStringNSNullHelper.h */,
+				1389D7B912AC390C004602FF /* NSStringNSNullHelper.m */,
+				1389D7BA12AC390C004602FF /* NSStringKLExtensions.h */,
+				1389D7BB12AC390C004602FF /* NSStringKLExtensions.m */,
+			);
+			name = NSString;
+			sourceTree = "<group>";
+		};
+		1389D7C012AC3940004602FF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7C112AC3958004602FF /* KLUtilities.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		1389D7D412AC3F06004602FF /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				1389D7D512AC3F06004602FF /* JSON.h */,
+				1389D7D612AC3F06004602FF /* NSObject+SBJSON.h */,
+				1389D7D712AC3F06004602FF /* NSObject+SBJSON.m */,
+				1389D7D812AC3F06004602FF /* NSString+SBJSON.h */,
+				1389D7D912AC3F06004602FF /* NSString+SBJSON.m */,
+				1389D7DA12AC3F06004602FF /* SBJsonBase.h */,
+				1389D7DB12AC3F06004602FF /* SBJsonBase.m */,
+				1389D7DC12AC3F06004602FF /* SBJsonParser.h */,
+				1389D7DD12AC3F06004602FF /* SBJsonParser.m */,
+				1389D7DE12AC3F06004602FF /* SBJsonWriter.h */,
+				1389D7DF12AC3F06004602FF /* SBJsonWriter.m */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
 				AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */,
 				1389D77912AC359F004602FF /* KLConstants.h */,
+				1389D7B512AC3848004602FF /* KLDefines.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -113,6 +188,16 @@
 				1389D77A12AC359F004602FF /* KLConstants.h in Headers */,
 				1389D79E12AC369F004602FF /* KLCategories.h in Headers */,
 				1389D7A012AC36AB004602FF /* KLViewControllers.h in Headers */,
+				1389D7B612AC3848004602FF /* KLDefines.h in Headers */,
+				1389D7BC12AC390C004602FF /* NSStringNSNullHelper.h in Headers */,
+				1389D7BE12AC390C004602FF /* NSStringKLExtensions.h in Headers */,
+				1389D7C212AC3958004602FF /* KLUtilities.h in Headers */,
+				1389D7E012AC3F06004602FF /* JSON.h in Headers */,
+				1389D7E112AC3F06004602FF /* NSObject+SBJSON.h in Headers */,
+				1389D7E312AC3F06004602FF /* NSString+SBJSON.h in Headers */,
+				1389D7E512AC3F06004602FF /* SBJsonBase.h in Headers */,
+				1389D7E712AC3F06004602FF /* SBJsonParser.h in Headers */,
+				1389D7E912AC3F06004602FF /* SBJsonWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +254,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1389D7BD12AC390C004602FF /* NSStringNSNullHelper.m in Sources */,
+				1389D7BF12AC390C004602FF /* NSStringKLExtensions.m in Sources */,
+				1389D7E212AC3F06004602FF /* NSObject+SBJSON.m in Sources */,
+				1389D7E412AC3F06004602FF /* NSString+SBJSON.m in Sources */,
+				1389D7E612AC3F06004602FF /* SBJsonBase.m in Sources */,
+				1389D7E812AC3F06004602FF /* SBJsonParser.m in Sources */,
+				1389D7EA12AC3F06004602FF /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
