@@ -46,6 +46,8 @@
 		1389D82C12AC4296004602FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82B12AC4296004602FF /* MapKit.framework */; };
 		1389D82E12AC4296004602FF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82D12AC4296004602FF /* MessageUI.framework */; };
 		1389D83012AC4296004602FF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82F12AC4296004602FF /* QuartzCore.framework */; };
+		138CB3DE12BAA27300DF8EF4 /* UIImageKLExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 138CB3DC12BAA27300DF8EF4 /* UIImageKLExtensions.h */; };
+		138CB3DF12BAA27300DF8EF4 /* UIImageKLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 138CB3DD12BAA27300DF8EF4 /* UIImageKLExtensions.m */; };
 		AA747D9F0F9514B9006C5449 /* keylime_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -93,6 +95,8 @@
 		1389D82B12AC4296004602FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1389D82D12AC4296004602FF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		1389D82F12AC4296004602FF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		138CB3DC12BAA27300DF8EF4 /* UIImageKLExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageKLExtensions.h; sourceTree = "<group>"; };
+		138CB3DD12BAA27300DF8EF4 /* UIImageKLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageKLExtensions.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libkeylime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libkeylime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +169,7 @@
 				1389D79D12AC369F004602FF /* KLCategories.h */,
 				1389D7B712AC3901004602FF /* NSString */,
 				1389D7D412AC3F06004602FF /* JSON */,
+				138CB3DB12BAA25A00DF8EF4 /* UIImage */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -285,6 +290,15 @@
 			name = AlertUtility;
 			sourceTree = "<group>";
 		};
+		138CB3DB12BAA25A00DF8EF4 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				138CB3DC12BAA27300DF8EF4 /* UIImageKLExtensions.h */,
+				138CB3DD12BAA27300DF8EF4 /* UIImageKLExtensions.m */,
+			);
+			name = UIImage;
+			sourceTree = "<group>";
+		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +338,7 @@
 				1389D80B12AC40CF004602FF /* LocationViewController.h in Headers */,
 				1389D80D12AC40CF004602FF /* WebViewController.h in Headers */,
 				1389D81512AC4131004602FF /* AlertUtility.h in Headers */,
+				138CB3DE12BAA27300DF8EF4 /* UIImageKLExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +408,7 @@
 				1389D80C12AC40CF004602FF /* LocationViewController.m in Sources */,
 				1389D80E12AC40CF004602FF /* WebViewController.m in Sources */,
 				1389D81612AC4131004602FF /* AlertUtility.m in Sources */,
+				138CB3DF12BAA27300DF8EF4 /* UIImageKLExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
