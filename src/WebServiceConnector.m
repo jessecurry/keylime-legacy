@@ -9,22 +9,39 @@
 #import "WebServiceConnector.h"
 #import "WebServiceConnectorDelegate.h"
 
-#import "AlertUtility.h"
+#import "CJSONDeserializer.h"
 
 static BOOL verboseOutput = NO;
 static NSInteger connectionCount = 0;
+static NSUInteger maxConnectionCount = 0;
+static NSMutableArray* webServiceConnectorQueue = nil;
+
+static NSDictionary* defaultRequestHeaders = nil;
+
 
 @interface WebServiceConnector ()
 @property (nonatomic, retain) NSURLConnection*	urlConnection;
 @property (nonatomic, retain) NSMutableData*	receivedData;
 @property (nonatomic, readonly) NSString*		webServiceRoot;
+@property (nonatomic, readonly) NSString*		webServiceFormatSpecifier;
+@property (nonatomic, readonly) NSString*		urlStringWithParameters;
+
++ (NSMutableArray*)webServiceConnectorQueue;
++ (void)processQueue;
+- (void)reallyStart;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation WebServiceConnector
+@synthesize parameters;
+@synthesize requestHeaderFields;
+@synthesize httpBody;
+@synthesize httpMethod;
+@synthesize delegate;
 @synthesize tag;
 @synthesize context;
 @synthesize statusCode;
+@synthesize responseHeaderFields;
 @synthesize urlConnection;
 @synthesize receivedData;
 
@@ -42,9 +59,10 @@ static NSInteger connectionCount = 0;
 	{
 		statusCode = -1; // 
 		urlString = [[aUrlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding] retain];
-		parameters = [someParameters retain];
-		httpBody = [theHttpBody retain];
-		delegate = aDelegate;
+		self.parameters = someParameters;
+		self.httpBody = theHttpBody;
+		self.httpMethod = @"GET";
+		self.delegate = aDelegate;
 	}
 	return self;
 }
@@ -65,9 +83,12 @@ static NSInteger connectionCount = 0;
 {
 	[urlString release];
 	[parameters release];
+	[requestHeaderFields release];
 	[httpBody release];
+	[httpMethod release];
 	
 	[context release];
+	[responseHeaderFields release];
 	
 	[urlConnection cancel];
 	[urlConnection release];
@@ -80,17 +101,62 @@ static NSInteger connectionCount = 0;
 #pragma mark API
 - (void)start
 {
+    [[WebServiceConnector webServiceConnectorQueue] addObject: self];
+    [WebServiceConnector processQueue];
+}
+
+- (void)cancel
+{
+	[self.urlConnection cancel];
+	self.urlConnection = nil;
+}
+
+#pragma mark -
+#pragma mark Private
++ (NSMutableArray*)webServiceConnectorQueue
+{
+    if ( webServiceConnectorQueue == nil )
+    {
+        webServiceConnectorQueue = [[NSMutableArray alloc] init];
+    }
+    return webServiceConnectorQueue;
+}
+
++ (void)processQueue
+{    
+    // If the maxConnectionCount == 0 we'll assume that no connection queueing is desired.
+    if ( ([WebServiceConnector connectionCount] < maxConnectionCount || maxConnectionCount == 0)
+        && [[WebServiceConnector webServiceConnectorQueue] count] )
+    {
+        WebServiceConnector* wsc = [[WebServiceConnector webServiceConnectorQueue] 
+                                    objectAtIndex: 0];
+        [wsc reallyStart];
+        [[WebServiceConnector webServiceConnectorQueue] removeObject: wsc];
+    }
+}
+
+- (void)reallyStart
+{
 	if ( self.urlConnection != nil )
 		return;
 	
-	KL_LOG( @"WebServiceConnector: %@", urlString );
-
+	NSString* fullURLString = self.urlStringWithParameters;
+	
+	KL_LOG( @"WebServiceConnector: %@", fullURLString);
+    
 	// Create the request.
-	NSURL* url = [NSURL URLWithString: urlString];
+	NSURL* url = [NSURL URLWithString: fullURLString];
 	NSMutableURLRequest* theRequest = [NSMutableURLRequest requestWithURL: url
 															  cachePolicy: NSURLRequestUseProtocolCachePolicy
 														  timeoutInterval: 60.0];
+	
+	if ( self.requestHeaderFields )
+		[theRequest setAllHTTPHeaderFields: self.requestHeaderFields];
+	else
+		[theRequest setAllHTTPHeaderFields: defaultRequestHeaders];
+	
 	[theRequest setHTTPBody: httpBody];
+	[theRequest setHTTPMethod: httpMethod];
 	
 	// create the connection with the request
 	// and start loading the data
@@ -105,21 +171,17 @@ static NSInteger connectionCount = 0;
 		[[self class] willChangeValueForKey: @"connectionCount"];
 		++connectionCount;
 		[[self class] didChangeValueForKey: @"connectionCount"];
+		
+		startTime = [NSDate timeIntervalSinceReferenceDate]; 
 	} 
 	else 
 	{
 		// Inform the user that the connection failed.
 		[delegate webServiceConnector: self 
 					 didFailWithError: nil];
-		
-		[AlertUtility showConnectionErrorAlert];
-	}
-}
-
-- (void)cancel
-{
-	[self.urlConnection cancel];
-	self.urlConnection = nil;
+        
+        [WebServiceConnector processQueue]; // since this connection failed we can try to kick off others
+	}    
 }
 
 #pragma mark -
@@ -139,12 +201,27 @@ static NSInteger connectionCount = 0;
 	verboseOutput = verbose;
 }
 
++ (void)setDefaultRequestHeaderFields: (NSDictionary*)drc
+{
+	if ( defaultRequestHeaders != drc )
+	{
+		[defaultRequestHeaders release];
+		defaultRequestHeaders = drc;
+		[defaultRequestHeaders retain];
+	}
+}
+
 - (void)setVerbose: (BOOL)verbose
 {
 	[[self class] setVerbose: verbose];
 }
 
 - (NSString*)webServiceRoot
+{
+	return [[self class] webServiceRoot];
+}
+
++ (NSString*)webServiceRoot
 {
 	NSString* webServiceRoot = [[NSUserDefaults standardUserDefaults] valueForKey: @"webServiceRoot"];
 	
@@ -158,6 +235,49 @@ static NSInteger connectionCount = 0;
 	return webServiceRoot;
 }
 
+- (NSString*)webServiceFormatSpecifier
+{
+	return [[self class] webServiceFormatSpecifier];
+}
+
++ (NSString*)webServiceFormatSpecifier
+{
+	NSString* webServiceFormatSpecifier = [[NSUserDefaults standardUserDefaults] valueForKey: @"webServiceFormatSpecifier"];
+	return FORCE_STRING(webServiceFormatSpecifier);
+}
+
+#pragma mark -
+#pragma mark Connection Queueing
++ (NSInteger)maxConnectionCount
+{
+    return maxConnectionCount;
+}
+
++ (void)setMaxConnectionCount: (NSInteger)theMaxConnectionCount
+{
+    maxConnectionCount = theMaxConnectionCount;
+}
+
+#pragma -
+- (NSString*)urlStringWithParameters
+{
+	NSString* retStr = urlString;
+	
+	if ( parameters && [parameters count] )
+	{
+		NSUInteger parametersAdded = 0;
+		for ( NSString* key in parameters )
+		{
+			retStr = [retStr stringByAppendingFormat: @"%@%@=%@",
+					  parametersAdded++ == 0 ? @"?" : @"&",
+					  key,
+					  [parameters objectForKey: key]];
+		}
+	}
+	
+	return retStr;
+}
+
 #pragma mark -
 #pragma mark NSURLConnection Delegate
 - (void)connection: (NSURLConnection*)connection 
@@ -166,6 +286,7 @@ didReceiveResponse: (NSURLResponse*)response
 	if ( [response isKindOfClass: [NSHTTPURLResponse class]] )
 	{
 		statusCode = [(NSHTTPURLResponse*)response statusCode];
+		self.responseHeaderFields = [(NSHTTPURLResponse*)response allHeaderFields];
 		
 		if ( verboseOutput )
 			KL_LOG( @"(%d) %@", statusCode, urlString );
@@ -174,7 +295,7 @@ didReceiveResponse: (NSURLResponse*)response
 	{
 		statusCode = -1;
 	}
-
+    
 	
     [self.receivedData setLength: 0];
 }
@@ -195,8 +316,8 @@ didReceiveResponse: (NSURLResponse*)response
 	
     // inform the user
     KL_LOG(@"Connection failed! Error - %@ %@",
-          [error localizedDescription],
-          [[error userInfo] objectForKey: NSURLErrorFailingURLStringErrorKey]);
+           [error localizedDescription],
+           [[error userInfo] objectForKey: NSURLErrorFailingURLStringErrorKey]);
 	
 	// Update the connectionCount
 	[[self class] willChangeValueForKey: @"connectionCount"];
@@ -205,17 +326,25 @@ didReceiveResponse: (NSURLResponse*)response
 	
 	[delegate webServiceConnector: self 
 				 didFailWithError: error];
-	
-	[AlertUtility showConnectionErrorAlert];
+    [WebServiceConnector processQueue]; // since this connection failed we can try to kick off others
 }
 
 - (void)connectionDidFinishLoading: (NSURLConnection*)connection
 {
-    KL_LOG(@"Succeeded! Received %d bytes of data", [self.receivedData length]);
-		
-	NSString* responseString = [[[NSString alloc] initWithData: self.receivedData 
-													  encoding: NSUTF8StringEncoding] autorelease];
+	responseTime = [NSDate timeIntervalSinceReferenceDate];
 	
+    //KL_LOG(@"Succeeded! Received %d bytes of data", [self.receivedData length]);
+    
+	if ( verboseOutput )
+	{
+		NSString* responseString = [[[NSString alloc] initWithData: self.receivedData 
+														  encoding: NSUTF8StringEncoding] autorelease];
+		KL_LOG( @"responseString:\n%@", responseString );
+	}
+	
+	NSError* jsonError = nil;
+	id jsonResponse = [[CJSONDeserializer deserializer] deserialize: self.receivedData 
+															  error: &jsonError];
 	
     // release the connection, and the data object
     self.urlConnection = nil;
@@ -226,17 +355,21 @@ didReceiveResponse: (NSURLResponse*)response
 	--connectionCount;
 	[[self class] didChangeValueForKey: @"connectionCount"];
 	
-	if ( [responseString length] )
-	{	
-		KL_LOG( @"responseString:\n%@", responseString );
+	if ( jsonResponse )//[responseString length] )
+	{			
 		[delegate webServiceConnector: self
-				  didFinishWithResult: [responseString JSONValue]];
+				  didFinishWithResult: jsonResponse]; //[responseString JSONValue]];
+		
+		postParseTime = [NSDate timeIntervalSinceReferenceDate];
 	}
 	else
 	{
 		[delegate webServiceConnector: self 
 				  didFinishWithResult: nil];
 	}
+    KL_LOG(@"[%@]response: %.5f - parse: %.5f", urlString, responseTime - startTime, postParseTime - startTime);
+    
+    [WebServiceConnector processQueue]; // since this connection is done we can try to kick off others
 }
 
 @end

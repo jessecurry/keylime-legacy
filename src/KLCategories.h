@@ -14,8 +14,3 @@
 
 #pragma mark -
 #pragma mark JSON
-/*
- Utilizes json-framework<https://github.com/stig/json-framework>
- Copyright (C) 2009-2010 Stig Brautaset.
- */
-#import "JSON.h"

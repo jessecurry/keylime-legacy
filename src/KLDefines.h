@@ -13,3 +13,5 @@
 #else
 #define KL_LOG(...) /* */
 #endif
+
+#define FORCE_STRING(x) x ? x : @""

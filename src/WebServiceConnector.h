@@ -16,7 +16,9 @@
 	
 	NSString*				urlString;
 	NSDictionary*			parameters;
+	NSDictionary*			requestHeaderFields;
 	NSData*					httpBody;
+	NSString*				httpMethod;
 	
 	NSURLConnection*		urlConnection;
 	NSMutableData*			receivedData;
@@ -25,15 +27,36 @@
 	id						context;
 	
 	NSInteger				statusCode;
+	NSDictionary*			responseHeaderFields;
+	
+	NSTimeInterval			startTime;
+	NSTimeInterval			responseTime;
+	NSTimeInterval			postParseTime;
 }
+@property (nonatomic, retain) NSDictionary* parameters;
+@property (nonatomic, retain) NSDictionary* requestHeaderFields;
+@property (nonatomic, retain) NSData* httpBody;
+@property (nonatomic, retain) NSString* httpMethod;
+@property (nonatomic, assign) id<WebServiceConnectorDelegate> delegate;
+
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, retain) id context;
 @property (nonatomic, readonly) NSInteger statusCode;
+@property (nonatomic, retain) NSDictionary* responseHeaderFields;
 
 + (NSInteger)connectionCount;
 
 + (BOOL)verbose;
 + (void)setVerbose: (BOOL)verbose;
+
++ (void)setDefaultRequestHeaderFields: (NSDictionary*)defaultRequestHeaders;
++ (NSString*)webServiceRoot;
++ (NSString*)webServiceFormatSpecifier;
+
+// Connection queue
++ (NSInteger)maxConnectionCount;
++ (void)setMaxConnectionCount: (NSInteger)maxConnectionCount;
+
 
 - (id)initWithURLString: (NSString*)urlString
 			 parameters: (NSDictionary*)parameters
