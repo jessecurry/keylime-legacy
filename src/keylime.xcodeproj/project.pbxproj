@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */; };
+		1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */; };
 		137B647F1337A3B4001459F8 /* CDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64671337A3B4001459F8 /* CDataScanner.h */; };
 		137B64801337A3B4001459F8 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64681337A3B4001459F8 /* CDataScanner.m */; };
 		137B64811337A3B4001459F8 /* CFilteringJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */; };
@@ -74,6 +76,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLFetchedResultsSearchData.h; sourceTree = "<group>"; };
+		1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLFetchedResultsSearchData.m; sourceTree = "<group>"; };
 		137B64671337A3B4001459F8 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		137B64681337A3B4001459F8 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
@@ -205,6 +209,15 @@
 				1389D77812AC3574004602FF /* View Controllers */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		1310B2181337DD8C00495B90 /* Search Data */ = {
+			isa = PBXGroup;
+			children = (
+				1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */,
+				1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */,
+			);
+			name = "Search Data";
 			sourceTree = "<group>";
 		};
 		137B64661337A395001459F8 /* TouchJSON */ = {
@@ -426,8 +439,9 @@
 		1389D80F12AC410F004602FF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				137B64AC1337AC27001459F8 /* Table Data */,
 				1389D7F212AC4093004602FF /* Pull To Refresh */,
+				1310B2181337DD8C00495B90 /* Search Data */,
+				137B64AC1337AC27001459F8 /* Table Data */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -501,6 +515,7 @@
 				137B64B41337AC75001459F8 /* UITableViewCellHelper.h in Headers */,
 				137B64B91337AC89001459F8 /* UIViewHelpers.h in Headers */,
 				137B64BE1337ACBE001459F8 /* NSNumberNSNullHelper.h in Headers */,
+				1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,6 +596,7 @@
 				137B64B51337AC75001459F8 /* UITableViewCellHelper.m in Sources */,
 				137B64BA1337AC89001459F8 /* UIViewHelpers.m in Sources */,
 				137B64BF1337ACBE001459F8 /* NSNumberNSNullHelper.m in Sources */,
+				1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
