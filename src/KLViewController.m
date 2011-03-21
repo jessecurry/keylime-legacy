@@ -212,9 +212,8 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 		}
 	}
 	
-	// JLC: This should probably move to a more explicit location
-	tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    tableView.rowHeight = 44.0; // Set a default row-height
+	tableView.dataSource = self;
+    tableView.delegate = self; // TODO: do I need to set this here? Or should I set it elsewhere?
 }
 
 - (void)fetchDataForTableView: (UITableView*)tableView
