@@ -15,3 +15,5 @@
 #endif
 
 #define FORCE_STRING(x) x ? x : @""
+
+#define CLASS_NAME NSStringFromClass([self class])
