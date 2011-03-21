@@ -68,23 +68,7 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	
-    // JLC: settings button is only on the client list for now.
-    //	if ( self.navigationItem.rightBarButtonItem == nil )
-    //	{
-    //		UIBarButtonItem* settingsButton = [[UIBarButtonItem alloc] initWithImage: [UIImage imageNamed: @"settingsGear.png"] 
-    //																		   style: UIBarButtonItemStylePlain
-    //																		  target: self
-    //																		  action: @selector(showSettings:)];
-    //		self.navigationItem.rightBarButtonItem = settingsButton;
-    //		[settingsButton release];
-    //	}
 }
-
-//- (void)viewWillAppear: (BOOL)animated
-//{
-//	[super viewWillAppear: animated];
-//}
 
 - (void)viewWillDisappear: (BOOL)animated
 {
