@@ -377,6 +377,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	headerLabel.text = [self tableView: theTableView titleForHeaderInSection: section];
 	
 	[headerView addSubview: headerLabel];
+    [headerLabel release];
 	
 	return [headerView autorelease];
 }
@@ -398,6 +399,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	refreshHeaderView.backgroundColor = [UIColor colorWithRed: 0.0 green: 117/255.0 blue: 192/255.0 alpha: 1.0];
 	refreshHeaderView.borderColor = [UIColor whiteColor];
 	[tableView addSubview: refreshHeaderView];
+    [refreshHeaderView release];
 	[refreshHeaderView setLastUpdatedDate: [NSDate date]];
 	tableView.showsVerticalScrollIndicator = YES;
 	

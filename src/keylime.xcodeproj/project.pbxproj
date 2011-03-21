@@ -28,6 +28,17 @@
 		137B64911337A3B4001459F8 /* CJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B647C1337A3B4001459F8 /* CJSONSerializer.h */; };
 		137B64921337A3B4001459F8 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B647D1337A3B4001459F8 /* CJSONSerializer.m */; };
 		137B64931337A3B4001459F8 /* JSONRepresentation.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B647E1337A3B4001459F8 /* JSONRepresentation.h */; };
+		137B64A51337AB77001459F8 /* DataObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64A41337AB77001459F8 /* DataObject.h */; };
+		137B64AA1337ABB4001459F8 /* KLTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64A81337ABB4001459F8 /* KLTableViewCell.h */; };
+		137B64AB1337ABB4001459F8 /* KLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64A91337ABB4001459F8 /* KLTableViewCell.m */; };
+		137B64AF1337AC37001459F8 /* KLTableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64AD1337AC37001459F8 /* KLTableData.h */; };
+		137B64B01337AC37001459F8 /* KLTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64AE1337AC37001459F8 /* KLTableData.m */; };
+		137B64B41337AC75001459F8 /* UITableViewCellHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64B21337AC75001459F8 /* UITableViewCellHelper.h */; };
+		137B64B51337AC75001459F8 /* UITableViewCellHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64B31337AC75001459F8 /* UITableViewCellHelper.m */; };
+		137B64B91337AC89001459F8 /* UIViewHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64B71337AC89001459F8 /* UIViewHelpers.h */; };
+		137B64BA1337AC89001459F8 /* UIViewHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64B81337AC89001459F8 /* UIViewHelpers.m */; };
+		137B64BE1337ACBE001459F8 /* NSNumberNSNullHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64BC1337ACBE001459F8 /* NSNumberNSNullHelper.h */; };
+		137B64BF1337ACBE001459F8 /* NSNumberNSNullHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64BD1337ACBE001459F8 /* NSNumberNSNullHelper.m */; };
 		1389D77612AC3542004602FF /* keylime.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D77512AC3542004602FF /* keylime.h */; };
 		1389D77A12AC359F004602FF /* KLConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D77912AC359F004602FF /* KLConstants.h */; };
 		1389D79E12AC369F004602FF /* KLCategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D79D12AC369F004602FF /* KLCategories.h */; };
@@ -84,6 +95,17 @@
 		137B647C1337A3B4001459F8 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		137B647D1337A3B4001459F8 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		137B647E1337A3B4001459F8 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		137B64A41337AB77001459F8 /* DataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataObject.h; sourceTree = "<group>"; };
+		137B64A81337ABB4001459F8 /* KLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTableViewCell.h; sourceTree = "<group>"; };
+		137B64A91337ABB4001459F8 /* KLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTableViewCell.m; sourceTree = "<group>"; };
+		137B64AD1337AC37001459F8 /* KLTableData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTableData.h; sourceTree = "<group>"; };
+		137B64AE1337AC37001459F8 /* KLTableData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTableData.m; sourceTree = "<group>"; };
+		137B64B21337AC75001459F8 /* UITableViewCellHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewCellHelper.h; sourceTree = "<group>"; };
+		137B64B31337AC75001459F8 /* UITableViewCellHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewCellHelper.m; sourceTree = "<group>"; };
+		137B64B71337AC89001459F8 /* UIViewHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewHelpers.h; sourceTree = "<group>"; };
+		137B64B81337AC89001459F8 /* UIViewHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewHelpers.m; sourceTree = "<group>"; };
+		137B64BC1337ACBE001459F8 /* NSNumberNSNullHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberNSNullHelper.h; sourceTree = "<group>"; };
+		137B64BD1337ACBE001459F8 /* NSNumberNSNullHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNumberNSNullHelper.m; sourceTree = "<group>"; };
 		1389D77512AC3542004602FF /* keylime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keylime.h; sourceTree = "<group>"; };
 		1389D77912AC359F004602FF /* KLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLConstants.h; sourceTree = "<group>"; };
 		1389D79B12AC3658004602FF /* keylime.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = keylime.bundle; sourceTree = "<group>"; };
@@ -178,6 +200,8 @@
 				1389D77512AC3542004602FF /* keylime.h */,
 				1389D77712AC3569004602FF /* Categories */,
 				1389D7C012AC3940004602FF /* Utilities */,
+				137B64A21337AB32001459F8 /* Protocols */,
+				137B64A31337AB50001459F8 /* Views */,
 				1389D77812AC3574004602FF /* View Controllers */,
 			);
 			name = Classes;
@@ -235,12 +259,84 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		137B64A21337AB32001459F8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				137B64A41337AB77001459F8 /* DataObject.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		137B64A31337AB50001459F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				137B64A61337AB8E001459F8 /* TableViewCells */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		137B64A61337AB8E001459F8 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				137B64A71337AB9B001459F8 /* Base */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		137B64A71337AB9B001459F8 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				137B64A81337ABB4001459F8 /* KLTableViewCell.h */,
+				137B64A91337ABB4001459F8 /* KLTableViewCell.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
+		137B64AC1337AC27001459F8 /* Table Data */ = {
+			isa = PBXGroup;
+			children = (
+				137B64AD1337AC37001459F8 /* KLTableData.h */,
+				137B64AE1337AC37001459F8 /* KLTableData.m */,
+			);
+			name = "Table Data";
+			sourceTree = "<group>";
+		};
+		137B64B11337AC65001459F8 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				137B64B21337AC75001459F8 /* UITableViewCellHelper.h */,
+				137B64B31337AC75001459F8 /* UITableViewCellHelper.m */,
+			);
+			name = UITableViewCell;
+			sourceTree = "<group>";
+		};
+		137B64B61337AC7A001459F8 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				137B64B71337AC89001459F8 /* UIViewHelpers.h */,
+				137B64B81337AC89001459F8 /* UIViewHelpers.m */,
+			);
+			name = UIView;
+			sourceTree = "<group>";
+		};
+		137B64BB1337ACAF001459F8 /* NSNumber */ = {
+			isa = PBXGroup;
+			children = (
+				137B64BC1337ACBE001459F8 /* NSNumberNSNullHelper.h */,
+				137B64BD1337ACBE001459F8 /* NSNumberNSNullHelper.m */,
+			);
+			name = NSNumber;
+			sourceTree = "<group>";
+		};
 		1389D77712AC3569004602FF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
 				1389D79D12AC369F004602FF /* KLCategories.h */,
+				137B64BB1337ACAF001459F8 /* NSNumber */,
 				1389D7B712AC3901004602FF /* NSString */,
 				138CB3DB12BAA25A00DF8EF4 /* UIImage */,
+				137B64B11337AC65001459F8 /* UITableViewCell */,
+				137B64B61337AC7A001459F8 /* UIView */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -330,6 +426,7 @@
 		1389D80F12AC410F004602FF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				137B64AC1337AC27001459F8 /* Table Data */,
 				1389D7F212AC4093004602FF /* Pull To Refresh */,
 			);
 			name = Helpers;
@@ -398,6 +495,12 @@
 				137B648F1337A3B4001459F8 /* CJSONScanner.h in Headers */,
 				137B64911337A3B4001459F8 /* CJSONSerializer.h in Headers */,
 				137B64931337A3B4001459F8 /* JSONRepresentation.h in Headers */,
+				137B64A51337AB77001459F8 /* DataObject.h in Headers */,
+				137B64AA1337ABB4001459F8 /* KLTableViewCell.h in Headers */,
+				137B64AF1337AC37001459F8 /* KLTableData.h in Headers */,
+				137B64B41337AC75001459F8 /* UITableViewCellHelper.h in Headers */,
+				137B64B91337AC89001459F8 /* UIViewHelpers.h in Headers */,
+				137B64BE1337ACBE001459F8 /* NSNumberNSNullHelper.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +576,11 @@
 				137B648E1337A3B4001459F8 /* CJSONDeserializer.m in Sources */,
 				137B64901337A3B4001459F8 /* CJSONScanner.m in Sources */,
 				137B64921337A3B4001459F8 /* CJSONSerializer.m in Sources */,
+				137B64AB1337ABB4001459F8 /* KLTableViewCell.m in Sources */,
+				137B64B01337AC37001459F8 /* KLTableData.m in Sources */,
+				137B64B51337AC75001459F8 /* UITableViewCellHelper.m in Sources */,
+				137B64BA1337AC89001459F8 /* UIViewHelpers.m in Sources */,
+				137B64BF1337ACBE001459F8 /* NSNumberNSNullHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
