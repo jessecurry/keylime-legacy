@@ -1,4 +1,4 @@
-*Please note: keylime is in the early stages of development and may change if you develop anything that depends on the current interfaces it would be a good idea to fork. Once things have settled I'll remove this notice.*
+*Please note: keylime is in the early stages of development and may change. If you develop anything that depends on the current interfaces it would be a good idea to fork. Once things have settled I'll remove this notice.*
 
 Static Library Installation (XCode4)
 ====================================
