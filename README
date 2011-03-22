@@ -20,7 +20,7 @@ KLViewController
 ----------------
 This is where most of keylime's functionality lives. KLViewController offers the ability to provide data for multiple UITableViews. Data can be NSFetchedResultsControllers, Arrays, or any object.
 
-For each individual data object keylime will attempt to find a table view cell named _class_name_TableViewCell (ie: if keylime sees a 'Person' object it will look for a 'PersonTableViewCell'). If your cell is a derivative of KLTableView cell keylime will automatically call configureWithDataObject: passing the data object. 
+For each individual data object keylime will attempt to find a table view cell named ClassNameTableViewCell (ie: if keylime sees a 'Person' object it will look for a 'PersonTableViewCell'). If your cell is a derivative of KLTableView cell keylime will automatically call configureWithDataObject: passing the data object. 
 
 KLTableViewCell
 ---------------
