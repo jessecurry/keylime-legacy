@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */; };
 		1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */; };
+		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
+		135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */; };
 		137B647F1337A3B4001459F8 /* CDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64671337A3B4001459F8 /* CDataScanner.h */; };
 		137B64801337A3B4001459F8 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64681337A3B4001459F8 /* CDataScanner.m */; };
 		137B64811337A3B4001459F8 /* CFilteringJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLFetchedResultsSearchData.h; sourceTree = "<group>"; };
 		1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLFetchedResultsSearchData.m; sourceTree = "<group>"; };
+		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
+		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
 		137B64671337A3B4001459F8 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		137B64681337A3B4001459F8 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
@@ -220,6 +224,15 @@
 			name = "Search Data";
 			sourceTree = "<group>";
 		};
+		135FE110133A3D0500359621 /* NSManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */,
+				135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */,
+			);
+			name = NSManagedObject;
+			sourceTree = "<group>";
+		};
 		137B64661337A395001459F8 /* TouchJSON */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				1389D79D12AC369F004602FF /* KLCategories.h */,
+				135FE110133A3D0500359621 /* NSManagedObject */,
 				137B64BB1337ACAF001459F8 /* NSNumber */,
 				1389D7B712AC3901004602FF /* NSString */,
 				138CB3DB12BAA25A00DF8EF4 /* UIImage */,
@@ -379,9 +393,9 @@
 		1389D7C012AC3940004602FF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				137B64661337A395001459F8 /* TouchJSON */,
-				1389D81212AC4131004602FF /* AlertUtility */,
 				1389D7C112AC3958004602FF /* KLUtilities.h */,
+				1389D81212AC4131004602FF /* AlertUtility */,
+				137B64661337A395001459F8 /* TouchJSON */,
 				1389D7F712AC40AF004602FF /* Web Service Connector */,
 			);
 			name = Utilities;
@@ -516,6 +530,7 @@
 				137B64B91337AC89001459F8 /* UIViewHelpers.h in Headers */,
 				137B64BE1337ACBE001459F8 /* NSNumberNSNullHelper.h in Headers */,
 				1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */,
+				135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +612,7 @@
 				137B64BA1337AC89001459F8 /* UIViewHelpers.m in Sources */,
 				137B64BF1337ACBE001459F8 /* NSNumberNSNullHelper.m in Sources */,
 				1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */,
+				135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

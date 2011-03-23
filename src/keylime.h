@@ -19,7 +19,6 @@
 
 #pragma mark -
 #import "KLCategories.h"
-#import "UIImageKLExtensions.h"
 
 #pragma mark -
 #pragma mark Utilities
