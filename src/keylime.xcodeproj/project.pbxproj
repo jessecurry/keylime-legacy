@@ -11,6 +11,10 @@
 		1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */; };
 		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
 		135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */; };
+		135FE171133A6C6800359621 /* KLURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE16F133A6C6800359621 /* KLURLCache.h */; };
+		135FE172133A6C6800359621 /* KLURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE170133A6C6800359621 /* KLURLCache.m */; };
+		135FE175133A729900359621 /* KLURLCacheConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE173133A729700359621 /* KLURLCacheConnection.h */; };
+		135FE176133A729900359621 /* KLURLCacheConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE174133A729800359621 /* KLURLCacheConnection.m */; };
 		137B647F1337A3B4001459F8 /* CDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64671337A3B4001459F8 /* CDataScanner.h */; };
 		137B64801337A3B4001459F8 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64681337A3B4001459F8 /* CDataScanner.m */; };
 		137B64811337A3B4001459F8 /* CFilteringJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */; };
@@ -82,6 +86,10 @@
 		1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLFetchedResultsSearchData.m; sourceTree = "<group>"; };
 		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
 		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
+		135FE16F133A6C6800359621 /* KLURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCache.h; sourceTree = "<group>"; };
+		135FE170133A6C6800359621 /* KLURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLURLCache.m; sourceTree = "<group>"; };
+		135FE173133A729700359621 /* KLURLCacheConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCacheConnection.h; sourceTree = "<group>"; };
+		135FE174133A729800359621 /* KLURLCacheConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLURLCacheConnection.m; sourceTree = "<group>"; };
 		137B64671337A3B4001459F8 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		137B64681337A3B4001459F8 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
@@ -231,6 +239,17 @@
 				135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */,
 			);
 			name = NSManagedObject;
+			sourceTree = "<group>";
+		};
+		135FE16E133A6C4300359621 /* URLCache */ = {
+			isa = PBXGroup;
+			children = (
+				135FE16F133A6C6800359621 /* KLURLCache.h */,
+				135FE170133A6C6800359621 /* KLURLCache.m */,
+				135FE173133A729700359621 /* KLURLCacheConnection.h */,
+				135FE174133A729800359621 /* KLURLCacheConnection.m */,
+			);
+			name = URLCache;
 			sourceTree = "<group>";
 		};
 		137B64661337A395001459F8 /* TouchJSON */ = {
@@ -396,6 +415,7 @@
 				1389D7C112AC3958004602FF /* KLUtilities.h */,
 				1389D81212AC4131004602FF /* AlertUtility */,
 				137B64661337A395001459F8 /* TouchJSON */,
+				135FE16E133A6C4300359621 /* URLCache */,
 				1389D7F712AC40AF004602FF /* Web Service Connector */,
 			);
 			name = Utilities;
@@ -531,6 +551,8 @@
 				137B64BE1337ACBE001459F8 /* NSNumberNSNullHelper.h in Headers */,
 				1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */,
 				135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */,
+				135FE171133A6C6800359621 /* KLURLCache.h in Headers */,
+				135FE175133A729900359621 /* KLURLCacheConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +635,8 @@
 				137B64BF1337ACBE001459F8 /* NSNumberNSNullHelper.m in Sources */,
 				1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */,
 				135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */,
+				135FE172133A6C6800359621 /* KLURLCache.m in Sources */,
+				135FE176133A729900359621 /* KLURLCacheConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
