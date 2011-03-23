@@ -18,6 +18,9 @@
                               fetchBatchSize: (NSUInteger)fetchBatchSize
                              sortDescriptors: (NSArray*)sortDescriptors;
 + (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+                                   predicate: (NSPredicate*)predicate
+                             sortDescriptors: (NSArray*)sortDescriptors;
++ (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
                              sortDescriptors: (NSArray*)sortDescriptors;
 + (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext;
 @end

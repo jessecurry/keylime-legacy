@@ -47,14 +47,23 @@
 }
 
 + (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+                                   predicate: (NSPredicate*)predicate
                              sortDescriptors: (NSArray*)sortDescriptors
 {
     return [[self class] allObjectsInManagedObjectContext: managedObjectContext 
-                                                predicate: nil 
+                                                predicate: predicate
                                        includeSubentities: YES 
                                                fetchLimit: 0 
                                               fetchOffset: 0 
                                            fetchBatchSize: FETCH_BATCH_SIZE 
+                                          sortDescriptors: sortDescriptors];   
+}
+
++ (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+                             sortDescriptors: (NSArray*)sortDescriptors
+{
+    return [[self class] allObjectsInManagedObjectContext: managedObjectContext 
+                                                predicate: nil  
                                           sortDescriptors: sortDescriptors];
 }
 
