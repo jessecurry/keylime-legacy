@@ -8,20 +8,29 @@
 
 #import "KLURLCacheConnection.h"
 
+@interface KLURLCacheConnection ()
+@property (nonatomic, retain) NSURL* url;
+@end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation KLURLCacheConnection
 @synthesize delegate;
 @synthesize receivedData;
 @synthesize lastModified;
 @synthesize connection;
+@synthesize url;
+@synthesize filePath;
+@synthesize context;
 
 /* This method initiates the load request. The connection is asynchronous,
  and we implement a set of delegate methods that act as callbacks during
  the load. */
 - (id)initWithURL: (NSURL*)theURL 
-         delegate: (id<KLURLCacheConnectionDelegate>)theDelegate
+         delegate: (Class<KLURLCacheConnectionDelegate>)theDelegate
 {
 	if ( (self = [super init]) ) 
     {
+        self.url = theURL;
 		self.delegate = theDelegate;
         
 		/* Create the request. This application does not use a NSURLCache
@@ -75,7 +84,6 @@ didReceiveResponse: (NSURLResponse*)response
     
 	/* Try to retrieve last modified date from HTTP header. If found, format
 	 date so it matches format of cached image file modification date. */
-    
 	if ( [response isKindOfClass: [NSHTTPURLResponse self]] ) 
     {
 		NSDictionary* headers = [(NSHTTPURLResponse*)response allHeaderFields];
@@ -108,8 +116,9 @@ didReceiveResponse: (NSURLResponse*)response
 - (void)connection: (NSURLConnection*)connection 
   didFailWithError: (NSError*)error
 {
-	[self.delegate connection: self 
-             didFailWithError: error];
+    KL_LOG(@"[%@]connection:didFailWithError: %@", CLASS_NAME, [error localizedDescription]);
+	[self.delegate cacheConnection: self 
+                  didFailWithError: error];
 }
 
 - (NSCachedURLResponse*)connection: (NSURLConnection*)connection
@@ -121,7 +130,8 @@ didReceiveResponse: (NSURLResponse*)response
 
 - (void)connectionDidFinishLoading: (NSURLConnection*)connection
 {
-	[self.delegate connectionDidFinish: self];
+    KL_LOG(@"[%@]connectionDidFinishLoading:", CLASS_NAME);
+	[self.delegate cacheConnectionDidFinish: self];
 }
 
 

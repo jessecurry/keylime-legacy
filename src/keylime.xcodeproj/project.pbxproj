@@ -15,6 +15,11 @@
 		135FE172133A6C6800359621 /* KLURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE170133A6C6800359621 /* KLURLCache.m */; };
 		135FE175133A729900359621 /* KLURLCacheConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE173133A729700359621 /* KLURLCacheConnection.h */; };
 		135FE176133A729900359621 /* KLURLCacheConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE174133A729800359621 /* KLURLCacheConnection.m */; };
+		135FE192133A7C5C00359621 /* KLImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE190133A7C5C00359621 /* KLImageView.h */; };
+		135FE193133A7C5D00359621 /* KLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE191133A7C5C00359621 /* KLImageView.m */; };
+		135FE196133A9B9A00359621 /* NSString+MD5.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE194133A9B9A00359621 /* NSString+MD5.h */; };
+		135FE197133A9B9A00359621 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE195133A9B9A00359621 /* NSString+MD5.m */; };
+		135FE199133A9C5000359621 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135FE198133A9C4F00359621 /* Security.framework */; };
 		137B647F1337A3B4001459F8 /* CDataScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64671337A3B4001459F8 /* CDataScanner.h */; };
 		137B64801337A3B4001459F8 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64681337A3B4001459F8 /* CDataScanner.m */; };
 		137B64811337A3B4001459F8 /* CFilteringJSONSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */; };
@@ -90,6 +95,11 @@
 		135FE170133A6C6800359621 /* KLURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLURLCache.m; sourceTree = "<group>"; };
 		135FE173133A729700359621 /* KLURLCacheConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCacheConnection.h; sourceTree = "<group>"; };
 		135FE174133A729800359621 /* KLURLCacheConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLURLCacheConnection.m; sourceTree = "<group>"; };
+		135FE190133A7C5C00359621 /* KLImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLImageView.h; sourceTree = "<group>"; };
+		135FE191133A7C5C00359621 /* KLImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLImageView.m; sourceTree = "<group>"; };
+		135FE194133A9B9A00359621 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		135FE195133A9B9A00359621 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		135FE198133A9C4F00359621 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		137B64671337A3B4001459F8 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		137B64681337A3B4001459F8 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		137B646A1337A3B4001459F8 /* CFilteringJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFilteringJSONSerializer.h; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				135FE199133A9C5000359621 /* Security.framework in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				1389D82812AC4296004602FF /* CoreGraphics.framework in Frameworks */,
 				1389D82A12AC4296004602FF /* CoreLocation.framework in Frameworks */,
@@ -200,6 +211,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				135FE198133A9C4F00359621 /* Security.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				1389D82712AC4296004602FF /* CoreGraphics.framework */,
 				1389D82912AC4296004602FF /* CoreLocation.framework */,
@@ -250,6 +262,15 @@
 				135FE174133A729800359621 /* KLURLCacheConnection.m */,
 			);
 			name = URLCache;
+			sourceTree = "<group>";
+		};
+		135FE18F133A7C4100359621 /* KLImageView */ = {
+			isa = PBXGroup;
+			children = (
+				135FE190133A7C5C00359621 /* KLImageView.h */,
+				135FE191133A7C5C00359621 /* KLImageView.m */,
+			);
+			name = KLImageView;
 			sourceTree = "<group>";
 		};
 		137B64661337A395001459F8 /* TouchJSON */ = {
@@ -315,6 +336,7 @@
 		137B64A31337AB50001459F8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				135FE18F133A7C4100359621 /* KLImageView */,
 				137B64A61337AB8E001459F8 /* TableViewCells */,
 			);
 			name = Views;
@@ -405,6 +427,8 @@
 				1389D7B912AC390C004602FF /* NSStringNSNullHelper.m */,
 				1389D7BA12AC390C004602FF /* NSStringKLExtensions.h */,
 				1389D7BB12AC390C004602FF /* NSStringKLExtensions.m */,
+				135FE194133A9B9A00359621 /* NSString+MD5.h */,
+				135FE195133A9B9A00359621 /* NSString+MD5.m */,
 			);
 			name = NSString;
 			sourceTree = "<group>";
@@ -553,6 +577,8 @@
 				135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */,
 				135FE171133A6C6800359621 /* KLURLCache.h in Headers */,
 				135FE175133A729900359621 /* KLURLCacheConnection.h in Headers */,
+				135FE192133A7C5C00359621 /* KLImageView.h in Headers */,
+				135FE196133A9B9A00359621 /* NSString+MD5.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,6 +663,8 @@
 				135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */,
 				135FE172133A6C6800359621 /* KLURLCache.m in Sources */,
 				135FE176133A729900359621 /* KLURLCacheConnection.m in Sources */,
+				135FE193133A7C5D00359621 /* KLImageView.m in Sources */,
+				135FE197133A9B9A00359621 /* NSString+MD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

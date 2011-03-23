@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KLURLCacheConnection.h"
 
+extern NSString* const KLURLCacheDidLoadContentsOfURLNotification;
+extern NSString* const KLURLCacheURLKey;
 
-@interface KLURLCache : NSObject 
+@interface KLURLCache : NSObject <KLURLCacheConnectionDelegate>
 {    
 }
 + (NSData*)contentsOfURL: (NSURL*)url;

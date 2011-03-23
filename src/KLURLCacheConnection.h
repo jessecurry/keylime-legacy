@@ -13,24 +13,31 @@
 @protocol KLURLCacheConnectionDelegate;
 @interface KLURLCacheConnection : NSObject 
 {    
-    id<KLURLCacheConnectionDelegate>    delegate;
+    Class<KLURLCacheConnectionDelegate>    delegate;
 	NSMutableData*                      receivedData;
 	NSDate*                             lastModified;
 	NSURLConnection*                    connection;
+    
+    NSURL*                              url;
+    NSString*                           filePath;
+    id<NSObject>                        context;
 }
-@property (nonatomic, assign) id<KLURLCacheConnectionDelegate>  delegate;
+@property (nonatomic, assign) Class<KLURLCacheConnectionDelegate>  delegate;
 @property (nonatomic, retain) NSURLConnection*                  connection;
 @property (nonatomic, retain) NSMutableData*                    receivedData;
 @property (nonatomic, retain) NSDate*                           lastModified;
+@property (nonatomic, readonly, retain) NSURL*                  url;
+@property (nonatomic, retain) NSString*                         filePath;
+@property (nonatomic, retain) id<NSObject>                      context;
 
 - (id)initWithURL: (NSURL*)theURL 
-         delegate: (id<KLURLCacheConnectionDelegate>)theDelegate;
+         delegate: (Class<KLURLCacheConnectionDelegate>)theDelegate;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @protocol KLURLCacheConnectionDelegate<NSObject>
-- (void)connection: (KLURLCacheConnection*)theConnection
-  didFailWithError: (NSError*)error;
-- (void)connectionDidFinish: (KLURLCacheConnection*)theConnection;
++ (void)cacheConnection: (KLURLCacheConnection*)theConnection
+       didFailWithError: (NSError*)error;
++ (void)cacheConnectionDidFinish: (KLURLCacheConnection*)theConnection;
 @end
