@@ -17,5 +17,7 @@
                                  fetchOffset: (NSUInteger)fetchOffset
                               fetchBatchSize: (NSUInteger)fetchBatchSize
                              sortDescriptors: (NSArray*)sortDescriptors;
++ (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+                             sortDescriptors: (NSArray*)sortDescriptors;
 + (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext;
 @end

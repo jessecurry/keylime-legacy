@@ -47,6 +47,7 @@
 }
 
 + (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+                             sortDescriptors: (NSArray*)sortDescriptors
 {
     return [[self class] allObjectsInManagedObjectContext: managedObjectContext 
                                                 predicate: nil 
@@ -54,6 +55,12 @@
                                                fetchLimit: 0 
                                               fetchOffset: 0 
                                            fetchBatchSize: FETCH_BATCH_SIZE 
+                                          sortDescriptors: sortDescriptors];
+}
+
++ (NSArray*)allObjectsInManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+{
+    return [[self class] allObjectsInManagedObjectContext: managedObjectContext
                                           sortDescriptors: nil];
 }
 
