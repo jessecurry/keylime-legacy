@@ -21,6 +21,10 @@
 #import "NSStringKLExtensions.h"
 
 #pragma mark -
+#pragma mark UIColor
+#import "UIColor+HexRGB.h"
+
+#pragma mark -
 #pragma mark UIImage
 #import "UIImageKLExtensions.h"
 
