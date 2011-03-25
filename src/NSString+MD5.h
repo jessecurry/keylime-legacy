@@ -10,5 +10,10 @@
 #import <CommonCrypto/CommonDigest.h>
 
 @interface NSString (NSString_MD5)
+/**
+ hashes the contents of the receiver.
+
+ @returns   NSString containing the results of an MD5 hash on the receiver.
+ */
 - (NSString*)MD5String;
 @end

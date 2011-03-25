@@ -10,5 +10,12 @@
 
 
 @interface UIImage ( KLExtensions )
+/**
+ creates a thumbnail from the receiver
+ 
+ @param     maxSize a CGSize representing the maximum size of the returned thumbnail.
+ 
+ @returns   UIImage constrained to the maxSize.
+ */
 - (UIImage*)thumbnailWithMaximumSize: (CGSize)maxSize;
 @end

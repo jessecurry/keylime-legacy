@@ -10,6 +10,14 @@
 
 
 @interface UIView ( Helpers )
+/**
+ Adds a UILabel to the receiver.
+ 
+ @param     frame frame for the new label
+ @param     autoResizingMask autoresizing mask for the new label
+ 
+ @returns   pointer to the newly added UILabel.
+ */
 - (UILabel*)addLabelWithFrame: (CGRect)frame
 			 autoResizingMask: (UIViewAutoresizing)autoResizingMask;
 @end

@@ -14,8 +14,23 @@
 + (NSString*)stringFromTimeIntervalWithMSH: (NSTimeInterval)timeInterval;
 + (NSString*)stringFromTimeIntervalWithMSt: (NSTimeInterval)timeInterval;
 
+/**
+ Returns an NSString 
+ 
+ This method uses [NSString stringWithUTF8String:], but checks for
+ NULL first. Newline and whitespace characters are also trimmed.
+ 
+ @param     chars char*
+ 
+ @returns   NSString constructed from the contents of the char* or nil
+ */
 + (NSString*)stringWithCharsIfNotNull: (char*)chars;
 
 // Instance
+/**
+ removes entity references from the receiver.
+ 
+ @returns   NSString with entity references replaced.
+ */
 - (NSString*)stringByDecodingXMLEntities;
 @end

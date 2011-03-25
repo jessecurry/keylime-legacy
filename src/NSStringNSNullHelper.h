@@ -9,6 +9,15 @@
 #import <Foundation/Foundation.h>
 
 
-@interface NSString ( NSNullHelper ) 
+@interface NSString ( NSNullHelper )
+/**
+ Checks if value is an NSString
+ 
+ 
+ 
+ @param     value the suspected NSString
+
+ @returns   an NSString or nil
+ */
 + (NSString*)safeStringWithValue: (id)value;
 @end
