@@ -17,8 +17,6 @@
     CGFloat green = (((rgbValue & 0xFF00) >> 8)) / 255.0;
     CGFloat blue = ((rgbValue & 0xFF)) / 255.0;
     
-    KL_LOG(@"rgbValue: %d -> red: %.2f green: %.2f blue: %.2f alpha: %.2f", rgbValue, red, green, blue, alpha);
-    
     return [[self class] colorWithRed: red    
                                 green: green
                                  blue: blue
