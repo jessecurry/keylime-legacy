@@ -45,6 +45,11 @@ static NSDictionary* defaultRequestHeaders = nil;
 @synthesize urlConnection;
 @synthesize receivedData;
 
+// Pagination
+@synthesize currentPage;
+@synthesize numberOfPages;
+@synthesize resultsPerPage;
+
 - (id)init
 {
 	return nil;

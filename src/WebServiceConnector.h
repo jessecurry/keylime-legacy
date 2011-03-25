@@ -32,6 +32,11 @@
 	NSTimeInterval			startTime;
 	NSTimeInterval			responseTime;
 	NSTimeInterval			postParseTime;
+    
+    // Pagination
+    NSUInteger              currentPage;
+    NSUInteger              numberOfPages;
+    NSUInteger              resultsPerPage;
 }
 @property (nonatomic, retain) NSDictionary* parameters;
 @property (nonatomic, retain) NSDictionary* requestHeaderFields;
@@ -43,6 +48,10 @@
 @property (nonatomic, retain) id context;
 @property (nonatomic, readonly) NSInteger statusCode;
 @property (nonatomic, retain) NSDictionary* responseHeaderFields;
+
+@property (nonatomic, assign) NSUInteger  currentPage;
+@property (nonatomic, assign) NSUInteger  numberOfPages;
+@property (nonatomic, assign) NSUInteger  resultsPerPage;
 
 + (NSInteger)connectionCount;
 
