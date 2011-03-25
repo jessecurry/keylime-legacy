@@ -51,26 +51,29 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
 + (NSData*)contentsOfURL: (NSURL*)url
 {
     NSData* fileData = nil;
-    
-    NSString* filePath = [[self class] filePathForURL: url];
-    
-    NSDate* fileDate = [[self class] fileModificationDateForFilePath: filePath];
-	/* get the elapsed time since last file update */
-	NSTimeInterval time = fabs([fileDate timeIntervalSinceNow]);
-	
-    if ( time > KLURLCacheInterval ) 
+
+    if ( url )
     {
-		// file doesn't exist or hasn't been updated since the cache interval
-		KLURLCacheConnection* connection = [[KLURLCacheConnection alloc] initWithURL: url 
-                                                                            delegate: [self class]];
-        connection.filePath = filePath;
-         KL_LOG(@"[%@]fetching data for URL: %@", CLASS_NAME, [url absoluteString]);
-	}
-	else 
-    {
-        KL_LOG(@"[%@]loading cached data for URL: %@", CLASS_NAME, [url absoluteString]);
-		fileData = [NSData dataWithContentsOfFile: filePath];
-	}
+        NSString* filePath = [[self class] filePathForURL: url];
+        
+        NSDate* fileDate = [[self class] fileModificationDateForFilePath: filePath];
+        /* get the elapsed time since last file update */
+        NSTimeInterval time = fabs([fileDate timeIntervalSinceNow]);
+        
+        if ( time > KLURLCacheInterval ) 
+        {
+            // file doesn't exist or hasn't been updated since the cache interval
+            KLURLCacheConnection* connection = [[KLURLCacheConnection alloc] initWithURL: url 
+                                                                                delegate: [self class]];
+            connection.filePath = filePath;
+             KL_LOG(@"[%@]fetching data for URL: %@", CLASS_NAME, [url absoluteString]);
+        }
+        else 
+        {
+            KL_LOG(@"[%@]loading cached data for URL: %@", CLASS_NAME, [url absoluteString]);
+            fileData = [NSData dataWithContentsOfFile: filePath];
+        }
+    }
     
     return fileData;
 }

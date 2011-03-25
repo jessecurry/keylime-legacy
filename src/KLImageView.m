@@ -28,17 +28,26 @@
 - (void)loadImageWithURL: (NSURL*)url
 {
     self.imageURL = url;
-    NSData* imageData = [KLURLCache contentsOfURL: self.imageURL];
-    if ( imageData )
+    
+    if ( self.imageURL )
     {
-        self.image = [UIImage imageWithData: imageData];
+        NSData* imageData = [KLURLCache contentsOfURL: self.imageURL];
+        if ( imageData )
+        {
+            self.image = [UIImage imageWithData: imageData];
+        }
+        else
+        {
+            self.image = nil;
+            [[NSNotificationCenter defaultCenter] addObserver: self 
+                                                     selector: @selector(imageDataAvailable:) 
+                                                         name: KLURLCacheDidLoadContentsOfURLNotification 
+                                                       object: [KLURLCache class]];
+        }
     }
     else
     {
-        [[NSNotificationCenter defaultCenter] addObserver: self 
-                                                 selector: @selector(imageDataAvailable:) 
-                                                     name: KLURLCacheDidLoadContentsOfURLNotification 
-                                                   object: [KLURLCache class]];
+        self.image = nil;
     }
 }
 
