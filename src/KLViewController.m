@@ -210,6 +210,10 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 		{
 			KL_LOG( @"[%@]Unresolved error %@, %@", [[self class] description], error, [error userInfo] );
 		}
+		else
+		{
+			KL_LOG(@"[%@]loaded %d objects", CLASS_NAME, [frc.fetchedObjects count]);
+		}
 	}
 	
 	tableView.dataSource = self;
