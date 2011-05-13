@@ -730,6 +730,7 @@
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -744,6 +745,7 @@
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
