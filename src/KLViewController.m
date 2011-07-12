@@ -626,7 +626,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	
 	UIView* headerView = [[UIView alloc] initWithFrame: CGRectMake( 0, 0, 320, adjustedHeight )];
 	headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-	headerView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.35];
+	headerView.backgroundColor = [UIColor colorWithWhite: 0.0 alpha: 0.95];
 	
 	UILabel* headerLabel = [[UILabel alloc] initWithFrame: CGRectMake( 10, 2, 300, adjustedHeight )];
 	headerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
