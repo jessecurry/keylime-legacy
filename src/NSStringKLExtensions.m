@@ -155,4 +155,15 @@
 	return result;
 }
 
+- (BOOL)isNumeric
+{
+	NSScanner* sc = [NSScanner scannerWithString: self];
+	if ( [sc scanFloat: NULL] )
+	{
+		return [sc isAtEnd];
+	}
+	
+	return NO;
+}
+
 @end
