@@ -17,10 +17,10 @@
     CGFloat green = (((rgbValue & 0xFF00) >> 8)) / 255.0;
     CGFloat blue = ((rgbValue & 0xFF)) / 255.0;
     
-    return [[self class] colorWithRed: red    
-                                green: green
-                                 blue: blue
-                                alpha: alpha];
+    return (UIColor*)[[self class] colorWithRed: red    
+										  green: green
+										   blue: blue
+										  alpha: alpha];
 }
 
 + (UIColor*)colorWithRGB: (NSUInteger)rgbValue

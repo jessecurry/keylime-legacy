@@ -33,4 +33,8 @@
  @returns   NSString with entity references replaced.
  */
 - (NSString*)stringByDecodingXMLEntities;
+
+
+- (BOOL)isNumeric;
+
 @end

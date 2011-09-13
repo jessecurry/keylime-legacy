@@ -3,7 +3,7 @@
 //  TrainerApp
 //
 //  Created by Jesse Curry on 12/1/09.
-//  Copyright 2009 Jesse Curry.. All rights reserved.
+//  Copyright 2009 Circonda, Inc.. All rights reserved.
 //
 
 #import "NSStringKLExtensions.h"
@@ -94,8 +94,11 @@
 			[result appendString: @">"];
 		else if ( [scanner scanString: @"&nbsp;" intoString: NULL] )
 			[result appendString: @" "];
-		else if ( [scanner scanString: @"&mdash;" intoString: NULL] )
+		else if ( [scanner scanString: @"&mdash;" intoString: NULL]
+				 || [scanner scanString: @"&ndash;" intoString: NULL] )
 			[result appendString: @"–"];
+		else if ( [scanner scanString: @"&ordm;" intoString: NULL] )
+			[result appendString: [NSString stringWithUTF8String: "\xC2\xB0"]];
 		else if ( [scanner scanString: @"&#" intoString: NULL] )
 		{
 			BOOL gotNumber;
@@ -128,7 +131,7 @@
 				
 				//[scanner scanUpToString:@";" intoString:&unknownEntity];
 				//[result appendFormat:@"&#%@%@;", xForHex, unknownEntity];
-				KL_LOG(@"Expected numeric character entity but got &#%@%@;", xForHex, unknownEntity);
+				NSLog(@"Expected numeric character entity but got &#%@%@;", xForHex, unknownEntity);
 			}
 		}
 		else
@@ -144,12 +147,23 @@
 			 NSString *semicolon = @"";
 			 [scanner scanString:@";" intoString:&semicolon];
 			 [result appendFormat:@"%@%@", unknownEntity, semicolon];
-			 KL_LOG(@"Unsupported XML character entity %@%@", unknownEntity, semicolon);
+			 NSLog(@"Unsupported XML character entity %@%@", unknownEntity, semicolon);
 			 */
 		}
 	} while ( ![scanner isAtEnd] );
 	
 	return result;
+}
+
+- (BOOL)isNumeric
+{
+	NSScanner* sc = [NSScanner scannerWithString: self];
+	if ( [sc scanFloat: NULL] )
+	{
+		return [sc isAtEnd];
+	}
+	
+	return NO;
 }
 
 @end

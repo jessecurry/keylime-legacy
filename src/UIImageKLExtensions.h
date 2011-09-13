@@ -10,6 +10,10 @@
 
 
 @interface UIImage ( KLExtensions )
+
++ (UIImage*)imageWithColor: (UIColor*)color;
+
+
 /**
  creates a thumbnail from the receiver
  
@@ -18,4 +22,7 @@
  @returns   UIImage constrained to the maxSize.
  */
 - (UIImage*)thumbnailWithMaximumSize: (CGSize)maxSize;
+
+- (UIImage*)imageWithTint: (UIColor*)theColor;
+- (UIImage*)imageScaledToSizeWithSameAspectRatio: (CGSize)targetSize;
 @end
