@@ -45,6 +45,7 @@
 @property (nonatomic, readonly) NSMutableDictionary*	refreshHeaderViewDictionary;
 @property (nonatomic, readonly) NSMutableDictionary*	checkForRefreshDictionary;
 @property (nonatomic, readonly) NSMutableDictionary*	tableViewReloadingDictionary;
+@property (nonatomic, assign)   BOOL                    hidesNavigationBarWhenPushed;
 
 + (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultManagedObjectContext;
 

@@ -32,6 +32,7 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 @implementation KLViewController
 @synthesize managedObjectContext;
 @synthesize popoverController;
+@synthesize hidesNavigationBarWhenPushed=_hidesNavigationBarWhenPushed;
 
 + (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultMoC
 {
@@ -68,6 +69,14 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+}
+
+- (void)viewWillAppear: (BOOL)animated
+{
+    [super viewWillAppear: animated];
+    
+    [self.navigationController setNavigationBarHidden: self.hidesNavigationBarWhenPushed 
+                                             animated: animated];
 }
 
 - (void)viewWillDisappear: (BOOL)animated

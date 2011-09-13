@@ -73,8 +73,8 @@
 		1389D80A12AC40CF004602FF /* KLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80012AC40CF004602FF /* KLViewController.m */; };
 		1389D80B12AC40CF004602FF /* LocationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D80212AC40CF004602FF /* LocationViewController.h */; };
 		1389D80C12AC40CF004602FF /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80312AC40CF004602FF /* LocationViewController.m */; };
-		1389D80D12AC40CF004602FF /* WebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D80612AC40CF004602FF /* WebViewController.h */; };
-		1389D80E12AC40CF004602FF /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80712AC40CF004602FF /* WebViewController.m */; };
+		1389D80D12AC40CF004602FF /* KLWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D80612AC40CF004602FF /* KLWebViewController.h */; };
+		1389D80E12AC40CF004602FF /* KLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D80712AC40CF004602FF /* KLWebViewController.m */; };
 		1389D81512AC4131004602FF /* AlertUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 1389D81312AC4131004602FF /* AlertUtility.h */; };
 		1389D81612AC4131004602FF /* AlertUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 1389D81412AC4131004602FF /* AlertUtility.m */; };
 		1389D82812AC4296004602FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82712AC4296004602FF /* CoreGraphics.framework */; };
@@ -157,8 +157,8 @@
 		1389D80212AC40CF004602FF /* LocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		1389D80312AC40CF004602FF /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		1389D80412AC40CF004602FF /* LocationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationViewController.xib; sourceTree = "<group>"; };
-		1389D80612AC40CF004602FF /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		1389D80712AC40CF004602FF /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		1389D80612AC40CF004602FF /* KLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLWebViewController.h; sourceTree = "<group>"; };
+		1389D80712AC40CF004602FF /* KLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLWebViewController.m; sourceTree = "<group>"; };
 		1389D80812AC40CF004602FF /* WebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		1389D81312AC4131004602FF /* AlertUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtility.h; sourceTree = "<group>"; };
 		1389D81412AC4131004602FF /* AlertUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtility.m; sourceTree = "<group>"; };
@@ -501,8 +501,8 @@
 		1389D80512AC40CF004602FF /* WebViewController */ = {
 			isa = PBXGroup;
 			children = (
-				1389D80612AC40CF004602FF /* WebViewController.h */,
-				1389D80712AC40CF004602FF /* WebViewController.m */,
+				1389D80612AC40CF004602FF /* KLWebViewController.h */,
+				1389D80712AC40CF004602FF /* KLWebViewController.m */,
 				1389D80812AC40CF004602FF /* WebViewController.xib */,
 			);
 			name = WebViewController;
@@ -567,7 +567,7 @@
 				1389D7FC12AC40AF004602FF /* WebServiceConnector.h in Headers */,
 				1389D80912AC40CF004602FF /* KLViewController.h in Headers */,
 				1389D80B12AC40CF004602FF /* LocationViewController.h in Headers */,
-				1389D80D12AC40CF004602FF /* WebViewController.h in Headers */,
+				1389D80D12AC40CF004602FF /* KLWebViewController.h in Headers */,
 				1389D81512AC4131004602FF /* AlertUtility.h in Headers */,
 				138CB3DE12BAA27300DF8EF4 /* UIImageKLExtensions.h in Headers */,
 				137B647F1337A3B4001459F8 /* CDataScanner.h in Headers */,
@@ -623,7 +623,6 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Jesse Curry";
 			};
@@ -658,7 +657,7 @@
 				1389D7FD12AC40AF004602FF /* WebServiceConnector.m in Sources */,
 				1389D80A12AC40CF004602FF /* KLViewController.m in Sources */,
 				1389D80C12AC40CF004602FF /* LocationViewController.m in Sources */,
-				1389D80E12AC40CF004602FF /* WebViewController.m in Sources */,
+				1389D80E12AC40CF004602FF /* KLWebViewController.m in Sources */,
 				1389D81612AC4131004602FF /* AlertUtility.m in Sources */,
 				138CB3DF12BAA27300DF8EF4 /* UIImageKLExtensions.m in Sources */,
 				137B64801337A3B4001459F8 /* CDataScanner.m in Sources */,
@@ -696,6 +695,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -729,8 +729,8 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 				SKIP_INSTALL = YES;
@@ -746,8 +746,8 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 				SKIP_INSTALL = YES;
@@ -763,6 +763,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
@@ -776,6 +777,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;
