@@ -16,11 +16,14 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation KLImageView
+@synthesize failureImage=_failureImage;
 @synthesize imageURL;
 
 - (void)dealloc
 {
+    self.failureImage = nil;
     [imageURL release];
+    
     [super dealloc];
 }
 
@@ -57,7 +60,17 @@
 {
     if ( [self.imageURL isEqual: [[notification userInfo] objectForKey: KLURLCacheURLKey]] )
     {
-        self.image = [UIImage imageWithData: [KLURLCache contentsOfURL: self.imageURL]];
+        UIImage* returnedImage = [UIImage imageWithData: [KLURLCache contentsOfURL: self.imageURL]];
+        if ( returnedImage )
+        {
+            self.image = returnedImage;
+        }
+        else // no image date returned
+        {
+            if ( self.failureImage )
+                self.image = self.failureImage;
+            // else - leave the current .image property alone.
+        }
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver: self 
