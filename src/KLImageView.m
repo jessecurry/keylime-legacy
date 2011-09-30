@@ -35,13 +35,16 @@
     if ( self.imageURL )
     {
         NSData* imageData = [KLURLCache contentsOfURL: self.imageURL];
-        if ( imageData )
+        UIImage* imageFromData = [UIImage imageWithData: imageData];
+        if ( imageFromData )
         {
-            self.image = [UIImage imageWithData: imageData];
+            self.image = imageFromData;
         }
         else
         {
-            self.image = nil;
+//            self.image = self.failureImage; // Do nothing for now
+//            [KLURLCache clearCacheOfURL: self.imageURL];
+            
             [[NSNotificationCenter defaultCenter] addObserver: self 
                                                      selector: @selector(imageDataAvailable:) 
                                                          name: KLURLCacheDidLoadContentsOfURLNotification 
@@ -50,7 +53,7 @@
     }
     else
     {
-        self.image = nil;
+        self.image = self.failureImage;
     }
 }
 
@@ -65,11 +68,14 @@
         {
             self.image = returnedImage;
         }
-        else // no image date returned
+        else // no image data returned
         {
             if ( self.failureImage )
                 self.image = self.failureImage;
             // else - leave the current .image property alone.
+            
+            // Make sure our cache is clear
+            [KLURLCache clearCacheOfURL: self.imageURL];
         }
     }
     
