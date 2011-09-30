@@ -77,11 +77,11 @@
             // Make sure our cache is clear
             [KLURLCache clearCacheOfURL: self.imageURL];
         }
+        
+        [[NSNotificationCenter defaultCenter] removeObserver: self 
+                                                        name: KLURLCacheDidLoadContentsOfURLNotification 
+                                                      object: [KLURLCache class]];
     }
-    
-    [[NSNotificationCenter defaultCenter] removeObserver: self 
-                                                    name: KLURLCacheDidLoadContentsOfURLNotification 
-                                                  object: [KLURLCache class]];
 }
 
 @end
