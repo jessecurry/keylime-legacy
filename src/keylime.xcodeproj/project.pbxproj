@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1310B21B1337DDA200495B90 /* KLFetchedResultsSearchData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */; };
 		1310B21C1337DDA200495B90 /* KLFetchedResultsSearchData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */; };
+		131ABD801474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h in Headers */ = {isa = PBXBuildFile; fileRef = 131ABD7E1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h */; };
+		131ABD811474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */; };
 		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
 		135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */; };
 		135FE171133A6C6800359621 /* KLURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE16F133A6C6800359621 /* KLURLCache.h */; };
@@ -91,6 +93,8 @@
 /* Begin PBXFileReference section */
 		1310B2191337DDA200495B90 /* KLFetchedResultsSearchData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLFetchedResultsSearchData.h; sourceTree = "<group>"; };
 		1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLFetchedResultsSearchData.m; sourceTree = "<group>"; };
+		131ABD7E1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSObject_DynamicTableViewCells.h"; sourceTree = "<group>"; };
+		131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSObject_DynamicTableViewCells.m"; sourceTree = "<group>"; };
 		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
 		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
 		135FE16F133A6C6800359621 /* KLURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCache.h; sourceTree = "<group>"; };
@@ -246,6 +250,15 @@
 				1310B21A1337DDA200495B90 /* KLFetchedResultsSearchData.m */,
 			);
 			name = "Search Data";
+			sourceTree = "<group>";
+		};
+		131ABD821474078700E7B790 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				131ABD7E1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h */,
+				131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */,
+			);
+			name = NSObject;
 			sourceTree = "<group>";
 		};
 		135FE110133A3D0500359621 /* NSManagedObject */ = {
@@ -412,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				1389D79D12AC369F004602FF /* KLCategories.h */,
+				131ABD821474078700E7B790 /* NSObject */,
 				135FE110133A3D0500359621 /* NSManagedObject */,
 				137B64BB1337ACAF001459F8 /* NSNumber */,
 				1389D7B712AC3901004602FF /* NSString */,
@@ -594,6 +608,7 @@
 				135FE192133A7C5C00359621 /* KLImageView.h in Headers */,
 				135FE196133A9B9A00359621 /* NSString+MD5.h in Headers */,
 				135FE1CD133D0AB800359621 /* UIColor+HexRGB.h in Headers */,
+				131ABD801474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +697,7 @@
 				135FE193133A7C5D00359621 /* KLImageView.m in Sources */,
 				135FE197133A9B9A00359621 /* NSString+MD5.m in Sources */,
 				135FE1CE133D0AB800359621 /* UIColor+HexRGB.m in Sources */,
+				131ABD811474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +728,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 			};

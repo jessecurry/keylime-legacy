@@ -39,8 +39,19 @@
 #pragma mark API
 - (void)configureWithDataObject: (id)theDataObject
 {
-	//KL_LOG(@"[%@]configureWithDataObject: %@", NSStringFromClass([self class]), NSStringFromClass([theDataObject class]));
+	KL_LOG(@"[%@]configureWithDataObject: %@", NSStringFromClass([self class]), NSStringFromClass([theDataObject class]));
 	self.dataObject = theDataObject;
+    
+    if ( [self.dataObject isKindOfClass: [NSString class]] )
+	{
+		self.textLabel.text = (NSString*)dataObject;
+		self.accessoryType = UITableViewCellAccessoryNone;
+	}
+	else
+	{	
+		self.textLabel.text = NSStringFromClass([dataObject class]);
+		self.accessoryType = UITableViewCellAccessoryNone;
+	}
 }
 
 #pragma mark -

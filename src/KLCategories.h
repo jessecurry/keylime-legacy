@@ -8,6 +8,10 @@
  */
 
 #pragma mark -
+#pragma mark NSObject
+#import "NSObject+NSObject_DynamicTableViewCells.h"
+
+#pragma mark -
 #pragma mark NSManagedObject
 #import "NSManagedObjectHelpers.h"
 
