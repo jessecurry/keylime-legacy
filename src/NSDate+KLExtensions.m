@@ -13,14 +13,26 @@
 - (NSDate*)dateFor: (KLDateType)dateType 
 {
     NSCalendar* calendar = [NSCalendar currentCalendar];
-
+    
+    int components = (NSEraCalendarUnit | NSYearCalendarUnit 
+                      | NSMonthCalendarUnit | NSWeekCalendarUnit 
+                      | NSWeekdayCalendarUnit | NSDayCalendarUnit 
+                      | NSTimeZoneCalendarUnit);
+    
+    // Remove day component
+    if ( dateType == KLDateTypeThisWeek 
+        || dateType == KLDateTypeNextWeek 
+        || dateType == KLDateTypeLastWeek )
+    {
+        components = (NSEraCalendarUnit | NSYearCalendarUnit 
+                      | NSMonthCalendarUnit | NSWeekCalendarUnit 
+                      | NSWeekdayCalendarUnit | NSTimeZoneCalendarUnit);
+    }
+    
     NSDateComponents* comps =
-        [calendar components: (NSEraCalendarUnit | NSYearCalendarUnit 
-                               | NSMonthCalendarUnit | NSWeekCalendarUnit 
-                               | NSWeekdayCalendarUnit | NSDayCalendarUnit 
-                               | NSTimeZoneCalendarUnit)
-                    fromDate: self];
-
+    [calendar components: components
+                fromDate: self];
+    
     if ( dateType == KLDateTypeToday )
     {
         // no-op
@@ -65,7 +77,7 @@
     {
         return nil;
     }
-
+    
     return [calendar dateFromComponents: comps];
 }
 
