@@ -15,7 +15,10 @@
     NSCalendar* calendar = [NSCalendar currentCalendar];
 
     NSDateComponents* comps =
-        [calendar components: (NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+        [calendar components: (NSEraCalendarUnit | NSYearCalendarUnit 
+                               | NSMonthCalendarUnit | NSWeekCalendarUnit 
+                               | NSWeekdayCalendarUnit | NSDayCalendarUnit 
+                               | NSTimeZoneCalendarUnit)
                     fromDate: self];
 
     if ( dateType == KLDateTypeToday )
