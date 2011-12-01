@@ -16,6 +16,10 @@
 #import "NSManagedObjectHelpers.h"
 
 #pragma mark -
+#pragma mark NSDate
+#import "NSDate+KLExtensions.h"
+
+#pragma mark -
 #pragma mark NSNumber
 #import "NSNumberNSNullHelper.h"
 
