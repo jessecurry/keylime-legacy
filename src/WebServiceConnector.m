@@ -29,6 +29,8 @@ static NSDictionary* defaultRequestHeaders = nil;
 + (NSMutableArray*)webServiceConnectorQueue;
 + (void)processQueue;
 - (void)reallyStart;
+
++ (NSString*)reallyEncodeString: (NSString*)unencodedString;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -273,9 +275,10 @@ static NSDictionary* defaultRequestHeaders = nil;
 		NSUInteger parametersAdded = 0;
 		for ( NSString* key in parameters )
 		{
-            NSString* name = [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-            NSString* value = [[parameters objectForKey: key] isKindOfClass: [NSString class]] ? [parameters objectForKey: key] : nil;
-            value = [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+            NSString* name = [[self class] reallyEncodeString: key];
+            NSString* vv = [parameters objectForKey: key];
+            NSString* value = [vv isKindOfClass: [NSString class]] ? vv : nil;
+            value = [[self class] reallyEncodeString: value];
             
             if ( name && value )
             {
@@ -382,6 +385,18 @@ didReceiveResponse: (NSURLResponse*)response
     KL_LOG(@"[%@]response: %.5f - parse: %.5f", urlString, responseTime - startTime, postParseTime - startTime);
     
     [WebServiceConnector processQueue]; // since this connection is done we can try to kick off others
+}
+
+#pragma mark Utility
++ (NSString*)reallyEncodeString: (NSString*)unencodedString
+{
+    NSString* encodedString = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,
+                                                                                 (CFStringRef)unencodedString,
+                                                                                 NULL,
+                                                                                 (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                 kCFStringEncodingUTF8 );
+    
+    return [encodedString autorelease];
 }
 
 @end
