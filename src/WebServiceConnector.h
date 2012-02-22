@@ -66,6 +66,7 @@
 + (NSInteger)maxConnectionCount;
 + (void)setMaxConnectionCount: (NSInteger)maxConnectionCount;
 
+@property (nonatomic, readonly) NSString*		urlStringWithParameters;
 
 - (id)initWithURLString: (NSString*)urlString
 			 parameters: (NSDictionary*)parameters
