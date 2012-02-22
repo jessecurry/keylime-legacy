@@ -24,7 +24,7 @@ static NSDictionary* defaultRequestHeaders = nil;
 @property (nonatomic, retain) NSMutableData*	receivedData;
 @property (nonatomic, readonly) NSString*		webServiceRoot;
 @property (nonatomic, readonly) NSString*		webServiceFormatSpecifier;
-@property (nonatomic, readonly) NSString*		urlStringWithParameters;
+//@property (nonatomic, readonly) NSString*		urlStringWithParameters; // Made public
 
 + (NSMutableArray*)webServiceConnectorQueue;
 + (void)processQueue;
