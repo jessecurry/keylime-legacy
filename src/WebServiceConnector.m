@@ -274,7 +274,7 @@ static NSDictionary* defaultRequestHeaders = nil;
 		for ( NSString* key in parameters )
 		{
             NSString* name = [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-            NSString* value = [parameters isKindOfClass: [NSString class]] ? [parameters objectForKey: key] : nil;
+            NSString* value = [[parameters objectForKey: key] isKindOfClass: [NSString class]] ? [parameters objectForKey: key] : nil;
             value = [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
             
             if ( name && value )
