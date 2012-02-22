@@ -273,10 +273,17 @@ static NSDictionary* defaultRequestHeaders = nil;
 		NSUInteger parametersAdded = 0;
 		for ( NSString* key in parameters )
 		{
-			retStr = [retStr stringByAppendingFormat: @"%@%@=%@",
-					  parametersAdded++ == 0 ? @"?" : @"&",
-					  key,
-					  [parameters objectForKey: key]];
+            NSString* name = [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+            NSString* value = [parameters isKindOfClass: [NSString class]] ? [parameters objectForKey: key] : nil;
+            value = [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+            
+            if ( name && value )
+            {
+                retStr = [retStr stringByAppendingFormat: @"%@%@=%@",
+                          parametersAdded++ == 0 ? @"?" : @"&",
+                          name,
+                          value];
+            }
 		}
 	}
 	
