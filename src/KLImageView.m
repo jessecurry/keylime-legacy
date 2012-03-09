@@ -24,6 +24,7 @@
     self.failureImage = nil;
     [imageURL release];
     
+	[[NSNotificationCenter defaultCenter] removeObserver: self];
     [super dealloc];
 }
 
