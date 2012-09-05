@@ -117,7 +117,7 @@
 			
 			if ( gotNumber )
 			{
-				[result appendFormat: @"%C", charCode];
+				[result appendFormat: @"%C", (unsigned short)charCode];
 				
 				[scanner scanString: @";" intoString: NULL];
 			}
