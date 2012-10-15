@@ -31,7 +31,7 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
 {
     // Create path to cache directory inside the application's Documents directory
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    dataPath = [[[paths objectAtIndex: 0] stringByAppendingPathComponent: KLURLCACHE_DATA_PATH] retain];
+    dataPath = [[paths objectAtIndex: 0] stringByAppendingPathComponent: KLURLCACHE_DATA_PATH];
     
 	// Check for (non)existence of cache directory
 	if ( ![[NSFileManager defaultManager] fileExistsAtPath: dataPath] ) 
@@ -162,7 +162,6 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
                                                                                                 forKey: KLURLCacheURLKey]];
     }
     
-    [theConnection release];
 }
 
 + (void)cacheConnectionDidFinish: (KLURLCacheConnection*)theConnection
@@ -200,7 +199,6 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
     {
 		// TODO: post error notification - unable to update file attributes
 	}
-	[dict release];
     
     // Notify interested parties of the availability of the cached image.
     if ( theURL )
@@ -211,7 +209,6 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
                                                                                                 forKey: KLURLCacheURLKey]];
     }
     
-    [theConnection release];
 }
 
 @end

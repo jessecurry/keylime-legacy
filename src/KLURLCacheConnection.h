@@ -23,12 +23,12 @@
     id<NSObject>                        context;
 }
 @property (nonatomic, assign) Class<KLURLCacheConnectionDelegate>  delegate;
-@property (nonatomic, retain) NSURLConnection*                  connection;
-@property (nonatomic, retain) NSMutableData*                    receivedData;
-@property (nonatomic, retain) NSDate*                           lastModified;
-@property (nonatomic, readonly, retain) NSURL*                  url;
-@property (nonatomic, retain) NSString*                         filePath;
-@property (nonatomic, retain) id<NSObject>                      context;
+@property (nonatomic, strong) NSURLConnection*                  connection;
+@property (nonatomic, strong) NSMutableData*                    receivedData;
+@property (nonatomic, strong) NSDate*                           lastModified;
+@property (nonatomic, readonly, strong) NSURL*                  url;
+@property (nonatomic, strong) NSString*                         filePath;
+@property (nonatomic, strong) id<NSObject>                      context;
 
 - (id)initWithURL: (NSURL*)theURL 
          delegate: (Class<KLURLCacheConnectionDelegate>)theDelegate;

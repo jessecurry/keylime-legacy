@@ -12,9 +12,9 @@ NSString* const kSearchStringKey = @"SEARCH_STRING";
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface KLFetchedResultsSearchData ()
-@property (nonatomic, retain) NSString*		searchString;
-@property (nonatomic, retain) NSArray*		dataSource;
-@property (nonatomic, retain) NSPredicate*	localPredicate;
+@property (nonatomic, strong) NSString*		searchString;
+@property (nonatomic, strong) NSArray*		dataSource;
+@property (nonatomic, strong) NSPredicate*	localPredicate;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,7 +31,7 @@ NSString* const kSearchStringKey = @"SEARCH_STRING";
 	{
 		[sd setPredicate: predicate];
 	}
-	return [sd autorelease];
+	return sd;
 }
 
 #pragma mark -
@@ -44,17 +44,6 @@ NSString* const kSearchStringKey = @"SEARCH_STRING";
 	return self;
 }
 
-- (void)dealloc
-{
-	[searchString release];
-	[dataSource release];
-	
-	[predicate release];
-	[localPredicate release];
-	[searchResults release];
-	
-	[super dealloc];
-}
 
 #pragma mark -
 - (void)updateSearchString: (NSString*)theSearchString
@@ -96,12 +85,10 @@ NSString* const kSearchStringKey = @"SEARCH_STRING";
 {
 if ( dirty )
 	{
-		[searchResults release];
 		if ( self.localPredicate )
 			searchResults = [self.dataSource filteredArrayUsingPredicate: self.localPredicate];
 		else
 			searchResults = nil;
-		[searchResults retain];
 		
 		// All clean!
 		dirty = NO;

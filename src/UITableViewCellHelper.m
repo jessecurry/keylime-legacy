@@ -17,7 +17,6 @@
 	label.font = [UIFont systemFontOfSize: 12.0];
 	label.backgroundColor = [UIColor clearColor];
 	[self.contentView addSubview: label];
-	[label release];
 	return label;
 }
 
@@ -28,7 +27,6 @@
 	rule.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	rule.backgroundColor = color;
 	[self.contentView addSubview: rule];
-	[rule release];
 	return rule;
 }
 

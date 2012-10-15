@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface WebServiceConnector : NSObject
 {
-	id<WebServiceConnectorDelegate>	delegate;
+	id<WebServiceConnectorDelegate>	__unsafe_unretained delegate;
 	
 	NSString*				urlString;
 	NSDictionary*			parameters;
@@ -38,16 +38,16 @@
     NSUInteger              numberOfPages;
     NSUInteger              resultsPerPage;
 }
-@property (nonatomic, retain) NSDictionary* parameters;
-@property (nonatomic, retain) NSDictionary* requestHeaderFields;
-@property (nonatomic, retain) NSData* httpBody;
-@property (nonatomic, retain) NSString* httpMethod;
-@property (nonatomic, assign) id<WebServiceConnectorDelegate> delegate;
+@property (nonatomic, strong) NSDictionary* parameters;
+@property (nonatomic, strong) NSDictionary* requestHeaderFields;
+@property (nonatomic, strong) NSData* httpBody;
+@property (nonatomic, strong) NSString* httpMethod;
+@property (nonatomic, unsafe_unretained) id<WebServiceConnectorDelegate> delegate;
 
 @property (nonatomic, assign) NSInteger tag;
-@property (nonatomic, retain) id context;
+@property (nonatomic, strong) id context;
 @property (nonatomic, readonly) NSInteger statusCode;
-@property (nonatomic, retain) NSDictionary* responseHeaderFields;
+@property (nonatomic, strong) NSDictionary* responseHeaderFields;
 
 @property (nonatomic, assign) NSUInteger  currentPage;
 @property (nonatomic, assign) NSUInteger  numberOfPages;
@@ -66,7 +66,7 @@
 + (NSInteger)maxConnectionCount;
 + (void)setMaxConnectionCount: (NSInteger)maxConnectionCount;
 
-@property (nonatomic, readonly) NSString*		urlStringWithParameters;
+@property (unsafe_unretained, nonatomic, readonly) NSString*		urlStringWithParameters;
 
 - (id)initWithURLString: (NSString*)urlString
 			 parameters: (NSDictionary*)parameters

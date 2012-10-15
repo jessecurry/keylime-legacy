@@ -20,13 +20,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[sectionNames release];
-	[sectionDatum release];
-	
-	[super dealloc];
-}
 
 #pragma mark -
 - (void)addSectionName: (NSString*)sectionName withData: (NSArray*)sectionData

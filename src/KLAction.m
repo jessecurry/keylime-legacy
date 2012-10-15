@@ -42,7 +42,7 @@ static KLAction* _lastAction = nil;
 		[ao setSelector: selector];
 		[ao setCellHeight: 44.0];
 	}
-	return [ao autorelease];
+	return ao;
 }
 
 + (id)objectWithTitle: (NSString*)title
@@ -87,14 +87,8 @@ static KLAction* _lastAction = nil;
 #pragma mark -
 - (void)dealloc
 {
-	self.iconImage = nil;
-	self.title = nil;
-	self.subtitle = nil;
-	self.accessoryView = nil;
-	self.backgroundView = nil;
 	self.selector = NULL;
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -132,8 +126,8 @@ static KLAction* _lastAction = nil;
 + (UITableViewCell*)tableViewCell
 {
     // JLC: need the reuse identifier here so cells are dequeued properly
-	return [[[[[self class] tableViewCellClass] alloc] initWithStyle: UITableViewCellStyleSubtitle 
-                                                     reuseIdentifier: [[self class] tableViewCellIdentifier]] autorelease];
+	return [[[[self class] tableViewCellClass] alloc] initWithStyle: UITableViewCellStyleSubtitle 
+                                                     reuseIdentifier: [[self class] tableViewCellIdentifier]];
 }
 
 @end
