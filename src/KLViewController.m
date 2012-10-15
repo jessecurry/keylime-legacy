@@ -24,7 +24,7 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface KLViewController ()
-@property (nonatomic, retain) UIPopoverController* popoverController;
+@property (nonatomic, strong) UIPopoverController* popoverController;
 - (NSString*)dictionaryKeyForView: (UIView*)theView;
 @end
 
@@ -50,19 +50,10 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 			[value setDelegate: nil];
 	}
 	
-	[tableData release];
-	[searchDisplayControllers release];
-	[searchData release];
-	[canPullToRefreshDictionary release];
-	[refreshHeaderViewDictionary release];
-	[checkForRefreshDictionary release];
-	[tableViewReloadingDictionary release];
 	
     //	if ( popoverController.popoverVisible )
     //		[self dismissPopoverAnimated: NO];
-	[popoverController release];
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -374,8 +365,8 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 {
 	[self dismissPopoverAnimated: animated]; // TODO: will this break anything?
 	
-	self.popoverController = [[[UIPopoverController alloc] 
-							   initWithContentViewController: viewController] autorelease];
+	self.popoverController = [[UIPopoverController alloc] 
+							   initWithContentViewController: viewController];
 	self.popoverController.delegate = self;
 	[self.popoverController presentPopoverFromRect: rect 
 											inView: self.view 
@@ -390,8 +381,8 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 {
 	[self dismissPopoverAnimated: animated]; // TODO: will this break anything?
 	
-	self.popoverController = [[[UIPopoverController alloc] 
-							   initWithContentViewController: viewController] autorelease];
+	self.popoverController = [[UIPopoverController alloc] 
+							   initWithContentViewController: viewController];
 	self.popoverController.delegate = self;
 	[self.popoverController presentPopoverFromBarButtonItem: item 
 								   permittedArrowDirections: arrowDirections 
@@ -447,8 +438,8 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 		if ( [[dataObject class] respondsToSelector: @selector(tableViewCell)] )
 			cell = (KLTableViewCell*)[[dataObject class] tableViewCell];
 		else
-			cell = [[[KLTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle 
-										   reuseIdentifier: cellIdentifier] autorelease];
+			cell = [[KLTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle 
+										   reuseIdentifier: cellIdentifier];
         
         //KL_LOG(@"<< Created cell with identifier: %@", cellIdentifier);
 	}
@@ -588,13 +579,14 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 	if ( [[dataObject class] respondsToSelector: dataObjectStylerSelector] )
 	{	
 		CGFloat ret;
-		UIFont* font = [UIFont systemFontOfSize: 17];
+		__unsafe_unretained UIFont* font = [UIFont systemFontOfSize: 17];
+		__unsafe_unretained id dataArgument = dataObject;
 		
 		NSMethodSignature* stylerMethodSignature = [[dataObject class] methodSignatureForSelector: dataObjectStylerSelector];
 		NSInvocation* stylerInvocation = [NSInvocation invocationWithMethodSignature: stylerMethodSignature];
 		[stylerInvocation setSelector: dataObjectStylerSelector];
 		[stylerInvocation setTarget: [dataObject class]];
-		[stylerInvocation setArgument: &dataObject atIndex: 2];
+		[stylerInvocation setArgument: &dataArgument atIndex: 2];
 		[stylerInvocation setArgument: &font atIndex: 3];
 		[stylerInvocation invoke];
 		
@@ -645,9 +637,8 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	headerLabel.text = [self tableView: theTableView titleForHeaderInSection: section];
 	
 	[headerView addSubview: headerLabel];
-    [headerLabel release];
 	
-	return [headerView autorelease];
+	return headerView;
 }
 
 #pragma mark -
@@ -726,7 +717,6 @@ willShowSearchResultsTableView: (UITableView*)tableView
 	refreshHeaderView.backgroundColor = [UIColor colorWithRed: 0.0 green: 117/255.0 blue: 192/255.0 alpha: 1.0];
 	refreshHeaderView.borderColor = [UIColor whiteColor];
 	[tableView addSubview: refreshHeaderView];
-    [refreshHeaderView release];
 	[refreshHeaderView setLastUpdatedDate: [NSDate date]];
 	tableView.showsVerticalScrollIndicator = YES;
 	

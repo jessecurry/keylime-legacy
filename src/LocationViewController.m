@@ -9,7 +9,7 @@
 #import "LocationViewController.h"
 
 @interface LocationViewController ()
-@property (nonatomic, retain) CLLocation* location;
+@property (nonatomic, strong) CLLocation* location;
 - (void)selectLastAnnotationInMapView: (MKMapView*)mapView;
 @end
 
@@ -25,16 +25,14 @@
 		[vc setLocation: location];
 	}
 
-	return [vc autorelease];
+	return vc;
 }
 
 #pragma mark -
 - (void)dealloc
 {
 	[locationMapView setDelegate: nil];
-	[location release];
 
-	[super dealloc];
 }
 
 #pragma mark -

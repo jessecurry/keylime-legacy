@@ -28,7 +28,7 @@
 + (UITableViewCell*)tableViewCell
 {
     // JLC: need the reuse identifier here so cells are dequeued properly
-	return [[[[[self class] tableViewCellClass] alloc] initWithStyle: UITableViewCellStyleDefault 
-                                                     reuseIdentifier: [[self class] tableViewCellIdentifier]] autorelease];
+	return [[[[self class] tableViewCellClass] alloc] initWithStyle: UITableViewCellStyleDefault 
+                                                     reuseIdentifier: [[self class] tableViewCellIdentifier]];
 }
 @end

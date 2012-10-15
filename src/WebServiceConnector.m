@@ -9,8 +9,6 @@
 #import "WebServiceConnector.h"
 #import "WebServiceConnectorDelegate.h"
 
-#import "CJSONDeserializer.h"
-
 static BOOL verboseOutput = NO;
 static NSInteger connectionCount = 0;
 static NSUInteger maxConnectionCount = 0;
@@ -20,10 +18,10 @@ static NSDictionary* defaultRequestHeaders = nil;
 
 
 @interface WebServiceConnector ()
-@property (nonatomic, retain) NSURLConnection*	urlConnection;
-@property (nonatomic, retain) NSMutableData*	receivedData;
-@property (nonatomic, readonly) NSString*		webServiceRoot;
-@property (nonatomic, readonly) NSString*		webServiceFormatSpecifier;
+@property (nonatomic, strong) NSURLConnection*	urlConnection;
+@property (nonatomic, strong) NSMutableData*	receivedData;
+@property (unsafe_unretained, nonatomic, readonly) NSString*		webServiceRoot;
+@property (unsafe_unretained, nonatomic, readonly) NSString*		webServiceFormatSpecifier;
 //@property (nonatomic, readonly) NSString*		urlStringWithParameters; // Made public
 
 + (NSMutableArray*)webServiceConnectorQueue;
@@ -65,7 +63,7 @@ static NSDictionary* defaultRequestHeaders = nil;
 	if ( self = [super init] )
 	{
 		statusCode = -1; // 
-		urlString = [[aUrlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding] retain];
+		urlString = [aUrlString stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
 		self.parameters = someParameters;
 		self.httpBody = theHttpBody;
 		self.httpMethod = @"GET";
@@ -88,20 +86,10 @@ static NSDictionary* defaultRequestHeaders = nil;
 
 - (void)dealloc
 {
-	[urlString release];
-	[parameters release];
-	[requestHeaderFields release];
-	[httpBody release];
-	[httpMethod release];
 	
-	[context release];
-	[responseHeaderFields release];
 	
 	[urlConnection cancel];
-	[urlConnection release];
-	[receivedData release];
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -212,9 +200,7 @@ static NSDictionary* defaultRequestHeaders = nil;
 {
 	if ( defaultRequestHeaders != drc )
 	{
-		[defaultRequestHeaders release];
 		defaultRequestHeaders = drc;
-		[defaultRequestHeaders retain];
 	}
 }
 
@@ -352,14 +338,15 @@ didReceiveResponse: (NSURLResponse*)response
     
 	if ( verboseOutput )
 	{
-		NSString* responseString = [[[NSString alloc] initWithData: self.receivedData 
-														  encoding: NSUTF8StringEncoding] autorelease];
+		NSString* responseString = [[NSString alloc] initWithData: self.receivedData 
+														  encoding: NSUTF8StringEncoding];
 		KL_LOG( @"responseString:\n%@", responseString );
 	}
 	
 	NSError* jsonError = nil;
-	id jsonResponse = [[CJSONDeserializer deserializer] deserialize: self.receivedData 
-															  error: &jsonError];
+	id jsonResponse = [NSJSONSerialization JSONObjectWithData: self.receivedData
+													  options: 0
+														error: &jsonError];
 	
     // release the connection, and the data object
     self.urlConnection = nil;
@@ -390,13 +377,13 @@ didReceiveResponse: (NSURLResponse*)response
 #pragma mark Utility
 + (NSString*)reallyEncodeString: (NSString*)unencodedString
 {
-    NSString* encodedString = (NSString*)CFURLCreateStringByAddingPercentEscapes(NULL,
+    NSString* encodedString = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                                  (CFStringRef)unencodedString,
                                                                                  NULL,
                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                 kCFStringEncodingUTF8 );
+                                                                                 kCFStringEncodingUTF8 ));
     
-    return [encodedString autorelease];
+    return encodedString;
 }
 
 @end

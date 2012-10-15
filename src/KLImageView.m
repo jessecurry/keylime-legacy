@@ -11,7 +11,7 @@
 #import "KLURLCache.h"
 
 @interface KLImageView ()
-@property (nonatomic, retain) NSURL* imageURL;
+@property (nonatomic, strong) NSURL* imageURL;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -21,11 +21,8 @@
 
 - (void)dealloc
 {
-    self.failureImage = nil;
-    [imageURL release];
     
 	[[NSNotificationCenter defaultCenter] removeObserver: self];
-    [super dealloc];
 }
 
 #pragma -

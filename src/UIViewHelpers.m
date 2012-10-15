@@ -16,7 +16,6 @@
 	UILabel* label = [[UILabel alloc] initWithFrame: frame];
 	label.autoresizingMask = autoResizingMask;
 	[self addSubview: label];
-	[label release];
 	return label;
 }
 @end

@@ -15,7 +15,7 @@
 	id<DataObject> dataObject;
 }
 @property (nonatomic, readonly) CGFloat cellHeight;
-@property (nonatomic, retain) id<DataObject> dataObject;
+@property (nonatomic, strong) id<DataObject> dataObject;
 
 + (CGFloat)cellHeightWithDataObject: (id)theDataObject;
 

@@ -13,6 +13,6 @@
 {
     NSURL*  imageURL;
 }
-@property (nonatomic, retain) UIImage* failureImage;
+@property (nonatomic, strong) UIImage* failureImage;
 - (void)loadImageWithURL: (NSURL*)url;
 @end

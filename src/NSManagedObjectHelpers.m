@@ -41,7 +41,6 @@
     {
         KL_LOG(@"[%@]ERROR: %@", CLASS_NAME, [error localizedDescription]);
     }
-    [fetchRequest release];
     
     return results;
 }

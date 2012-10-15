@@ -40,7 +40,6 @@
 		lastUpdatedLabel.textAlignment = UITextAlignmentCenter;
 		lastUpdatedLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 		[self addSubview: lastUpdatedLabel];
-		[lastUpdatedLabel release];
 
 		statusLabel = [[UILabel alloc] initWithFrame: CGRectMake(0.0f,
 																 frame.size.height - 48.0f, 
@@ -56,7 +55,6 @@
 		
 		[self setStatus: KLRefreshTableHeaderViewStatusPullToReload];
 		[self addSubview: statusLabel];
-		[statusLabel release];
 
 		arrowImageView = [[UIImageView alloc] initWithFrame:
 		              CGRectMake(25.0f, frame.size.height - 65.0f, 30.0f, 55.0f)];
@@ -64,14 +62,12 @@
 		arrowImageView.image = [UIImage imageNamed: @"refreshArrow.png"];
 		[arrowImageView layer].transform = CATransform3DMakeRotation(M_PI, 0.0f, 0.0f, 1.0f);
 		[self addSubview: arrowImageView];
-		[arrowImageView release];
 
 		activityView = [[UIActivityIndicatorView alloc] 
 						initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleWhite];
 		activityView.frame = CGRectMake(25.0f, frame.size.height - 38.0f, 20.0f, 20.0f);
 		activityView.hidesWhenStopped = YES;
 		[self addSubview: activityView];
-		[activityView release];
 
 		isFlipped = NO;
 	}
@@ -85,9 +81,7 @@
 	arrowImageView = nil;
 	lastUpdatedLabel = nil;
 	
-	[borderColor release];
 	
-	[super dealloc];
 }
 
 #pragma mark -
@@ -130,19 +124,14 @@
 {
 	if ( newDate )
 	{
-		if ( lastUpdatedDate != newDate )
-		{
-			[lastUpdatedDate release];
-		}
 
-		lastUpdatedDate = [newDate retain];
+		lastUpdatedDate = newDate;
 
 		NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateStyle: NSDateFormatterShortStyle];
 		[formatter setTimeStyle: NSDateFormatterShortStyle];
 		lastUpdatedLabel.text = [NSString stringWithFormat:
 		                         @"Last Updated: %@", [formatter stringFromDate: lastUpdatedDate]];
-		[formatter release];
 	}
 	else
 	{
