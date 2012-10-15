@@ -29,6 +29,8 @@
 		131BFD8F162C9E4500FF52C6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131BFD8E162C9E4500FF52C6 /* BaseViewController.m */; };
 		13339C5B157E94E200F7B990 /* KLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 13339C59157E94E200F7B990 /* KLAction.h */; };
 		13339C5C157E94E200F7B990 /* KLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 13339C5A157E94E200F7B990 /* KLAction.m */; };
+		133802F9162CA45C008F63B0 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 133802F7162CA45C008F63B0 /* RootViewController.m */; };
+		133802FA162CA45C008F63B0 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 133802F8162CA45C008F63B0 /* RootViewController.xib */; };
 		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
 		135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */; };
 		135FE171133A6C6800359621 /* KLURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE16F133A6C6800359621 /* KLURLCache.h */; };
@@ -123,6 +125,9 @@
 		13339C59157E94E200F7B990 /* KLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLAction.h; sourceTree = "<group>"; };
 		13339C5A157E94E200F7B990 /* KLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLAction.m; sourceTree = "<group>"; };
 		13339C5D157E958B00F7B990 /* KLModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLModels.h; sourceTree = "<group>"; };
+		133802F6162CA45C008F63B0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		133802F7162CA45C008F63B0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		133802F8162CA45C008F63B0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
 		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
 		135FE16F133A6C6800359621 /* KLURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCache.h; sourceTree = "<group>"; };
@@ -343,6 +348,9 @@
 			children = (
 				131BFD8D162C9E4500FF52C6 /* BaseViewController.h */,
 				131BFD8E162C9E4500FF52C6 /* BaseViewController.m */,
+				133802F6162CA45C008F63B0 /* RootViewController.h */,
+				133802F7162CA45C008F63B0 /* RootViewController.m */,
+				133802F8162CA45C008F63B0 /* RootViewController.xib */,
 			);
 			name = "VIew Controllers";
 			sourceTree = "<group>";
@@ -733,6 +741,7 @@
 				131BFD60162C912700FF52C6 /* Default.png in Resources */,
 				131BFD62162C912700FF52C6 /* Default@2x.png in Resources */,
 				131BFD64162C912700FF52C6 /* Default-568h@2x.png in Resources */,
+				133802FA162CA45C008F63B0 /* RootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -747,6 +756,7 @@
 				131BFD5E162C912700FF52C6 /* KLAppDelegate.m in Sources */,
 				131BFD67162C912700FF52C6 /* keylime_example.xcdatamodeld in Sources */,
 				131BFD8F162C9E4500FF52C6 /* BaseViewController.m in Sources */,
+				133802F9162CA45C008F63B0 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1004,7 @@
 				131BFD80162C912800FF52C6 /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "keylime" */ = {
 			isa = XCConfigurationList;
