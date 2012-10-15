@@ -52,7 +52,7 @@
 #pragma mark IBActions
 - (IBAction)dismiss: (id)sender
 {
-	[self.parentViewController dismissModalViewControllerAnimated: YES];
+	[self dismissModalViewControllerAnimated: YES];
 }
 
 #pragma mark -

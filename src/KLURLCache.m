@@ -121,7 +121,7 @@ static NSTimeInterval KLURLCacheInterval = 86400.0;
 #pragma mark Private
 + (NSString*)filePathForURL: (NSURL*)url
 {
-    NSString* filename = [[[url path] lastPathComponent] MD5String];
+    NSString* filename = [[url absoluteString] MD5String];
     NSString* filePath = [dataPath stringByAppendingPathComponent: filename];
     return filePath;
 }

@@ -13,6 +13,8 @@
 		131865341487C9AA002BB140 /* NSDate+KLExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 131865321487C9AA002BB140 /* NSDate+KLExtensions.m */; };
 		131ABD801474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h in Headers */ = {isa = PBXBuildFile; fileRef = 131ABD7E1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h */; };
 		131ABD811474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m in Sources */ = {isa = PBXBuildFile; fileRef = 131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */; };
+		13339C5B157E94E200F7B990 /* KLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 13339C59157E94E200F7B990 /* KLAction.h */; };
+		13339C5C157E94E200F7B990 /* KLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 13339C5A157E94E200F7B990 /* KLAction.m */; };
 		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
 		135FE114133A3D4D00359621 /* NSManagedObjectHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */; };
 		135FE171133A6C6800359621 /* KLURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE16F133A6C6800359621 /* KLURLCache.h */; };
@@ -99,6 +101,9 @@
 		131865321487C9AA002BB140 /* NSDate+KLExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+KLExtensions.m"; sourceTree = "<group>"; };
 		131ABD7E1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+NSObject_DynamicTableViewCells.h"; sourceTree = "<group>"; };
 		131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+NSObject_DynamicTableViewCells.m"; sourceTree = "<group>"; };
+		13339C59157E94E200F7B990 /* KLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLAction.h; sourceTree = "<group>"; };
+		13339C5A157E94E200F7B990 /* KLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLAction.m; sourceTree = "<group>"; };
+		13339C5D157E958B00F7B990 /* KLModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLModels.h; sourceTree = "<group>"; };
 		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
 		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
 		135FE16F133A6C6800359621 /* KLURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCache.h; sourceTree = "<group>"; };
@@ -241,6 +246,7 @@
 				1389D77712AC3569004602FF /* Categories */,
 				1389D7C012AC3940004602FF /* Utilities */,
 				137B64A21337AB32001459F8 /* Protocols */,
+				13339C58157E94D000F7B990 /* Models */,
 				137B64A31337AB50001459F8 /* Views */,
 				1389D77812AC3574004602FF /* View Controllers */,
 			);
@@ -272,6 +278,24 @@
 				131ABD7F1474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m */,
 			);
 			name = NSObject;
+			sourceTree = "<group>";
+		};
+		13339C58157E94D000F7B990 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				13339C5D157E958B00F7B990 /* KLModels.h */,
+				13339C5E157E959500F7B990 /* KLAction */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		13339C5E157E959500F7B990 /* KLAction */ = {
+			isa = PBXGroup;
+			children = (
+				13339C59157E94E200F7B990 /* KLAction.h */,
+				13339C5A157E94E200F7B990 /* KLAction.m */,
+			);
+			name = KLAction;
 			sourceTree = "<group>";
 		};
 		135FE110133A3D0500359621 /* NSManagedObject */ = {
@@ -624,6 +648,7 @@
 				135FE1CD133D0AB800359621 /* UIColor+HexRGB.h in Headers */,
 				131ABD801474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h in Headers */,
 				131865331487C9AA002BB140 /* NSDate+KLExtensions.h in Headers */,
+				13339C5B157E94E200F7B990 /* KLAction.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,7 +678,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Jesse Curry";
 			};
 			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "keylime" */;
@@ -714,6 +739,7 @@
 				135FE1CE133D0AB800359621 /* UIColor+HexRGB.m in Sources */,
 				131ABD811474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m in Sources */,
 				131865341487C9AA002BB140 /* NSDate+KLExtensions.m in Sources */,
+				13339C5C157E94E200F7B990 /* KLAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,7 +770,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 			};
@@ -763,7 +789,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 				SKIP_INSTALL = YES;
@@ -780,7 +806,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = keylime_Prefix.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = keylime;
 				SKIP_INSTALL = YES;

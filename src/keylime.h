@@ -25,4 +25,8 @@
 #import "KLUtilities.h"
 
 #pragma mark -
+#pragma mark Models
+#import "KLModels.h"
+
+#pragma mark -
 #import "KLViewControllers.h"
