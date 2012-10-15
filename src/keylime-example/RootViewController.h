@@ -10,4 +10,6 @@
 
 @interface RootViewController : BaseViewController
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
+
+- (IBAction)webServiceTestAction: (id)sender;
 @end

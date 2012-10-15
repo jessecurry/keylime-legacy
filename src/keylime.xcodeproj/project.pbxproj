@@ -128,6 +128,7 @@
 		133802F6162CA45C008F63B0 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		133802F7162CA45C008F63B0 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		133802F8162CA45C008F63B0 /* RootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		1338030A162CB68A008F63B0 /* HTTPStatusCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HTTPStatusCodes.h; sourceTree = "<group>"; };
 		135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSManagedObjectHelpers.h; sourceTree = "<group>"; };
 		135FE112133A3D4D00359621 /* NSManagedObjectHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSManagedObjectHelpers.m; sourceTree = "<group>"; };
 		135FE16F133A6C6800359621 /* KLURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLURLCache.h; sourceTree = "<group>"; };
@@ -616,6 +617,7 @@
 				AA747D9E0F9514B9006C5449 /* keylime_Prefix.pch */,
 				1389D77912AC359F004602FF /* KLConstants.h */,
 				1389D7B512AC3848004602FF /* KLDefines.h */,
+				1338030A162CB68A008F63B0 /* HTTPStatusCodes.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";

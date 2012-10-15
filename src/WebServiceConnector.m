@@ -13,6 +13,7 @@ static BOOL verboseOutput = NO;
 static NSInteger connectionCount = 0;
 static NSUInteger maxConnectionCount = 0;
 static NSMutableArray* webServiceConnectorQueue = nil;
+static NSMutableArray* activeConnectors = nil;
 
 static NSDictionary* defaultRequestHeaders = nil;
 
@@ -25,6 +26,7 @@ static NSDictionary* defaultRequestHeaders = nil;
 //@property (nonatomic, readonly) NSString*		urlStringWithParameters; // Made public
 
 + (NSMutableArray*)webServiceConnectorQueue;
++ (NSMutableArray*)activeConnectors;
 + (void)processQueue;
 - (void)reallyStart;
 
@@ -117,6 +119,15 @@ static NSDictionary* defaultRequestHeaders = nil;
     return webServiceConnectorQueue;
 }
 
++ (NSMutableArray*)activeConnectors
+{
+	if ( activeConnectors == nil )
+	{
+		activeConnectors = [[NSMutableArray alloc] init];
+	}
+	return activeConnectors;
+}
+
 + (void)processQueue
 {    
     // If the maxConnectionCount == 0 we'll assume that no connection queueing is desired.
@@ -126,7 +137,9 @@ static NSDictionary* defaultRequestHeaders = nil;
         WebServiceConnector* wsc = [[WebServiceConnector webServiceConnectorQueue] 
                                     objectAtIndex: 0];
         [wsc reallyStart];
+		
         [[WebServiceConnector webServiceConnectorQueue] removeObject: wsc];
+		[[WebServiceConnector activeConnectors] addObject: wsc];
     }
 }
 
@@ -328,6 +341,9 @@ didReceiveResponse: (NSURLResponse*)response
 	[delegate webServiceConnector: self 
 				 didFailWithError: error];
     [WebServiceConnector processQueue]; // since this connection failed we can try to kick off others
+	
+	// Clean up.
+	[[WebServiceConnector activeConnectors] removeObject: self];
 }
 
 - (void)connectionDidFinishLoading: (NSURLConnection*)connection
@@ -372,6 +388,9 @@ didReceiveResponse: (NSURLResponse*)response
     KL_LOG(@"[%@]response: %.5f - parse: %.5f", urlString, responseTime - startTime, postParseTime - startTime);
     
     [WebServiceConnector processQueue]; // since this connection is done we can try to kick off others
+	
+	// Clean up
+	[[WebServiceConnector activeConnectors] removeObject: self];
 }
 
 #pragma mark Utility
