@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-
+/**
+ Utility class for cleaning up the display of simple UIAlertViews.
+ */
 @interface AlertUtility : NSObject <UIAlertViewDelegate>
 {
 }

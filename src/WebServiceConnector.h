@@ -10,6 +10,9 @@
 @protocol WebServiceConnectorDelegate;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ Simple delagate-based web service connectivity.
+ */
 @interface WebServiceConnector : NSObject
 {
 	id<WebServiceConnectorDelegate>	__unsafe_unretained delegate;

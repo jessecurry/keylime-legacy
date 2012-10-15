@@ -1,1 +1,1 @@
-appledoc --project-name keylime --project-company "Jesse Curry" --company-id com.jessecurry --output ./Documentation src/
+appledoc --project-name keylime --project-company "Jesse Curry" --company-id com.jessecurry --output ./Documentation --ignore src/keylime-example --ignore .m src/

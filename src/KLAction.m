@@ -97,9 +97,12 @@ static KLAction* _lastAction = nil;
 	if ( self.selector )
 	{	
 		if ( [self.target respondsToSelector: self.selector] )
-		{	
-            [self.target performSelector: self.selector 
+		{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [self.target performSelector: self.selector
                               withObject: self];
+#pragma clang diagnostic pop
 
             _lastAction = self;
         }

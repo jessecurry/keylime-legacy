@@ -15,7 +15,7 @@ extern NSString* const KLURLCacheURLKey;
 /**
  Provides generic caching capabilities.
  
- KLURLCache does not need to be intantiated, all of the methods are class
+ KLURLCache does not need to be instantiated, all of the methods are class
  methods, all of the functionality is really provided by the file system.
  When a call to contentsOfURL: is made KLURLCache will check to see if 
  a copy of data from that URL exists, if so the file modification date
@@ -28,12 +28,30 @@ extern NSString* const KLURLCacheURLKey;
 {    
 }
 /**
+ Returns NSData with contents of the specified URL.
  
+ If the cache contains data for the URL it will be returned immediately, if there is no
+ cached data available this method will return nil and initiate a request to fetch the data.
+ When data has been received a notification will be posted.
  */
 + (NSData*)contentsOfURL: (NSURL*)url;
+
+/**
+ Removes cached data for the specified URL.
+ */
 + (void)clearCacheOfURL: (NSURL*)url;
+
+/**
+ Removes all cached data.
+ */
 + (void)clearCache;
 
+/**
+ Sets the cache interval to a different value.
+ 
+ The cache interval is used to determine when the URL Cache should check for a new version
+ of the cached file.
+ */
 + (void)setCacheInterval: (NSTimeInterval)cacheInterval;
 
 @end

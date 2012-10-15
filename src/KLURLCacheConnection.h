@@ -11,6 +11,10 @@
 #import <Foundation/Foundation.h>
 
 @protocol KLURLCacheConnectionDelegate;
+
+/**
+ 
+ */
 @interface KLURLCacheConnection : NSObject 
 {    
     Class<KLURLCacheConnectionDelegate>    delegate;

@@ -8,8 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ Category to add methods for assisting with dynamic UITableViewCells
+ */
 @interface NSObject (NSObject_DynamicTableViewCells)
+/**
+ Provides a default reuse identifier for tableView cells used to display this object.
+ */
 + (NSString*)tableViewCellIdentifier;
+/**
+ Returns the default tableViewCell class.
+ */
 + (Class)tableViewCellClass;
+/**
+ Returns a tableViewCell using the class and reuse identifier.
+ */
 + (UITableViewCell*)tableViewCell;
 @end

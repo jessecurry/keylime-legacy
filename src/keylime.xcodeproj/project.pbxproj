@@ -26,6 +26,7 @@
 		131BFD67162C912700FF52C6 /* keylime_example.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 131BFD65162C912700FF52C6 /* keylime_example.xcdatamodeld */; };
 		131BFD88162C915100FF52C6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1389D82F12AC4296004602FF /* QuartzCore.framework */; };
 		131BFD89162C915400FF52C6 /* libkeylime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D2AAC07E0554694100DB518D /* libkeylime.a */; };
+		131BFD8F162C9E4500FF52C6 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131BFD8E162C9E4500FF52C6 /* BaseViewController.m */; };
 		13339C5B157E94E200F7B990 /* KLAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 13339C59157E94E200F7B990 /* KLAction.h */; };
 		13339C5C157E94E200F7B990 /* KLAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 13339C5A157E94E200F7B990 /* KLAction.m */; };
 		135FE113133A3D4D00359621 /* NSManagedObjectHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE111133A3D4D00359621 /* NSManagedObjectHelpers.h */; };
@@ -117,6 +118,8 @@
 		131BFD63162C912700FF52C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		131BFD66162C912700FF52C6 /* keylime_example.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = keylime_example.xcdatamodel; sourceTree = "<group>"; };
 		131BFD6E162C912800FF52C6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		131BFD8D162C9E4500FF52C6 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		131BFD8E162C9E4500FF52C6 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		13339C59157E94E200F7B990 /* KLAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLAction.h; sourceTree = "<group>"; };
 		13339C5A157E94E200F7B990 /* KLAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLAction.m; sourceTree = "<group>"; };
 		13339C5D157E958B00F7B990 /* KLModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLModels.h; sourceTree = "<group>"; };
@@ -298,7 +301,9 @@
 			children = (
 				131BFD5C162C912700FF52C6 /* KLAppDelegate.h */,
 				131BFD5D162C912700FF52C6 /* KLAppDelegate.m */,
-				131BFD65162C912700FF52C6 /* keylime_example.xcdatamodeld */,
+				131BFD8A162C9E0500FF52C6 /* Models */,
+				131BFD8B162C9E0F00FF52C6 /* Views */,
+				131BFD8C162C9E2100FF52C6 /* VIew Controllers */,
 				131BFD54162C912700FF52C6 /* Supporting Files */,
 			);
 			path = "keylime-example";
@@ -316,6 +321,30 @@
 				131BFD63162C912700FF52C6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		131BFD8A162C9E0500FF52C6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				131BFD65162C912700FF52C6 /* keylime_example.xcdatamodeld */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		131BFD8B162C9E0F00FF52C6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		131BFD8C162C9E2100FF52C6 /* VIew Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				131BFD8D162C9E4500FF52C6 /* BaseViewController.h */,
+				131BFD8E162C9E4500FF52C6 /* BaseViewController.m */,
+			);
+			name = "VIew Controllers";
 			sourceTree = "<group>";
 		};
 		13339C58157E94D000F7B990 /* Models */ = {
@@ -717,6 +746,7 @@
 				131BFD5A162C912700FF52C6 /* main.m in Sources */,
 				131BFD5E162C912700FF52C6 /* KLAppDelegate.m in Sources */,
 				131BFD67162C912700FF52C6 /* keylime_example.xcdatamodeld in Sources */,
+				131BFD8F162C9E4500FF52C6 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
