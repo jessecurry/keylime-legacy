@@ -588,13 +588,14 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 	if ( [[dataObject class] respondsToSelector: dataObjectStylerSelector] )
 	{	
 		CGFloat ret;
-		UIFont* font = [UIFont systemFontOfSize: 17];
+		__unsafe_unretained UIFont* font = [UIFont systemFontOfSize: 17];
+		__unsafe_unretained id dataArgument = dataObject;
 		
 		NSMethodSignature* stylerMethodSignature = [[dataObject class] methodSignatureForSelector: dataObjectStylerSelector];
 		NSInvocation* stylerInvocation = [NSInvocation invocationWithMethodSignature: stylerMethodSignature];
 		[stylerInvocation setSelector: dataObjectStylerSelector];
 		[stylerInvocation setTarget: [dataObject class]];
-		[stylerInvocation setArgument: &dataObject atIndex: 2];
+		[stylerInvocation setArgument: &dataArgument atIndex: 2];
 		[stylerInvocation setArgument: &font atIndex: 3];
 		[stylerInvocation invoke];
 		

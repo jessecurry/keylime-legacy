@@ -9,8 +9,6 @@
 #import "WebServiceConnector.h"
 #import "WebServiceConnectorDelegate.h"
 
-#import "CJSONDeserializer.h"
-
 static BOOL verboseOutput = NO;
 static NSInteger connectionCount = 0;
 static NSUInteger maxConnectionCount = 0;
@@ -358,8 +356,9 @@ didReceiveResponse: (NSURLResponse*)response
 	}
 	
 	NSError* jsonError = nil;
-	id jsonResponse = [[CJSONDeserializer deserializer] deserialize: self.receivedData 
-															  error: &jsonError];
+	id jsonResponse = [NSJSONSerialization JSONObjectWithData: self.receivedData
+													  options: 0
+														error: &jsonError];
 	
     // release the connection, and the data object
     self.urlConnection = nil;
