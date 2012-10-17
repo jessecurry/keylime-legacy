@@ -20,7 +20,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @interface KLViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UIPopoverControllerDelegate, UISearchDisplayDelegate>
 {
-	NSManagedObjectContext*	managedObjectContext;
 	NSMutableDictionary*	tableData;
 	NSMutableDictionary*	searchDisplayControllers;
 	NSMutableDictionary*	searchData;
@@ -29,12 +28,10 @@
 	
 	// TODO: wrap these up into a structure
 	// Pull To Refresh
-	NSMutableDictionary*			canPullToRefreshDictionary;
-	NSMutableDictionary*			refreshHeaderViewDictionary;
-	NSMutableDictionary*			checkForRefreshDictionary;
-	NSMutableDictionary*			tableViewReloadingDictionary;
-	
-	UIPopoverController*			popoverController;
+	NSMutableDictionary*			_canPullToRefreshDictionary;
+	NSMutableDictionary*			_refreshHeaderViewDictionary;
+	NSMutableDictionary*			_checkForRefreshDictionary;
+	NSMutableDictionary*			_tableViewReloadingDictionary;
 }
 @property (unsafe_unretained, nonatomic, readonly) NSUserDefaults*			preferences;
 @property (nonatomic, strong)	NSManagedObjectContext*	managedObjectContext;
@@ -71,6 +68,7 @@
 
 // Pull To Refresh
 - (void)enablePullToRefreshForTableView: (UITableView*)tableView;
+- (KLRefreshTableHeaderView*)refreshHeaderViewForTableView: (UITableView*)tableView;
 - (BOOL)tableViewCanPullToRefresh: (UITableView*)tableView;
 - (void)setCanPullToRefresh: (BOOL)canPullToRefresh
 			   forTableView: (UITableView*)tableView;

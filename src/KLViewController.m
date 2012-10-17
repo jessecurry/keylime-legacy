@@ -11,7 +11,7 @@
 #import "KLFetchedResultsSearchData.h"
 #import "KLTableData.h"
 
-static NSManagedObjectContext* defaultManagedObjectContext = nil;
+static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation UINavigationBar (CustomImage)
@@ -30,14 +30,14 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation KLViewController
-@synthesize managedObjectContext;
-@synthesize popoverController;
+@synthesize managedObjectContext=_klManagedObjectContext;
+@synthesize popoverController=_klPopoverController;
 @synthesize hidesNavigationBarWhenPushed=_hidesNavigationBarWhenPushed;
 
-+ (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultMoC
++ (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultManagedObjectContext
 {
 	// Probably no need to retain this.
-	defaultManagedObjectContext = defaultMoC;
+	_defaultManagedObjectContext = defaultManagedObjectContext;
 }
 
 #pragma mark -
@@ -74,7 +74,7 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 {
 	[super viewWillDisappear: animated];
 	
-	if ( popoverController.popoverVisible )
+	if ( self.popoverController.popoverVisible )
 		[self dismissPopoverAnimated: YES];
 }
 
@@ -108,7 +108,7 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 - (NSManagedObjectContext*)managedObjectContext
 {
 	// Allows managedObjectContext to be overridden on a per view controller basis.
-	return managedObjectContext ? managedObjectContext : defaultManagedObjectContext;
+	return _klManagedObjectContext ? _klManagedObjectContext : _defaultManagedObjectContext;
 }
 
 - (NSMutableDictionary*)tableData // consider moving this to viewDidLoad -- downside memory use, upside no nil check
@@ -140,38 +140,38 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 
 - (NSMutableDictionary*)canPullToRefreshDictionary
 {
-	if ( canPullToRefreshDictionary == nil )
+	if ( _canPullToRefreshDictionary == nil )
 	{
-		canPullToRefreshDictionary = [[NSMutableDictionary alloc] init];
+		_canPullToRefreshDictionary = [[NSMutableDictionary alloc] init];
 	}
-	return canPullToRefreshDictionary;
+	return _canPullToRefreshDictionary;
 }
 
 - (NSMutableDictionary*)refreshHeaderViewDictionary
 {
-	if ( refreshHeaderViewDictionary == nil )
+	if ( _refreshHeaderViewDictionary == nil )
 	{
-		refreshHeaderViewDictionary = [[NSMutableDictionary alloc] init];
+		_refreshHeaderViewDictionary = [[NSMutableDictionary alloc] init];
 	}
-	return refreshHeaderViewDictionary;
+	return _refreshHeaderViewDictionary;
 }
 
 - (NSMutableDictionary*)checkForRefreshDictionary
 {
-	if ( checkForRefreshDictionary == nil )
+	if ( _checkForRefreshDictionary == nil )
 	{
-		checkForRefreshDictionary = [[NSMutableDictionary alloc] init];
+		_checkForRefreshDictionary = [[NSMutableDictionary alloc] init];
 	}
-	return checkForRefreshDictionary;
+	return _checkForRefreshDictionary;
 }
 
 - (NSMutableDictionary*)tableViewReloadingDictionary
 {
-	if ( tableViewReloadingDictionary == nil )
+	if ( _tableViewReloadingDictionary == nil )
 	{
-		tableViewReloadingDictionary = [[NSMutableDictionary alloc] init];
+		_tableViewReloadingDictionary = [[NSMutableDictionary alloc] init];
 	}
-	return tableViewReloadingDictionary;
+	return _tableViewReloadingDictionary;
 }
 
 #pragma mark -
@@ -441,6 +441,7 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 	if ( [[dataObject class] respondsToSelector: @selector(tableViewCellIdentifier)] )
 		cellIdentifier = [[dataObject class] tableViewCellIdentifier];	
 	
+    // TODO: update to use iOS 6 style initialization
 	KLTableViewCell* cell = (KLTableViewCell*)[tableView dequeueReusableCellWithIdentifier: cellIdentifier];
 	if ( cell == nil )
 	{
@@ -449,13 +450,7 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 		else
 			cell = [[KLTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle 
 										   reuseIdentifier: cellIdentifier];
-        
-        //KL_LOG(@"<< Created cell with identifier: %@", cellIdentifier);
 	}
-    else   
-    {
-        //KL_LOG(@">> Dequeued cell with identifier: %@", cellIdentifier);
-    }
 	
 	cell.textLabel.text = nil;
 	cell.detailTextLabel.text = nil;
@@ -622,9 +617,7 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	id<DataObject> dataObject = [self dataObjectForIndexPath: indexPath
 												 inTableView: tableView];
     
-	[self tableView: tableView
-didSelectDataObject: dataObject
-  forRowAtIndexPath: indexPath];
+	[self tableView: tableView didSelectDataObject: dataObject forRowAtIndexPath: indexPath];
 }
 
 #pragma mark Headers
@@ -687,14 +680,14 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 	return YES;
 }
 
--(void)searchDisplayController: (UISearchDisplayController*)controller 
-willShowSearchResultsTableView: (UITableView*)tableView 
+- (void)searchDisplayController: (UISearchDisplayController*)controller 
+ willShowSearchResultsTableView: (UITableView*)tableView 
 {
     
 }
 
--(void)searchDisplayController: (UISearchDisplayController*)controller 
- didShowSearchResultsTableView: (UITableView*)tableView 
+- (void)searchDisplayController: (UISearchDisplayController*)controller 
+  didShowSearchResultsTableView: (UITableView*)tableView 
 {
 	if ( [controller.searchBar.superview isKindOfClass: [UITableView class]] )
 	{
@@ -733,11 +726,17 @@ willShowSearchResultsTableView: (UITableView*)tableView
 	tableView.showsVerticalScrollIndicator = YES;
 	
 	// Hang onto the refresh header view
-	[self.refreshHeaderViewDictionary setObject: refreshHeaderView 
+	[self.refreshHeaderViewDictionary setObject: refreshHeaderView
 										 forKey: [self dictionaryKeyForView: tableView]];
 	
 	// Flag this feature as enabled.
 	[self setCanPullToRefresh: YES forTableView: tableView];
+}
+
+- (KLRefreshTableHeaderView*)refreshHeaderViewForTableView: (UITableView*)tableView
+{
+    return [self.refreshHeaderViewDictionary objectForKey:
+            [self dictionaryKeyForView: tableView]];
 }
 
 // Can refresh
@@ -788,8 +787,7 @@ willShowSearchResultsTableView: (UITableView*)tableView
 	[self setTableViewReloading: YES 
 				   forTableView: tableView];
 	
-	KLRefreshTableHeaderView* refreshHeaderView = [self.refreshHeaderViewDictionary objectForKey: 
-												   [self dictionaryKeyForView: tableView]];
+	KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 	[refreshHeaderView toggleActivityView: YES];
 	
 	if ( animated )
@@ -824,8 +822,7 @@ willShowSearchResultsTableView: (UITableView*)tableView
 	[self setTableViewReloading: NO 
 				   forTableView: tableView];
 	
-	KLRefreshTableHeaderView* refreshHeaderView = [self.refreshHeaderViewDictionary objectForKey: 
-												   [self dictionaryKeyForView: tableView]];
+	KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 	[refreshHeaderView flipImageAnimated: NO];
 	
 	[UIView beginAnimations: nil context: NULL];
@@ -872,8 +869,7 @@ willShowSearchResultsTableView: (UITableView*)tableView
 		
 		if ( [self tableViewCheckForRefresh: tableView] )
 		{
-			KLRefreshTableHeaderView* refreshHeaderView = [self.refreshHeaderViewDictionary objectForKey: 
-														   [self dictionaryKeyForView: tableView]];
+			KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 			
 			if ( refreshHeaderView.isFlipped
 				&& scrollView.contentOffset.y > -65.0f
