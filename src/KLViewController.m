@@ -26,23 +26,77 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 @interface KLViewController ()
 @property (nonatomic, strong) UIPopoverController* popoverController;
 - (NSString*)dictionaryKeyForView: (UIView*)theView;
+
+// Keyboard
+- (void)registerForKeyboardNotifications;
+- (void)unregisterForKeyboardNotifications;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation KLViewController
 @synthesize managedObjectContext=_klManagedObjectContext;
+@synthesize keyboardContainerView=_keyboardContainerView;
 @synthesize popoverController=_klPopoverController;
 @synthesize hidesNavigationBarWhenPushed=_hidesNavigationBarWhenPushed;
 
++ (id)controller
+{
+	return [[self class] controllerWithManagedObjectContext: nil];
+}
+
++ (id)controllerWithManagedObjectContext: (NSManagedObjectContext*)managedObjectContext
+{
+	id controller = [[[self class] alloc] init];
+	if ( controller )
+	{
+		[controller setManagedObjectContext: managedObjectContext];
+	}
+	return controller;
+}
+
+#pragma mark -
 + (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultManagedObjectContext
 {
 	// Probably no need to retain this.
 	_defaultManagedObjectContext = defaultManagedObjectContext;
 }
 
+#pragma mark Observers
+- (void)addKeyValueObservers
+{
+}
+
+- (void)removeKeyValueObservers
+{
+}
+
+- (void)addNotificationObservers
+{
+    
+}
+
+- (void)removeNotificationObservers
+{
+}
+
 #pragma mark -
+- (id)initWithNibName: (NSString*)nibNameOrNil bundle: (NSBundle*)nibBundleOrNil
+{
+    self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
+    if ( self )
+    {
+        [self addKeyValueObservers];
+        [self addNotificationObservers];
+    }
+    
+    return self;
+}
+
 - (void)dealloc
 {
+    [self removeKeyValueObservers];
+    [self removeNotificationObservers];
+    
 	for ( NSString* key in tableData )
 	{
 		id value = [tableData objectForKey: key];
@@ -70,12 +124,26 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
                                              animated: animated];
 }
 
+- (void)viewDidAppear: (BOOL)animated
+{
+    [super viewDidAppear: animated];
+    
+    [self registerForKeyboardNotifications];
+}
+
 - (void)viewWillDisappear: (BOOL)animated
 {
 	[super viewWillDisappear: animated];
 	
 	if ( self.popoverController.popoverVisible )
 		[self dismissPopoverAnimated: YES];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self unregisterForKeyboardNotifications];
+    
+    [super viewDidDisappear: animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation
@@ -428,6 +496,97 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 - (NSString*)dictionaryKeyForView: (UIView*)theView
 {
 	return [NSString stringWithFormat: @"%@_%p", NSStringFromClass([theView class]), theView];
+}
+
+#pragma mark Keyboard Notifications
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(keyboardWillShow:)
+                                                 name: UIKeyboardWillShowNotification
+                                               object: nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver: self
+                                             selector: @selector(keyboardWillHide:)
+                                                 name: UIKeyboardWillHideNotification
+                                               object: nil];
+}
+
+- (void)unregisterForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                    name: UIKeyboardWillShowNotification
+                                                  object: nil];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                    name: UIKeyboardWillHideNotification
+                                                  object: nil];
+}
+
+- (void)keyboardWillShow: (NSNotification*)notification
+{
+    if ( self.keyboardContainerView )
+    {
+        // get keyboard size and loctaion
+        CGRect keyboardBounds;
+        [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+        
+        NSNumber* duration = [notification.userInfo
+                              objectForKey: UIKeyboardAnimationDurationUserInfoKey];
+        NSNumber* curve = [notification.userInfo
+                           objectForKey: UIKeyboardAnimationCurveUserInfoKey];
+        
+        // Need to translate the bounds to account for rotation.
+        keyboardBounds = [self.view convertRect: keyboardBounds
+                                         toView: nil];
+        
+        // get a rect for the textView frame
+        CGRect containerFrame = self.keyboardContainerView.frame;
+        containerFrame.size.height -= keyboardBounds.size.height;
+        
+        // TODO: switch to block-style animations
+        // animations settings
+        [UIView beginAnimations: nil context: NULL];
+        
+        [UIView setAnimationBeginsFromCurrentState: YES];
+        [UIView setAnimationDuration: [duration doubleValue]];
+        [UIView setAnimationCurve: [curve intValue]];
+        
+        // set views with new info
+        self.keyboardContainerView.frame = containerFrame;
+        
+        // commit animations
+        [UIView commitAnimations];
+    }
+}
+
+- (void)keyboardWillHide: (NSNotification*)notification
+{
+    if ( self.keyboardContainerView )
+    {
+        CGRect keyboardBounds;
+        [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+        
+        NSNumber* duration = [notification.userInfo objectForKey: UIKeyboardAnimationDurationUserInfoKey];
+        NSNumber* curve = [notification.userInfo objectForKey: UIKeyboardAnimationCurveUserInfoKey];
+        
+        // get a rect for the textView frame
+        CGRect containerFrame = self.keyboardContainerView.frame;
+        containerFrame.size.height += keyboardBounds.size.height;
+        
+        // TODO: switch to block-style animations
+        // animations settings
+        [UIView beginAnimations: nil context: NULL];
+        [UIView setAnimationBeginsFromCurrentState: YES];
+        [UIView setAnimationDuration: [duration doubleValue]];
+        [UIView setAnimationCurve: [curve intValue]];
+        
+        // set views with new info
+        self.keyboardContainerView.frame = containerFrame;
+        
+        // commit animations
+        [UIView commitAnimations];
+    }
 }
 
 #pragma mark -

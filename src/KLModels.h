@@ -7,3 +7,4 @@
 //
 
 #import "KLAction.h"
+#import "KLManagedObject.h"

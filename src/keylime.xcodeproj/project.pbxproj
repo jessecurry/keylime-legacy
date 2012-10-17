@@ -44,6 +44,8 @@
 		135FE199133A9C5000359621 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 135FE198133A9C4F00359621 /* Security.framework */; };
 		135FE1CD133D0AB800359621 /* UIColor+HexRGB.h in Headers */ = {isa = PBXBuildFile; fileRef = 135FE1CB133D0AB800359621 /* UIColor+HexRGB.h */; };
 		135FE1CE133D0AB800359621 /* UIColor+HexRGB.m in Sources */ = {isa = PBXBuildFile; fileRef = 135FE1CC133D0AB800359621 /* UIColor+HexRGB.m */; };
+		1363C2ED162F3DDB0045A9BF /* KLManagedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 1363C2EB162F3DDB0045A9BF /* KLManagedObject.h */; };
+		1363C2EE162F3DDB0045A9BF /* KLManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 1363C2EC162F3DDB0045A9BF /* KLManagedObject.m */; };
 		137B64A51337AB77001459F8 /* DataObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64A41337AB77001459F8 /* DataObject.h */; };
 		137B64AA1337ABB4001459F8 /* KLTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 137B64A81337ABB4001459F8 /* KLTableViewCell.h */; };
 		137B64AB1337ABB4001459F8 /* KLTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 137B64A91337ABB4001459F8 /* KLTableViewCell.m */; };
@@ -142,6 +144,8 @@
 		135FE198133A9C4F00359621 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		135FE1CB133D0AB800359621 /* UIColor+HexRGB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexRGB.h"; sourceTree = "<group>"; };
 		135FE1CC133D0AB800359621 /* UIColor+HexRGB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexRGB.m"; sourceTree = "<group>"; };
+		1363C2EB162F3DDB0045A9BF /* KLManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLManagedObject.h; sourceTree = "<group>"; };
+		1363C2EC162F3DDB0045A9BF /* KLManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLManagedObject.m; sourceTree = "<group>"; };
 		137B64A41337AB77001459F8 /* DataObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataObject.h; sourceTree = "<group>"; };
 		137B64A81337ABB4001459F8 /* KLTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KLTableViewCell.h; sourceTree = "<group>"; };
 		137B64A91337ABB4001459F8 /* KLTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KLTableViewCell.m; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 			children = (
 				13339C5D157E958B00F7B990 /* KLModels.h */,
 				13339C5E157E959500F7B990 /* KLAction */,
+				1363C2EF162F3DFC0045A9BF /* KLManagedObject */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,6 +415,15 @@
 				135FE1CC133D0AB800359621 /* UIColor+HexRGB.m */,
 			);
 			name = UIColor;
+			sourceTree = "<group>";
+		};
+		1363C2EF162F3DFC0045A9BF /* KLManagedObject */ = {
+			isa = PBXGroup;
+			children = (
+				1363C2EB162F3DDB0045A9BF /* KLManagedObject.h */,
+				1363C2EC162F3DDB0045A9BF /* KLManagedObject.m */,
+			);
+			name = KLManagedObject;
 			sourceTree = "<group>";
 		};
 		137B64A21337AB32001459F8 /* Protocols */ = {
@@ -662,6 +676,7 @@
 				131ABD801474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.h in Headers */,
 				131865331487C9AA002BB140 /* NSDate+KLExtensions.h in Headers */,
 				13339C5B157E94E200F7B990 /* KLAction.h in Headers */,
+				1363C2ED162F3DDB0045A9BF /* KLManagedObject.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,6 +805,7 @@
 				131ABD811474078300E7B790 /* NSObject+NSObject_DynamicTableViewCells.m in Sources */,
 				131865341487C9AA002BB140 /* NSDate+KLExtensions.m in Sources */,
 				13339C5C157E94E200F7B990 /* KLAction.m in Sources */,
+				1363C2EE162F3DDB0045A9BF /* KLManagedObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
