@@ -306,6 +306,15 @@ static NSManagedObjectContext* defaultManagedObjectContext = nil;
 	return dataObject;
 }
 
+- (void)tableView: (UITableView*)tableView didSelectDataObject: (id<DataObject>)dataObject forRowAtIndexPath: (NSIndexPath*)indexPath
+{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated"
+    // Leaving this in to preserve compatability with older code
+    [self didSelectDataObject: dataObject];
+#pragma clang diagnostic pop
+}
+
 - (void)didSelectDataObject: (id<DataObject>)dataObject
 {
 }
@@ -612,7 +621,10 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	
 	id<DataObject> dataObject = [self dataObjectForIndexPath: indexPath
 												 inTableView: tableView];
-	[self didSelectDataObject: dataObject];
+    
+	[self tableView: tableView
+didSelectDataObject: dataObject
+  forRowAtIndexPath: indexPath];
 }
 
 #pragma mark Headers

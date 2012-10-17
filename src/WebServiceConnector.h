@@ -7,45 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+@class WebServiceConnector;
 @protocol WebServiceConnectorDelegate;
+typedef void (^WebServiceConnectorCompletionHandler)(WebServiceConnector* webServiceConnector, id result, NSError* error);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 /**
- Simple delagate-based web service connectivity.
+ Simple class for connecting to web services.
+ 
+ WebServiceConnector will reach out to a web ser
  */
 @interface WebServiceConnector : NSObject
-{
-	id<WebServiceConnectorDelegate>	__unsafe_unretained delegate;
-	
-	NSString*				urlString;
-	NSDictionary*			parameters;
-	NSDictionary*			requestHeaderFields;
-	NSData*					httpBody;
-	NSString*				httpMethod;
-	
-	NSURLConnection*		urlConnection;
-	NSMutableData*			receivedData;
-	
-	NSInteger				tag;
-	id						context;
-	
-	NSInteger				statusCode;
-	NSDictionary*			responseHeaderFields;
-	
+{	
+    NSString*               _urlString;
+    
 	NSTimeInterval			startTime;
 	NSTimeInterval			responseTime;
 	NSTimeInterval			postParseTime;
-    
-    // Pagination
-    NSUInteger              currentPage;
-    NSUInteger              numberOfPages;
-    NSUInteger              resultsPerPage;
 }
 @property (nonatomic, strong) NSDictionary* parameters;
 @property (nonatomic, strong) NSDictionary* requestHeaderFields;
 @property (nonatomic, strong) NSData* httpBody;
 @property (nonatomic, strong) NSString* httpMethod;
-@property (nonatomic, unsafe_unretained) id<WebServiceConnectorDelegate> delegate;
 
 @property (nonatomic, assign) NSInteger tag;
 @property (nonatomic, strong) id context;
@@ -71,6 +54,24 @@
 
 @property (unsafe_unretained, nonatomic, readonly) NSString*		urlStringWithParameters;
 
+- (id)initWithURLString: (NSString*)aUrlString
+			 parameters: (NSDictionary*)someParameters
+			   httpBody: (NSData*)theHttpBody;
+- (id)initWithPathString: (NSString*)pathString
+			  parameters: (NSDictionary*)parameters
+				httpBody: (NSData*)httpBody;
+
+// Completion Handler
+- (id)initWithURLString: (NSString*)urlString
+			 parameters: (NSDictionary*)parameters
+			   httpBody: (NSData*)httpBody
+      completionHandler: (WebServiceConnectorCompletionHandler)completionHandler;
+- (id)initWithPathString: (NSString*)pathString
+			  parameters: (NSDictionary*)parameters
+				httpBody: (NSData*)httpBody
+       completionHandler: (WebServiceConnectorCompletionHandler)completionHandler;
+
+// Delegate based
 - (id)initWithURLString: (NSString*)urlString
 			 parameters: (NSDictionary*)parameters
 			   httpBody: (NSData*)httpBody

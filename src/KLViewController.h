@@ -60,7 +60,9 @@
 - (void)removeTableDataForTableView: (UITableView*)tableView;
 - (id)dataObjectForIndexPath: (NSIndexPath*)indexPath
 				 inTableView: (UITableView*)tableView;
-- (void)didSelectDataObject: (id<DataObject>)dataObject;
+
+- (void)tableView: (UITableView*)tableView didSelectDataObject: (id<DataObject>)dataObject forRowAtIndexPath: (NSIndexPath*)indexPath;
+- (void)didSelectDataObject: (id<DataObject>)dataObject DEPRECATED_ATTRIBUTE;
 
 // Search Display Controllers
 - (void)setSearchDisplayController: (UISearchDisplayController*)searchDisplayController

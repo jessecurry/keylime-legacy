@@ -11,6 +11,8 @@
 // View Controllers
 #import "RootViewController.h"
 
+static void* ConnectionCountContext = &ConnectionCountContext;
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation KLAppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
@@ -25,6 +27,17 @@
 	
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Web Service
+    [WebServiceConnector setMaxConnectionCount: 5];
+	[[WebServiceConnector class] addObserver: self
+								  forKeyPath: @"connectionCount"
+									 options: NSKeyValueObservingOptionNew
+									 context: ConnectionCountContext];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    
     return YES;
 }
 
@@ -156,6 +169,21 @@
 - (NSURL*)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory: NSDocumentDirectory inDomains: NSUserDomainMask] lastObject];
+}
+
+#pragma mark -
+#pragma mark KVO
+- (void)observeValueForKeyPath: (NSString*)keyPath
+					  ofObject: (id)object
+						change:	(NSDictionary*)change
+					   context: (void*)context
+{
+	if ( context == ConnectionCountContext )
+	{
+		NSInteger connectionCount = [WebServiceConnector connectionCount];
+		NSAssert( connectionCount >= 0, @"Connection count went negative!" );
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: (connectionCount != 0)];
+	}
 }
 
 @end

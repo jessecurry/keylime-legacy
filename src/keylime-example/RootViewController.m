@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 
 #define WEB_SERVICE_URL_STRING @"https://twitter.com/users/jesseleecurry.json"
+#define USE_COMPLETION_HANLDER  1
 
 //
 #import "WebServiceConnectorDelegate.h"
@@ -16,7 +17,8 @@
 #import "HTTPStatusCodes.h"
 
 @interface RootViewController () <WebServiceConnectorDelegate>
-
+- (void)handleWebServiceConnector: (WebServiceConnector*)webServiceConnector
+                           result: (id)result;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -45,16 +47,33 @@
 #pragma mark IBActions
 - (IBAction)webServiceTestAction: (id)sender
 {
+#if USE_COMPLETION_HANLDER
+    WebServiceConnector* wsc = [[WebServiceConnector alloc] initWithURLString: WEB_SERVICE_URL_STRING
+																   parameters: nil
+																	 httpBody: nil
+                                                            completionHandler: ^(WebServiceConnector* wsc, id result, NSError* error){
+                                                                if ( result )
+                                                                {
+                                                                    [self handleWebServiceConnector: wsc
+                                                                                             result: result];
+                                                                }
+                                                                else // Error
+                                                                {
+                                                                    [AlertUtility showAlertWithTitle: NSLocalizedString(@"Connection Error", @"UIAlertView title")
+                                                                                             message: [error localizedDescription]];
+                                                                }
+                                                            }];
+#else
 	WebServiceConnector* wsc = [[WebServiceConnector alloc] initWithURLString: WEB_SERVICE_URL_STRING
 																   parameters: nil
 																	 httpBody: nil
-																	 delegate: self];
+																	 delegate: self];    
+#endif
 	
 	if ( wsc )
 	{
-		KL_LOG(@"[%@]starting web service connector", CLASS_NAME);
 		wsc.httpMethod = HTTP_GET;
-		[wsc start];
+		[wsc start];   // starts or queues the web service connector
 	}
 	else
 	{
@@ -68,10 +87,10 @@
 {
 	if ( [dataObject isKindOfClass: [NSString class]] )
 	{
-		NSString* str = (NSString*)dataObject;
+		NSString* message = (NSString*)dataObject;
 		
 		[AlertUtility showAlertWithTitle: NSLocalizedString(@"You Selected", @"UIAlertView title")
-								 message: str];
+								 message: message];
 	}
 	else
 	{
@@ -83,6 +102,22 @@
 #pragma mark WebServiceConnectorDelegate
 - (void)webServiceConnector: (WebServiceConnector*)webServiceConnector
         didFinishWithResult: (id)result;
+{
+    [self handleWebServiceConnector: webServiceConnector
+                             result: result];
+}
+
+- (void)webServiceConnector: (WebServiceConnector*)webServiceConnector
+           didFailWithError: (NSError*)error
+{
+    KL_LOG(@"[%@]webServiceConnector:didFailWithError: %@", CLASS_NAME, [error localizedDescription]);
+
+}
+
+#pragma mark -
+#pragma mark Private
+- (void)handleWebServiceConnector: (WebServiceConnector*)webServiceConnector
+                           result: (id)result
 {
     // Check for errors
     NSInteger statusCode = webServiceConnector.statusCode;
@@ -120,13 +155,6 @@
 			[self.tableView reloadData];
 		}
     }
-}
-
-- (void)webServiceConnector: (WebServiceConnector*)webServiceConnector
-           didFailWithError: (NSError*)error
-{
-    KL_LOG(@"[%@]webServiceConnector:didFailWithError: %@", CLASS_NAME, [error localizedDescription]);
-
 }
 
 @end
