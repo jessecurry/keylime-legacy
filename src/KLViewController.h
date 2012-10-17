@@ -36,15 +36,15 @@
 	
 	UIPopoverController*			popoverController;
 }
-@property (nonatomic, readonly) NSUserDefaults*			preferences;
-@property (nonatomic, retain)	NSManagedObjectContext*	managedObjectContext;
-@property (nonatomic, readonly) NSMutableDictionary*	tableData;
-@property (nonatomic, readonly)	NSMutableDictionary*	searchDisplayControllers;
-@property (nonatomic, readonly) NSMutableDictionary*	searchData;
-@property (nonatomic, readonly) NSMutableDictionary*	canPullToRefreshDictionary;
-@property (nonatomic, readonly) NSMutableDictionary*	refreshHeaderViewDictionary;
-@property (nonatomic, readonly) NSMutableDictionary*	checkForRefreshDictionary;
-@property (nonatomic, readonly) NSMutableDictionary*	tableViewReloadingDictionary;
+@property (unsafe_unretained, nonatomic, readonly) NSUserDefaults*			preferences;
+@property (nonatomic, strong)	NSManagedObjectContext*	managedObjectContext;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	tableData;
+@property (unsafe_unretained, nonatomic, readonly)	NSMutableDictionary*	searchDisplayControllers;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	searchData;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	canPullToRefreshDictionary;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	refreshHeaderViewDictionary;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	checkForRefreshDictionary;
+@property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	tableViewReloadingDictionary;
 @property (nonatomic, assign)   BOOL                    hidesNavigationBarWhenPushed;
 
 + (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultManagedObjectContext;
@@ -60,7 +60,9 @@
 - (void)removeTableDataForTableView: (UITableView*)tableView;
 - (id)dataObjectForIndexPath: (NSIndexPath*)indexPath
 				 inTableView: (UITableView*)tableView;
-- (void)didSelectDataObject: (id<DataObject>)dataObject;
+
+- (void)tableView: (UITableView*)tableView didSelectDataObject: (id<DataObject>)dataObject forRowAtIndexPath: (NSIndexPath*)indexPath;
+- (void)didSelectDataObject: (id<DataObject>)dataObject DEPRECATED_ATTRIBUTE;
 
 // Search Display Controllers
 - (void)setSearchDisplayController: (UISearchDisplayController*)searchDisplayController

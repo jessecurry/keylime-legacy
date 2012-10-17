@@ -12,17 +12,17 @@
 {
 }
 
-@property (nonatomic, retain) 	UIImage*		iconImage;
-@property (nonatomic, retain) 	NSString*		title;
-@property (nonatomic, retain) 	NSString*		subtitle;
-@property (nonatomic, retain) 	UIView*			accessoryView;
+@property (nonatomic, strong) 	UIImage*		iconImage;
+@property (nonatomic, strong) 	NSString*		title;
+@property (nonatomic, strong) 	NSString*		subtitle;
+@property (nonatomic, strong) 	UIView*			accessoryView;
 @property (nonatomic, assign)   UITableViewCellAccessoryType    accessoryType;
-@property (nonatomic, retain)	UIView*			backgroundView;
+@property (nonatomic, strong)	UIView*			backgroundView;
 @property (nonatomic, assign)	CGFloat			cellHeight;
 @property (nonatomic, assign)   NSInteger       badgeValue;
 @property (nonatomic, readonly) BOOL            isLastAction;
 
-@property (nonatomic, assign) 	id				target;
+@property (nonatomic, unsafe_unretained) 	id				target;
 @property (nonatomic, assign)   SEL             selector;
 
 // Selector Based

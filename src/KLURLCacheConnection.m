@@ -9,7 +9,7 @@
 #import "KLURLCacheConnection.h"
 
 @interface KLURLCacheConnection ()
-@property (nonatomic, retain) NSURL* url;
+@property (nonatomic, strong) NSURL* url;
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -56,13 +56,6 @@
 	return self;
 }
 
-- (void)dealloc
-{
-	[receivedData release];
-	[lastModified release];
-	[connection release];
-	[super dealloc];
-}
 
 #pragma mark -
 #pragma mark NSURLConnectionDelegate methods
@@ -93,11 +86,10 @@ didReceiveResponse: (NSURLResponse*)response
 			NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
             
 			/* avoid problem if the user's locale is incompatible with HTTP-style dates */
-			[dateFormatter setLocale: [[[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"] autorelease]];
+			[dateFormatter setLocale: [[NSLocale alloc] initWithLocaleIdentifier: @"en_US_POSIX"]];
             
 			[dateFormatter setDateFormat: @"EEE, dd MMM yyyy HH:mm:ss zzz"];
 			self.lastModified = [dateFormatter dateFromString: modified];
-			[dateFormatter release];
 		}
 		else 
         {

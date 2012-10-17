@@ -22,17 +22,16 @@
 	self = [super initWithStyle: style reuseIdentifier: reuseIdentifier];
 	if ( self )
 	{
-		self.backgroundView = [[[UIImageView alloc] initWithImage:
-								[UIImage imageNamed: @"activityCellBackground.png"]] autorelease];
+		self.backgroundView = [[UIImageView alloc] initWithImage:
+								[UIImage imageNamed: @"activityCellBackground.png"]];
 	}
 	return self;
 }
 
 - (void)dealloc
 {
-	[dataObject release], dataObject = nil;
+	dataObject = nil;
 	
-	[super dealloc];
 }
 
 #pragma mark -

@@ -9,7 +9,7 @@
 #import "KLWebViewController.h"
 
 @interface KLWebViewController ()
-@property (nonatomic, retain) NSURL*    url;
+@property (nonatomic, strong) NSURL*    url;
 - (void)updateDisplay;
 @end
 
@@ -24,7 +24,7 @@
 	{
 		[wv setUrl: url];
 	}
-	return [wv autorelease];
+	return wv;
 }
 
 + (id)modalControllerWithURL: (NSURL*)url
@@ -36,16 +36,14 @@
 	{
 		[wv setUrl: url];
 	}
-	return [wv autorelease];
+	return wv;
 }
 
 #pragma mark -
 - (void)dealloc
 {
 	webView.delegate = nil;
-	[url release];
 	
-	[super dealloc];
 }
 
 #pragma mark -

@@ -29,12 +29,12 @@ typedef enum _ViewStatus
 	NSDate*						lastUpdatedDate;
 }
 @property (nonatomic, assign) BOOL		isFlipped;
-@property (nonatomic, retain) NSDate*	lastUpdatedDate;
+@property (nonatomic, strong) NSDate*	lastUpdatedDate;
 
-@property (nonatomic, retain) UIColor*	textColor;
-@property (nonatomic, retain) UIColor*	shadowColor;
-@property (nonatomic, retain) UIColor*	borderColor;
-@property (nonatomic, retain) UIImage*	arrowImage;
+@property (nonatomic, strong) UIColor*	textColor;
+@property (nonatomic, strong) UIColor*	shadowColor;
+@property (nonatomic, strong) UIColor*	borderColor;
+@property (nonatomic, strong) UIImage*	arrowImage;
 
 - (void)flipImageAnimated: (BOOL)animated;
 - (void)toggleActivityView: (BOOL)isOn;

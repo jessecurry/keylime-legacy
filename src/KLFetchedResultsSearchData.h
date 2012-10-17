@@ -26,8 +26,8 @@ extern NSString* const kSearchStringKey;
 	
 	NSArray*		searchResults;
 }
-@property (nonatomic, retain) NSPredicate* predicate;
-@property (nonatomic, readonly) NSArray* searchResults;
+@property (nonatomic, strong) NSPredicate* predicate;
+@property (unsafe_unretained, nonatomic, readonly) NSArray* searchResults;
 
 + (id)searchDataWithPredicate: (NSPredicate*)predicate;
 

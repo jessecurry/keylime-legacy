@@ -23,7 +23,6 @@ static BOOL alertVisible = NO;
 												  cancelButtonTitle: NSLocalizedString(@"OK", @"") 
 												  otherButtonTitles: nil];
 		[alertView show];
-		[alertView release];
 		
 		alertVisible = YES;
 	}
