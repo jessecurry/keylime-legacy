@@ -43,7 +43,24 @@
 @property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	checkForRefreshDictionary;
 @property (unsafe_unretained, nonatomic, readonly) NSMutableDictionary*	tableViewReloadingDictionary;
 @property (nonatomic, assign)   BOOL                    hidesNavigationBarWhenPushed;
+@property (nonatomic, assign) UIView*       keyboardContainerView; // NOTE: this will not be retained, it should point to a retained view
 
+/**
+ Returns an autoreleased UIViewController instance.
+ */
++ (id)controller;
+
+/**
+ Returns an autoreleased UIViewController instance with the managedObjectContext set.
+ */
++ (id)controllerWithManagedObjectContext: (NSManagedObjectContext*)managedObjectContext;
+
+- (void)addKeyValueObservers;
+- (void)removeKeyValueObservers;
+- (void)addNotificationObservers;
+- (void)removeNotificationObservers;
+
+// Core Data
 + (void)setDefaultManagedObjectContext: (NSManagedObjectContext*)defaultManagedObjectContext;
 
 // Table Data
