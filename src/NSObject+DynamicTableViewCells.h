@@ -11,7 +11,7 @@
 /**
  Category to add methods for assisting with dynamic UITableViewCells
  */
-@interface NSObject (NSObject_DynamicTableViewCells)
+@interface NSObject (DynamicTableViewCells)
 /**
  Provides a default reuse identifier for tableView cells used to display this object.
  */

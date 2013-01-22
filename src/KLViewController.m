@@ -15,7 +15,7 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation UINavigationBar (CustomImage)
-//- (void)drawRect: (CGRect)rect 
+//- (void)drawRect: (CGRect)rect
 //{
 //	UIImage* image = [UIImage imageNamed: @"NavigationBarBackground.png"];
 //	[image drawInRect: CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -72,7 +72,7 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 - (void)addNotificationObservers
 {
-    
+  
 }
 
 - (void)removeNotificationObservers
@@ -82,21 +82,21 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 #pragma mark -
 - (id)initWithNibName: (NSString*)nibNameOrNil bundle: (NSBundle*)nibBundleOrNil
 {
-    self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
-    if ( self )
-    {
-        [self addKeyValueObservers];
-        [self addNotificationObservers];
-    }
-    
-    return self;
+  self = [super initWithNibName: nibNameOrNil bundle: nibBundleOrNil];
+  if ( self )
+  {
+    [self addKeyValueObservers];
+    [self addNotificationObservers];
+  }
+  
+  return self;
 }
 
 - (void)dealloc
 {
-    [self removeKeyValueObservers];
-    [self removeNotificationObservers];
-    
+  [self removeKeyValueObservers];
+  [self removeNotificationObservers];
+  
 	for ( NSString* key in tableData )
 	{
 		id value = [tableData objectForKey: key];
@@ -105,8 +105,8 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 	}
 	
 	
-    //	if ( popoverController.popoverVisible )
-    //		[self dismissPopoverAnimated: NO];
+  //	if ( popoverController.popoverVisible )
+  //		[self dismissPopoverAnimated: NO];
 	
 }
 
@@ -118,17 +118,17 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 - (void)viewWillAppear: (BOOL)animated
 {
-    [super viewWillAppear: animated];
-    
-    [self.navigationController setNavigationBarHidden: self.hidesNavigationBarWhenPushed 
-                                             animated: animated];
+  [super viewWillAppear: animated];
+  
+  [self.navigationController setNavigationBarHidden: self.hidesNavigationBarWhenPushed
+                                           animated: animated];
 }
 
 - (void)viewDidAppear: (BOOL)animated
 {
-    [super viewDidAppear: animated];
-    
-    [self registerForKeyboardNotifications];
+  [super viewDidAppear: animated];
+  
+  [self registerForKeyboardNotifications];
 }
 
 - (void)viewWillDisappear: (BOOL)animated
@@ -141,9 +141,9 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self unregisterForKeyboardNotifications];
-    
-    [super viewDidDisappear: animated];
+  [self unregisterForKeyboardNotifications];
+  
+  [super viewDidDisappear: animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation
@@ -155,7 +155,7 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 {
 	// Releases the view if it doesn't have a superview.
 	[super didReceiveMemoryWarning];
-    
+  
 	// Release any cached data, images, etc that aren't in use.
 }
 
@@ -244,37 +244,37 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 
 #pragma mark -
 - (void)setTableData: (id)theTableData
-		forTableView: (UITableView*)tableView
+        forTableView: (UITableView*)tableView
 {
-	[self setTableData: theTableData 
-		  forTableView: tableView 
-		monitorChanges: YES];
+	[self setTableData: theTableData
+        forTableView: tableView
+      monitorChanges: YES];
 }
 
 - (void)setTableData: (id)theTableData
-		forTableView: (UITableView*)tableView
-	  monitorChanges: (BOOL)monitorChanges
+        forTableView: (UITableView*)tableView
+      monitorChanges: (BOOL)monitorChanges
 {
 	if ( theTableData == nil )
-	{	
+	{
 		KL_LOG(@"[%@] WARNING: attempted to set nil tableData", NSStringFromClass([self class]));
 		return;
 	}
 	
-	[self.tableData setObject: theTableData 
-					   forKey: [self dictionaryKeyForView: tableView]];
+	[self.tableData setObject: theTableData
+                     forKey: [self dictionaryKeyForView: tableView]];
 	
 	if ( [theTableData isKindOfClass: [NSFetchedResultsController class]] )
-	{	
+	{
 		NSFetchedResultsController* frc = (NSFetchedResultsController*)theTableData;
 		
 		// JLC: for now only fetchedResultsControllers can monitor changes.
 		if ( monitorChanges )
 			[frc setDelegate: self];
-        
+    
 		NSError* error = nil;
 		[NSFetchedResultsController deleteCacheWithName: frc.cacheName];
-		if ( ![frc performFetch: &error] ) 
+		if ( ![frc performFetch: &error] )
 		{
 			KL_LOG( @"[%@]Unresolved error %@, %@", [[self class] description], error, [error userInfo] );
 		}
@@ -285,7 +285,7 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 	}
 	
 	tableView.dataSource = self;
-    tableView.delegate = self; // TODO: do I need to set this here? Or should I set it elsewhere?
+  tableView.delegate = self; // TODO: do I need to set this here? Or should I set it elsewhere?
 }
 
 - (void)fetchDataForTableView: (UITableView*)tableView
@@ -295,16 +295,16 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 	if ( [theTableData isKindOfClass: [NSFetchedResultsController class]] )
 	{
 		NSFetchedResultsController* frc = (NSFetchedResultsController*)theTableData;
-        //		KL_LOG(@"[%@]fetchDataForTableView - %d", 
-        //			   CLASS_NAME, 
-        //			   [frc.fetchedObjects count]);
+    //		KL_LOG(@"[%@]fetchDataForTableView - %d",
+    //			   CLASS_NAME,
+    //			   [frc.fetchedObjects count]);
 		
 		// JLC: was resetting the delegate here, but it shouldn't be necessary
 		//	if we wanted to monitor changes the delegate should aready be set
 		
 		NSError* error = nil;
 		[NSFetchedResultsController deleteCacheWithName: frc.cacheName];
-		if ( ![frc performFetch: &error] ) 
+		if ( ![frc performFetch: &error] )
 		{
 			KL_LOG( @"[%@]Unresolved error %@, %@", [[self class] description], error, [error userInfo] );
 		};
@@ -345,7 +345,7 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 }
 
 - (id)dataObjectForIndexPath: (NSIndexPath*)indexPath inTableView: (UITableView*)tableView
-{	
+{
 	id dataObject = nil;
 	
 	// Find the data for the current tableView
@@ -378,8 +378,8 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated"
-    // Leaving this in to preserve compatability with older code
-    [self didSelectDataObject: dataObject];
+  // Leaving this in to preserve compatability with older code
+  [self didSelectDataObject: dataObject];
 #pragma clang diagnostic pop
 }
 
@@ -390,26 +390,26 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 #pragma mark -
 #pragma mark Search Display Controllers
 - (void)setSearchDisplayController: (UISearchDisplayController*)theSearchDisplayController
-					 andSearchData: (KLFetchedResultsSearchData*)theSearchData
-					  forTableView: (UITableView*)tableView
+                     andSearchData: (KLFetchedResultsSearchData*)theSearchData
+                      forTableView: (UITableView*)tableView
 {
-	if ( theSearchDisplayController == nil 
-		|| theSearchData == nil )
-	{	
+	if ( theSearchDisplayController == nil
+      || theSearchData == nil )
+	{
 		KL_LOG(@"[%@] WARNING: attempted to set nil searchDisplayController/searchData", NSStringFromClass([self class]));
 		return;
 	}
 	
-	[self.searchDisplayControllers setObject: theSearchDisplayController 
-									  forKey: [self dictionaryKeyForView: tableView]];
-	[self.searchData setObject: theSearchData 
-						forKey: [self dictionaryKeyForView: tableView]];
+	[self.searchDisplayControllers setObject: theSearchDisplayController
+                                    forKey: [self dictionaryKeyForView: tableView]];
+	[self.searchData setObject: theSearchData
+                      forKey: [self dictionaryKeyForView: tableView]];
 	
 	theSearchDisplayController.delegate = self;
 	
-    //	[tableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow: 0 inSection: 0] 
-    //					 atScrollPosition: UITableViewScrollPositionTop 
-    //							 animated: NO];
+  //	[tableView scrollToRowAtIndexPath: [NSIndexPath indexPathForRow: 0 inSection: 0]
+  //					 atScrollPosition: UITableViewScrollPositionTop
+  //							 animated: NO];
 }
 
 - (void)removeSearchDisplayControllerForTableView: (UITableView*)tableView
@@ -430,40 +430,40 @@ static NSManagedObjectContext* _defaultManagedObjectContext = nil;
 // Data
 - (void)reloadData
 {
-	KL_LOG(@"WARNING: %@ has no reloadData method.", NSStringFromClass([self class]));	
+	KL_LOG(@"WARNING: %@ has no reloadData method.", NSStringFromClass([self class]));
 }
 
 #pragma mark -
 #pragma mark Popovers
-- (void)presentPopover: (UIViewController*)viewController 
-			  fromRect:	(CGRect)rect 
-permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections 
-			  animated: (BOOL)animated
+- (void)presentPopover: (UIViewController*)viewController
+              fromRect:	(CGRect)rect
+permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
+              animated: (BOOL)animated
 {
 	[self dismissPopoverAnimated: animated]; // TODO: will this break anything?
 	
-	self.popoverController = [[UIPopoverController alloc] 
-							   initWithContentViewController: viewController];
+	self.popoverController = [[UIPopoverController alloc]
+                            initWithContentViewController: viewController];
 	self.popoverController.delegate = self;
-	[self.popoverController presentPopoverFromRect: rect 
-											inView: self.view 
-						  permittedArrowDirections: arrowDirections 
-										  animated: animated];
+	[self.popoverController presentPopoverFromRect: rect
+                                          inView: self.view
+                        permittedArrowDirections: arrowDirections
+                                        animated: animated];
 }
 
 - (void)presentPopover: (UIViewController*)viewController
-	 fromBarButtonItem: (UIBarButtonItem *)item 
-permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections 
-			  animated: (BOOL)animated
+     fromBarButtonItem: (UIBarButtonItem *)item
+permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
+              animated: (BOOL)animated
 {
 	[self dismissPopoverAnimated: animated]; // TODO: will this break anything?
 	
-	self.popoverController = [[UIPopoverController alloc] 
-							   initWithContentViewController: viewController];
+	self.popoverController = [[UIPopoverController alloc]
+                            initWithContentViewController: viewController];
 	self.popoverController.delegate = self;
-	[self.popoverController presentPopoverFromBarButtonItem: item 
-								   permittedArrowDirections: arrowDirections 
-												   animated: animated];
+	[self.popoverController presentPopoverFromBarButtonItem: item
+                                 permittedArrowDirections: arrowDirections
+                                                 animated: animated];
 }
 
 - (void)dismissPopoverAnimated: (BOOL)animated
@@ -501,92 +501,92 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 #pragma mark Keyboard Notifications
 - (void)registerForKeyboardNotifications
 {
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(keyboardWillShow:)
-                                                 name: UIKeyboardWillShowNotification
-                                               object: nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver: self
-                                             selector: @selector(keyboardWillHide:)
-                                                 name: UIKeyboardWillHideNotification
-                                               object: nil];
+  [[NSNotificationCenter defaultCenter] addObserver: self
+                                           selector: @selector(keyboardWillShow:)
+                                               name: UIKeyboardWillShowNotification
+                                             object: nil];
+  
+  [[NSNotificationCenter defaultCenter] addObserver: self
+                                           selector: @selector(keyboardWillHide:)
+                                               name: UIKeyboardWillHideNotification
+                                             object: nil];
 }
 
 - (void)unregisterForKeyboardNotifications
 {
-    [[NSNotificationCenter defaultCenter] removeObserver: self
-                                                    name: UIKeyboardWillShowNotification
-                                                  object: nil];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver: self
-                                                    name: UIKeyboardWillHideNotification
-                                                  object: nil];
+  [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                  name: UIKeyboardWillShowNotification
+                                                object: nil];
+  
+  [[NSNotificationCenter defaultCenter] removeObserver: self
+                                                  name: UIKeyboardWillHideNotification
+                                                object: nil];
 }
 
 - (void)keyboardWillShow: (NSNotification*)notification
 {
-    if ( self.keyboardContainerView )
-    {
-        // get keyboard size and loctaion
-        CGRect keyboardBounds;
-        [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
-        
-        NSNumber* duration = [notification.userInfo
-                              objectForKey: UIKeyboardAnimationDurationUserInfoKey];
-        NSNumber* curve = [notification.userInfo
-                           objectForKey: UIKeyboardAnimationCurveUserInfoKey];
-        
-        // Need to translate the bounds to account for rotation.
-        keyboardBounds = [self.view convertRect: keyboardBounds
-                                         toView: nil];
-        
-        // get a rect for the textView frame
-        CGRect containerFrame = self.keyboardContainerView.frame;
-        containerFrame.size.height -= keyboardBounds.size.height;
-        
-        // TODO: switch to block-style animations
-        // animations settings
-        [UIView beginAnimations: nil context: NULL];
-        
-        [UIView setAnimationBeginsFromCurrentState: YES];
-        [UIView setAnimationDuration: [duration doubleValue]];
-        [UIView setAnimationCurve: [curve intValue]];
-        
-        // set views with new info
-        self.keyboardContainerView.frame = containerFrame;
-        
-        // commit animations
-        [UIView commitAnimations];
-    }
+  if ( self.keyboardContainerView )
+  {
+    // get keyboard size and loctaion
+    CGRect keyboardBounds;
+    [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+    
+    NSNumber* duration = [notification.userInfo
+                          objectForKey: UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber* curve = [notification.userInfo
+                       objectForKey: UIKeyboardAnimationCurveUserInfoKey];
+    
+    // Need to translate the bounds to account for rotation.
+    keyboardBounds = [self.view convertRect: keyboardBounds
+                                     toView: nil];
+    
+    // get a rect for the textView frame
+    CGRect containerFrame = self.keyboardContainerView.frame;
+    containerFrame.size.height -= keyboardBounds.size.height;
+    
+    // TODO: switch to block-style animations
+    // animations settings
+    [UIView beginAnimations: nil context: NULL];
+    
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: [duration doubleValue]];
+    [UIView setAnimationCurve: [curve intValue]];
+    
+    // set views with new info
+    self.keyboardContainerView.frame = containerFrame;
+    
+    // commit animations
+    [UIView commitAnimations];
+  }
 }
 
 - (void)keyboardWillHide: (NSNotification*)notification
 {
-    if ( self.keyboardContainerView )
-    {
-        CGRect keyboardBounds;
-        [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
-        
-        NSNumber* duration = [notification.userInfo objectForKey: UIKeyboardAnimationDurationUserInfoKey];
-        NSNumber* curve = [notification.userInfo objectForKey: UIKeyboardAnimationCurveUserInfoKey];
-        
-        // get a rect for the textView frame
-        CGRect containerFrame = self.keyboardContainerView.frame;
-        containerFrame.size.height += keyboardBounds.size.height;
-        
-        // TODO: switch to block-style animations
-        // animations settings
-        [UIView beginAnimations: nil context: NULL];
-        [UIView setAnimationBeginsFromCurrentState: YES];
-        [UIView setAnimationDuration: [duration doubleValue]];
-        [UIView setAnimationCurve: [curve intValue]];
-        
-        // set views with new info
-        self.keyboardContainerView.frame = containerFrame;
-        
-        // commit animations
-        [UIView commitAnimations];
-    }
+  if ( self.keyboardContainerView )
+  {
+    CGRect keyboardBounds;
+    [[notification.userInfo valueForKey: UIKeyboardFrameEndUserInfoKey] getValue: &keyboardBounds];
+    
+    NSNumber* duration = [notification.userInfo objectForKey: UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber* curve = [notification.userInfo objectForKey: UIKeyboardAnimationCurveUserInfoKey];
+    
+    // get a rect for the textView frame
+    CGRect containerFrame = self.keyboardContainerView.frame;
+    containerFrame.size.height += keyboardBounds.size.height;
+    
+    // TODO: switch to block-style animations
+    // animations settings
+    [UIView beginAnimations: nil context: NULL];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: [duration doubleValue]];
+    [UIView setAnimationCurve: [curve intValue]];
+    
+    // set views with new info
+    self.keyboardContainerView.frame = containerFrame;
+    
+    // commit animations
+    [UIView commitAnimations];
+  }
 }
 
 #pragma mark -
@@ -594,38 +594,38 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 - (UITableViewCell*)tableView: (UITableView*)tableView cellForRowAtIndexPath: (NSIndexPath*)indexPath
 {
 	NSString* cellIdentifier = @"CellIdentifier";
-	id<DataObject> dataObject = [self dataObjectForIndexPath: indexPath 
-												 inTableView: tableView];
+	id<DataObject> dataObject = [self dataObjectForIndexPath: indexPath
+                                               inTableView: tableView];
 	
 	if ( [[dataObject class] respondsToSelector: @selector(tableViewCellIdentifier)] )
-		cellIdentifier = [[dataObject class] tableViewCellIdentifier];	
+		cellIdentifier = [[dataObject class] tableViewCellIdentifier];
 	
-    // TODO: update to use iOS 6 style initialization
+  // TODO: update to use iOS 6 style initialization
 	KLTableViewCell* cell = (KLTableViewCell*)[tableView dequeueReusableCellWithIdentifier: cellIdentifier];
 	if ( cell == nil )
 	{
 		if ( [[dataObject class] respondsToSelector: @selector(tableViewCell)] )
 			cell = (KLTableViewCell*)[[dataObject class] tableViewCell];
 		else
-			cell = [[KLTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle 
-										   reuseIdentifier: cellIdentifier];
+			cell = [[KLTableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle
+                                    reuseIdentifier: cellIdentifier];
 	}
 	
 	cell.textLabel.text = nil;
 	cell.detailTextLabel.text = nil;
 	cell.detailTextLabel.numberOfLines = 1;
 	
-    if ( [cell respondsToSelector: @selector(configureWithDataObject:)] )
-    {
-        [cell configureWithDataObject: dataObject];
-    }
+  if ( [cell respondsToSelector: @selector(configureWithDataObject:)] )
+  {
+    [cell configureWithDataObject: dataObject];
+  }
 	else if ( [dataObject isKindOfClass: [NSString class]] )
 	{
 		cell.textLabel.text = (NSString*)dataObject;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	else
-	{	
+	{
 		cell.textLabel.text = NSStringFromClass([dataObject class]);
 		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
@@ -676,7 +676,7 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 		sectionCount = [(KLTableData*)currentTableData numberOfSections];
 	}
 	else
-	{	
+	{
 		sectionCount = 1;
 	}
 	
@@ -720,18 +720,18 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 {
 	// Fetch the data object associated with this cell
 	id dataObject = [self dataObjectForIndexPath: indexPath
-									 inTableView: tableView];
-    //	KLTableViewCell* cell = (KLTableViewCell*)[self tableView: tableView cellForRowAtIndexPath: indexPath];
-    //	if ( [cell respondsToSelector: @selector(cellHeight)] )
-    //		return [cell cellHeight];
-    if ( [[dataObject class] respondsToSelector: @selector(tableViewCellClass)] )
+                                   inTableView: tableView];
+  //	KLTableViewCell* cell = (KLTableViewCell*)[self tableView: tableView cellForRowAtIndexPath: indexPath];
+  //	if ( [cell respondsToSelector: @selector(cellHeight)] )
+  //		return [cell cellHeight];
+  if ( [[dataObject class] respondsToSelector: @selector(tableViewCellClass)] )
+  {
+    Class tableViewCellClass = [[dataObject class] tableViewCellClass];
+    if ( [tableViewCellClass respondsToSelector: @selector(cellHeightWithDataObject:)] )
     {
-        Class tableViewCellClass = [[dataObject class] tableViewCellClass];
-        if ( [tableViewCellClass respondsToSelector: @selector(cellHeightWithDataObject:)] )
-        {
-            return [tableViewCellClass cellHeightWithDataObject: dataObject];
-        }
+      return [tableViewCellClass cellHeightWithDataObject: dataObject];
     }
+  }
 	
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	// Dynamically style the cell
@@ -740,7 +740,7 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 	
 	// Configure cell based on content type.
 	if ( [[dataObject class] respondsToSelector: dataObjectStylerSelector] )
-	{	
+	{
 		CGFloat ret;
 		__unsafe_unretained UIFont* font = [UIFont systemFontOfSize: 17];
 		__unsafe_unretained id dataArgument = dataObject;
@@ -761,10 +761,10 @@ permittedArrowDirections: (UIPopoverArrowDirection)arrowDirections
 		return 44.0;
 }
 
-- (void)tableView: (UITableView*)tableView 
-  willDisplayCell: (UITableViewCell*)cell 
+- (void)tableView: (UITableView*)tableView
+  willDisplayCell: (UITableViewCell*)cell
 forRowAtIndexPath: (NSIndexPath*)indexPath
-{	
+{
 	cell.textLabel.backgroundColor = [UIColor clearColor];
 	cell.detailTextLabel.backgroundColor = [UIColor clearColor];
 }
@@ -774,8 +774,8 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 	[tableView deselectRowAtIndexPath: indexPath animated: YES];
 	
 	id<DataObject> dataObject = [self dataObjectForIndexPath: indexPath
-												 inTableView: tableView];
-    
+                                               inTableView: tableView];
+  
 	[self tableView: tableView didSelectDataObject: dataObject forRowAtIndexPath: indexPath];
 }
 
@@ -814,20 +814,20 @@ forRowAtIndexPath: (NSIndexPath*)indexPath
 
 - (void)searchDisplayControllerDidBeginSearch: (UISearchDisplayController*)controller
 {
-	KL_LOG(@"searchDisplayControllerDidBeginSearch");	
+	KL_LOG(@"searchDisplayControllerDidBeginSearch");
 }
 
 - (void)searchDisplayControllerWillEndSearch: (UISearchDisplayController*)controller
 {
-	KL_LOG(@"searchDisplayControllerWillEndSearch");	
+	KL_LOG(@"searchDisplayControllerWillEndSearch");
 }
 
 - (void)searchDisplayControllerDidEndSearch: (UISearchDisplayController*)controller
 {
-	KL_LOG(@"searchDisplayControllerDidEndSearch");	
+	KL_LOG(@"searchDisplayControllerDidEndSearch");
 }
 
-- (BOOL)searchDisplayController: (UISearchDisplayController*)controller 
+- (BOOL)searchDisplayController: (UISearchDisplayController*)controller
 shouldReloadTableForSearchString: (NSString*)searchString
 {
 	return YES;
@@ -839,25 +839,25 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 	return YES;
 }
 
-- (void)searchDisplayController: (UISearchDisplayController*)controller 
- willShowSearchResultsTableView: (UITableView*)tableView 
+- (void)searchDisplayController: (UISearchDisplayController*)controller
+ willShowSearchResultsTableView: (UITableView*)tableView
 {
-    
+  
 }
 
-- (void)searchDisplayController: (UISearchDisplayController*)controller 
-  didShowSearchResultsTableView: (UITableView*)tableView 
+- (void)searchDisplayController: (UISearchDisplayController*)controller
+  didShowSearchResultsTableView: (UITableView*)tableView
 {
 	if ( [controller.searchBar.superview isKindOfClass: [UITableView class]] )
 	{
 		UITableView* staticTableView = (UITableView*)controller.searchBar.superview;
-        
+    
 		CGRect f = [tableView.superview convertRect: staticTableView.frame fromView: staticTableView.superview];
 		CGRect s = controller.searchBar.frame;
 		CGRect newFrame = CGRectMake(f.origin.x,
-									 f.origin.y + s.size.height,
-									 f.size.width,
-									 f.size.height - s.size.height);
+                                 f.origin.y + s.size.height,
+                                 f.size.width,
+                                 f.size.height - s.size.height);
 		
 		tableView.frame = newFrame;
 	}
@@ -874,10 +874,10 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 	
 	// Pull To Refresh
 	KLRefreshTableHeaderView* refreshHeaderView = [[KLRefreshTableHeaderView alloc] initWithFrame:
-												   CGRectMake(0.0f,
-															  0.0f - tableView.bounds.size.height,
-															  320.0f,
-															  tableView.bounds.size.height)];
+                                                 CGRectMake(0.0f,
+                                                            0.0f - tableView.bounds.size.height,
+                                                            320.0f,
+                                                            tableView.bounds.size.height)];
 	refreshHeaderView.backgroundColor = [UIColor colorWithRed: 0.0 green: 117/255.0 blue: 192/255.0 alpha: 1.0];
 	refreshHeaderView.borderColor = [UIColor whiteColor];
 	[tableView addSubview: refreshHeaderView];
@@ -886,7 +886,7 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 	
 	// Hang onto the refresh header view
 	[self.refreshHeaderViewDictionary setObject: refreshHeaderView
-										 forKey: [self dictionaryKeyForView: tableView]];
+                                       forKey: [self dictionaryKeyForView: tableView]];
 	
 	// Flag this feature as enabled.
 	[self setCanPullToRefresh: YES forTableView: tableView];
@@ -894,8 +894,8 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 
 - (KLRefreshTableHeaderView*)refreshHeaderViewForTableView: (UITableView*)tableView
 {
-    return [self.refreshHeaderViewDictionary objectForKey:
-            [self dictionaryKeyForView: tableView]];
+  return [self.refreshHeaderViewDictionary objectForKey:
+          [self dictionaryKeyForView: tableView]];
 }
 
 // Can refresh
@@ -905,10 +905,10 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 }
 
 - (void)setCanPullToRefresh: (BOOL)canPullToRefresh
-			   forTableView: (UITableView*)tableView
+               forTableView: (UITableView*)tableView
 {
-	[self.canPullToRefreshDictionary setValue: [NSNumber numberWithBool: canPullToRefresh] 
-									   forKey: [self dictionaryKeyForView: tableView]];
+	[self.canPullToRefreshDictionary setValue: [NSNumber numberWithBool: canPullToRefresh]
+                                     forKey: [self dictionaryKeyForView: tableView]];
 }
 
 // Check for refresh
@@ -918,10 +918,10 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 }
 
 - (void)setCheckForRefresh: (BOOL)checkForRefresh
-			  forTableView: (UITableView*)tableView
+              forTableView: (UITableView*)tableView
 {
-	[self.checkForRefreshDictionary setValue: [NSNumber numberWithBool: checkForRefresh] 
-                                      forKey: [self dictionaryKeyForView: tableView]];
+	[self.checkForRefreshDictionary setValue: [NSNumber numberWithBool: checkForRefresh]
+                                    forKey: [self dictionaryKeyForView: tableView]];
 }
 
 // TableView reloading
@@ -933,18 +933,18 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 - (void)setTableViewReloading: (BOOL)tableViewReloading
                  forTableView: (UITableView*)tableView
 {
-	[self.tableViewReloadingDictionary setValue: [NSNumber numberWithBool: tableViewReloading] 
-                                         forKey: [self dictionaryKeyForView: tableView]];
+	[self.tableViewReloadingDictionary setValue: [NSNumber numberWithBool: tableViewReloading]
+                                       forKey: [self dictionaryKeyForView: tableView]];
 }
 
-- (void)showReloadAnimationForTableView: (UITableView*)tableView 
-							   animated: (BOOL)animated
+- (void)showReloadAnimationForTableView: (UITableView*)tableView
+                               animated: (BOOL)animated
 {
 	if ( ![self tableViewCanPullToRefresh: tableView]  )
 		return;
 	
-	[self setTableViewReloading: YES 
-				   forTableView: tableView];
+	[self setTableViewReloading: YES
+                 forTableView: tableView];
 	
 	KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 	[refreshHeaderView toggleActivityView: YES];
@@ -954,13 +954,13 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 		[UIView beginAnimations: nil context: NULL];
 		[UIView setAnimationDuration: 0.2];
 		tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f,
-                                                  0.0f);
+                                              0.0f);
 		[UIView commitAnimations];
 	}
 	else
 	{
 		tableView.contentInset = UIEdgeInsetsMake(60.0f, 0.0f, 0.0f,
-                                                  0.0f);
+                                              0.0f);
 	}
 }
 
@@ -971,15 +971,15 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 	
 	NSLog( @"[%@]Please override reloadTableViewDataSource", [[self class] description] );
 	
-	[self performSelector: @selector(dataSourceDidFinishLoadingNewDataForTableView:) 
-			   withObject: tableView 
-			   afterDelay: 0.3];
+	[self performSelector: @selector(dataSourceDidFinishLoadingNewDataForTableView:)
+             withObject: tableView
+             afterDelay: 0.3];
 }
 
 - (void)dataSourceDidFinishLoadingNewDataForTableView: (UITableView*)tableView
 {
-	[self setTableViewReloading: NO 
-				   forTableView: tableView];
+	[self setTableViewReloading: NO
+                 forTableView: tableView];
 	
 	KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 	[refreshHeaderView flipImageAnimated: NO];
@@ -1008,8 +1008,8 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 		if ( ![self tableViewReloading: tableView] )
 		{
 			//  only check offset when dragging
-			[self setCheckForRefresh: YES 
-						forTableView: tableView];
+			[self setCheckForRefresh: YES
+                  forTableView: tableView];
 		}
 	}
 }
@@ -1023,7 +1023,7 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 		if ( ![self tableViewCanPullToRefresh: tableView]  )
 			return;
 		
-		if ( [self tableViewReloading: tableView] ) 
+		if ( [self tableViewReloading: tableView] )
 			return;
 		
 		if ( [self tableViewCheckForRefresh: tableView] )
@@ -1031,16 +1031,16 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 			KLRefreshTableHeaderView* refreshHeaderView = [self refreshHeaderViewForTableView: tableView];
 			
 			if ( refreshHeaderView.isFlipped
-				&& scrollView.contentOffset.y > -65.0f
-				&& scrollView.contentOffset.y < 0.0f
-				&& ![self tableViewReloading: tableView] )
+          && scrollView.contentOffset.y > -65.0f
+          && scrollView.contentOffset.y < 0.0f
+          && ![self tableViewReloading: tableView] )
 			{
 				[refreshHeaderView flipImageAnimated: YES];
 				[refreshHeaderView setStatus: KLRefreshTableHeaderViewStatusPullToReload];
 				// Play pop sound
 			}
 			else if ( !refreshHeaderView.isFlipped
-					 && scrollView.contentOffset.y < -65.0f )
+               && scrollView.contentOffset.y < -65.0f )
 			{
 				[refreshHeaderView flipImageAnimated: YES];
 				[refreshHeaderView setStatus: KLRefreshTableHeaderViewStatusReleaseToReload];
@@ -1051,7 +1051,7 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 }
 
 - (void)scrollViewDidEndDragging: (UIScrollView*)scrollView
-				  willDecelerate: (BOOL)decelerate
+                  willDecelerate: (BOOL)decelerate
 {
 	if ( [scrollView isKindOfClass: [UITableView class]] )
 	{
@@ -1060,7 +1060,7 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 		if ( ![self tableViewCanPullToRefresh: tableView]  )
 			return;
 		
-		if ( [self tableViewReloading: tableView] ) 
+		if ( [self tableViewReloading: tableView] )
 			return;
 		
 		if ( scrollView.contentOffset.y <= -65.0f )
@@ -1068,14 +1068,14 @@ shouldReloadTableForSearchScope: (NSInteger)searchOption
 			if ( [tableView.dataSource respondsToSelector:
 			      @selector(reloadDataSourceForTableView:)] )
 			{
-				[self showReloadAnimationForTableView: tableView 
-											 animated: YES];
+				[self showReloadAnimationForTableView: tableView
+                                     animated: YES];
 				// Play psst2 sound
 				[self reloadDataSourceForTableView: tableView];
 			}
 		}
 		[self setCheckForRefresh: NO 
-					forTableView: tableView];
+                forTableView: tableView];
 	}
 }
 

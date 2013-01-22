@@ -9,7 +9,7 @@
 
 #pragma mark -
 #pragma mark NSObject
-#import "NSObject+NSObject_DynamicTableViewCells.h"
+#import "NSObject+DynamicTableViewCells.h"
 
 #pragma mark -
 #pragma mark NSManagedObject
