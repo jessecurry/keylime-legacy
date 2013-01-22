@@ -6,9 +6,9 @@
 //  Copyright (c) 2011 Jesse Curry. All rights reserved.
 //
 
-#import "NSObject+NSObject_DynamicTableViewCells.h"
+#import "NSObject+DynamicTableViewCells.h"
 
-@implementation NSObject (NSObject_DynamicTableViewCells)
+@implementation NSObject (DynamicTableViewCells)
 + (NSString*)tableViewCellIdentifier
 {
 	return	[NSString stringWithFormat: @"%@TableViewCellIdentifier", NSStringFromClass([self class])];
