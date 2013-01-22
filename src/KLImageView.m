@@ -20,8 +20,7 @@
 @synthesize imageURL;
 
 - (void)dealloc
-{
-    
+{    
 	[[NSNotificationCenter defaultCenter] removeObserver: self];
 }
 

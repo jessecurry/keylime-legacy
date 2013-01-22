@@ -41,6 +41,8 @@
 	NSArray* sampleData = @[@"One", @"Two", @"Three"];
 	[self setTableData: sampleData
 		  forTableView: self.tableView];
+    
+    [self enablePullToRefreshForTableView: self.tableView];
 }
 
 #pragma mark -

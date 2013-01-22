@@ -9,5 +9,4 @@
 #import "KLViewController.h"
 
 @interface BaseViewController : KLViewController
-+ (id)controller;
 @end

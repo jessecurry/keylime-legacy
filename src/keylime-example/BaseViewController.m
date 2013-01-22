@@ -14,14 +14,5 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @implementation BaseViewController
-+ (id)controller
-{
-	id controller = [[[self class] alloc] init];
-	if ( controller )
-	{
-		// Do anything we need to do with a controller
-	}
-	
-	return controller;
-}
+
 @end

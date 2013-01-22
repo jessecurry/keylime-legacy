@@ -21,6 +21,9 @@ static void* ConnectionCountContext = &ConnectionCountContext;
 
 - (BOOL)application: (UIApplication*)application didFinishLaunchingWithOptions: (NSDictionary*)launchOptions
 {
+    [KLViewController setDefaultManagedObjectContext: self.managedObjectContext];
+    
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     
 	self.window.rootViewController = [RootViewController controller];
