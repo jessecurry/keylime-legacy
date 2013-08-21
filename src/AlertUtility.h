@@ -3,7 +3,7 @@
 //  ThingsToDo
 //
 //  Created by Jesse Curry on 8/27/10.
-//  Copyright 2010 St. Pete Times. All rights reserved.
+//  Copyright 2010 keylime. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
